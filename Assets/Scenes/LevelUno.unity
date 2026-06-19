@@ -310,6 +310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 88651437}
+  - component: {fileID: 88651438}
   m_Layer: 0
   m_Name: RELEVO
   m_TagString: Untagged
@@ -332,6 +333,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &88651438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88651436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 795ec429243b8754883d239737d01f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Relevo
+  isAvailable: 0
+  timeToRespawn: 1
+  compita: {fileID: 2056800446}
+  espadachin: {fileID: 414912542}
 --- !u!1 &414912542
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 414912543}
+  - component: {fileID: 414912544}
   m_Layer: 0
   m_Name: Espadachin
   m_TagString: Untagged
@@ -364,6 +382,21 @@ Transform:
   - {fileID: 53694326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &414912544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414912542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbaf8d3ef58b5ed4a9b0f1622a790092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EspadachinManager
+  sprite: {fileID: 53694327}
+  Health: 0
+  Speed: 0
 --- !u!1 &449188093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,6 +1630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2056800447}
+  - component: {fileID: 2056800448}
   m_Layer: 0
   m_Name: Compita
   m_TagString: Untagged
@@ -1620,6 +1654,21 @@ Transform:
   - {fileID: 709983263}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2056800448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056800446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5258d9b352b273c479e49096a24e7798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CompitaManager
+  sprite: {fileID: 709983264}
+  speed: 0
+  Health: 0
 --- !u!1 &2083202670
 GameObject:
   m_ObjectHideFlags: 0
