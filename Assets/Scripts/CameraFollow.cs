@@ -33,8 +33,8 @@ public class CameraFollow : MonoBehaviour
     public void FollowTarget(GameObject Target)
     {
         Vector3 targetPos = Target.transform.position;
-        Vector3 filterPos = new Vector3(targetPos.x, 0f, -1);
-
+        Vector3 filterPos = new Vector3(targetPos.x, -0.91f, -1);
+  
         Vector3 myPos = transform.position;
         if (Vector3.Distance(filterPos, myPos) > radiusMovement)
 
@@ -42,5 +42,17 @@ public class CameraFollow : MonoBehaviour
             Vector3 direction = (filterPos - myPos).normalized;
             transform.position += direction * Speed * Time.deltaTime;
         }
+        if (transform.position.x < -1.44f)
+        {
+            transform.position = new Vector3(-1.44f, transform.position.y, transform.position.z);
+        }
+        else if (transform.position.x > 44.8f)
+        {
+            transform.position = new Vector3(44.8f, transform.position.y, transform.position.z);
+        }
+
     }
+
+
+
 }

@@ -40,16 +40,13 @@ public class Relevo : MonoBehaviour
 
             if (isAvailable)
             {
+                compita.transform.position = espadachin.transform.position; // dicirle al prof porque no funciona
                 compita.SetActive(true);
                 espadachin.SetActive(false);
-                //add condition (que spawnee en el lugar referencia de el otro <compita y espadachin>) 
-
             }
-
             else if (!isAvailable)
             {
-                //add condition (que spawnee en el lugar referencia de el otro <compita y espadachin>) 
-
+                espadachin.transform.position = compita.transform.position; // dicirle al prof porque no funciona
                 compita.SetActive(false);
                 espadachin.SetActive(true);
             }
