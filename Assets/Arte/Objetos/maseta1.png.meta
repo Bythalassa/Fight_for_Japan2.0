@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bb85fa6170371e848b46d34b0261d959
+guid: be4fabc1ef920f342a37159cbf6137fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 83203617696994478
-    second: casa2_0
+      213: 2297773461425602104
+    second: maseta1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: casa2_0
+      name: maseta1_0
       rect:
         serializedVersion: 2
-        x: 11617
-        y: 111
-        width: 2301
-        height: 1825
+        x: 49
+        y: 66
+        width: 396
+        height: 439
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ea45bdcdf39972100800000000000000
-      internalID: 83203617696994478
+      spriteID: 83eb79ef9c453ef10800000000000000
+      internalID: 2297773461425602104
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      casa2_0: 83203617696994478
+      maseta1_0: 2297773461425602104
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

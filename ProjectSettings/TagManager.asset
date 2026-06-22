@@ -50,6 +50,9 @@ TagManager:
   - name: objetos_c2
     uniqueID: 2833439197
     locked: 0
+  - name: objetos_c3
+    uniqueID: 1274806851
+    locked: 0
   - name: Hud_c1
     uniqueID: 1995730469
     locked: 0
