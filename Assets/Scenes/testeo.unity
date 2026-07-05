@@ -228,10 +228,11 @@ MonoBehaviour:
   - {fileID: 8891568253950891518, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
   spawnPoints:
   - {fileID: 202303043}
-  enemiesPerSpawn: 1
+  enemiesPerWave: 0000000002000000
   spawnTimerSequence:
   - 2
   - 1
+  maxSpawnRounds: 2
 --- !u!1 &281578053
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,7 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Compita
   sprite: {fileID: 281578054}
-  speed: 3
+  speed: 9
   Health: 15
 --- !u!1 &605168737
 GameObject:
@@ -1278,10 +1279,11 @@ MonoBehaviour:
   - {fileID: 596040336966180857, guid: cd86eac8f5cd4d347a6e05945dd2fb02, type: 3}
   spawnPoints:
   - {fileID: 932272364}
-  enemiesPerSpawn: 1
+  enemiesPerWave: 0000000000000000
   spawnTimerSequence:
   - 2.5
   - 1
+  maxSpawnRounds: 2
 --- !u!212 &932272366
 SpriteRenderer:
   serializedVersion: 2

@@ -14,10 +14,11 @@ public class DummyGGOhneShuriJr : MonoBehaviour
     public float Speed;
     public float Health;
 
-    public float radiusMovement = 3f ; // stop moving towards player
+    public float radiusMovement = 3f; // stop moving towards player
     public float sideOffset = 3.5f; // "Offset" es un desplazamiento relativo al eje del player
-    
+
     //logica del vaivén
+    private float side;
     public float hoverRange = 2.5f; // amplitud del vaivén(acercamiento/retroceso)
     public float hoverSpeed = 2f;   // velocidad del vaivén
     private float hoverOffset = 0f;
@@ -45,17 +46,22 @@ public class DummyGGOhneShuriJr : MonoBehaviour
                     transform.position += direction * Speed * Time.deltaTime;
 
                     if (Vector3.Distance(targetPos, myPos) <= radiusMovement)
+                    {
+                        side = (myPos.x >= targetPos.x) ? -1f : 1f; //al llegar al rango minimo de alcance, calcula la posición
+                        Debug.Log("enemy distance is less than radiousMovement");
                         state = DummyEnum.Near;
+                    }                        
                 }
                 break;
 
             case DummyEnum.Near:
                 {
-                    // izquierda(sideOffset negativo) / derecha(sideOffset positivo)
-                    float side = (myPos.x >= targetPos.x) ? -1f : 1f;
-                    Vector3 sidePos = targetPos + new Vector3(sideOffset * side, 0f, 0f);
+                    Vector3 sidePos = targetPos + new Vector3(sideOffset * side, 0f, 0f); /// side no tiene sentido en este contexto 
+                    //calcula la posición lateral del enemigo en relacion al jugador, desplazandolo el valor de Offset en x
       
-                    if (Vector3.Distance(myPos, sidePos) > 0.05f) //ignore player if in radious and hasn´t been attacked
+                    if (Vector3.Distance(myPos, sidePos) > 0.05f)
+                    //si la distancia entre el enemigo y la posición lateral es mayor a 0.05,
+                    //deberia desplezarse a sidePos 
                     {
                         Vector3 direction = (sidePos - myPos).normalized;
                         transform.position += direction * Speed * Time.deltaTime;
