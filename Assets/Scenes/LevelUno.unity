@@ -145,8 +145,8 @@ Transform:
   m_GameObject: {fileID: 16070169}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.9000001, z: 0}
-  m_LocalScale: {x: 29, y: 3.8890224, z: 211}
+  m_LocalPosition: {x: 0, y: -2.4, z: 0}
+  m_LocalScale: {x: 29, y: 2.8891547, z: 211}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1392273148}
@@ -374,8 +374,8 @@ Transform:
   m_GameObject: {fileID: 53694325}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.19950485, y: -0.2448473, z: 0}
+  m_LocalScale: {x: 0.8705, y: 0.87051505, z: 0.8705}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 414912543}
@@ -429,12 +429,12 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1080554493355756316, guid: 4a4e26d2bcdec4f4ca1c0032f926413a, type: 3}
+  m_Sprite: {fileID: -4360621309413804574, guid: 97806d2eb413c4b41b82b7dca501411a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.08, y: 3.78}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -749,7 +749,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1, y: -1.71, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -864,7 +864,7 @@ Transform:
   m_GameObject: {fileID: 115305683}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.25064, y: -1.76, z: 0}
+  m_LocalPosition: {x: 21.25064, y: 0.24000001, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -879,7 +879,7 @@ Transform:
   - {fileID: 1447148685}
   - {fileID: 788831005}
   - {fileID: 762356051}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2083202673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &123223814
 GameObject:
@@ -1114,8 +1114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39fb1b64968459540a62014cb74df10c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZonaActualHandler
-  cameraFollow: {fileID: 0}
-  zonaAssigned: 0
 --- !u!1 &171754757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,14 +2356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0fb8b6dd6f72945b7672829f802046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  zonaActual: 0
-  limiteIzquierdoGeneral: -12.44
-  limiteDerechoGeneral: 57
-  limiteIzquierdoUno: -8.46
-  limiteDerechoUno: 10.53
-  relevoScript: {fileID: 88651438}
-  compita: {fileID: 2056800446}
-  espadachin: {fileID: 414912542}
 --- !u!4 &589545985
 Transform:
   m_ObjectHideFlags: 0
@@ -3003,8 +2993,8 @@ Transform:
   m_GameObject: {fileID: 709983262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.316535, y: -0.86902404, z: 0}
+  m_LocalScale: {x: 0.95972687, y: 0.7151783, z: 0.7152}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2056800447}
@@ -3058,12 +3048,12 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 1193508786518262353, guid: ecb428314dbf7ba4b87ec7893030c648, type: 3}
+  m_Sprite: {fileID: 7317778933814813803, guid: de3577eb2ec0af440aefc8e4c1b044f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4.09, y: 2.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3186,7 +3176,7 @@ Transform:
   m_GameObject: {fileID: 762356050}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.08, y: -5.5899997, z: 0}
+  m_LocalPosition: {x: -15.08, y: -5.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3324,7 +3314,7 @@ Transform:
   m_GameObject: {fileID: 788831004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.29, y: -5.22, z: 0}
+  m_LocalPosition: {x: -7.29, y: -5.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3737,8 +3727,8 @@ Transform:
   m_GameObject: {fileID: 960823492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -16, z: 0}
-  m_LocalScale: {x: 29, y: 2.888889, z: 1}
+  m_LocalPosition: {x: 0.000000029802322, y: -15.7, z: 0}
+  m_LocalScale: {x: 29, y: 2.8891547, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1392273148}
@@ -4650,7 +4640,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1241840954}
   - component: {fileID: 1241840956}
-  - component: {fileID: 1241840957}
   - component: {fileID: 1241840955}
   m_Layer: 0
   m_Name: ZoneOne
@@ -4779,20 +4768,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.0197382, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1241840957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1241840953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39fb1b64968459540a62014cb74df10c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ZonaActualHandler
-  cameraFollow: {fileID: 589545984}
-  zonaAssigned: 1
 --- !u!1 &1253319910
 GameObject:
   m_ObjectHideFlags: 0
@@ -4958,7 +4933,7 @@ Transform:
   m_GameObject: {fileID: 1328219087}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.51, y: -5.5899997, z: 0}
+  m_LocalPosition: {x: -26.51, y: -5.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5096,7 +5071,7 @@ Transform:
   m_GameObject: {fileID: 1362556611}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.18, y: -5.2399993, z: 0}
+  m_LocalPosition: {x: -12.18, y: -5.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5314,7 +5289,7 @@ Transform:
   m_GameObject: {fileID: 1392273147}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13165, y: 6.94, z: 0}
+  m_LocalPosition: {x: -0.13165, y: 8.940001, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5327,7 +5302,7 @@ Transform:
   - {fileID: 1139567775}
   - {fileID: 1522387036}
   - {fileID: 1971865043}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2083202673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1423737416
 GameObject:
@@ -5494,7 +5469,7 @@ Transform:
   m_GameObject: {fileID: 1447148684}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.84, y: -5.6199994, z: 0}
+  m_LocalPosition: {x: -9.84, y: -5.619999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6351,13 +6326,13 @@ Transform:
   m_GameObject: {fileID: 1704586130}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03, y: -0.9, z: 0}
+  m_LocalPosition: {x: 0.03, y: 1.1, z: 10}
   m_LocalScale: {x: 30, y: 9.1025915, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 604007914}
   - {fileID: 1809536846}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2083202673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1704586132
 SpriteRenderer:
@@ -6434,7 +6409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1759769905
 Transform:
   m_ObjectHideFlags: 0
@@ -6444,8 +6419,8 @@ Transform:
   m_GameObject: {fileID: 1759769904}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.8, y: 0.43, z: 0}
-  m_LocalScale: {x: 2, y: 90, z: 1}
+  m_LocalPosition: {x: -7.8, y: -3.57, z: 0}
+  m_LocalScale: {x: 2, y: 37, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 127670139}
@@ -6965,7 +6940,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.54, y: -1.78, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7311,7 +7286,7 @@ Transform:
   m_GameObject: {fileID: 1915953101}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.77, y: -5.6199994, z: 0}
+  m_LocalPosition: {x: -20.77, y: -5.619999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7464,7 +7439,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1969593125}
   - component: {fileID: 1969593128}
-  - component: {fileID: 1969593127}
   - component: {fileID: 1969593126}
   m_Layer: 0
   m_Name: ZoneGeneral
@@ -7547,20 +7521,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1969593127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1969593124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39fb1b64968459540a62014cb74df10c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ZonaActualHandler
-  cameraFollow: {fileID: 589545984}
-  zonaAssigned: 0
 --- !u!61 &1969593128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7633,7 +7593,7 @@ Transform:
   m_GameObject: {fileID: 1971865042}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.43, y: -2.58, z: 0}
+  m_LocalPosition: {x: 9.43, y: -2.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7816,7 +7776,7 @@ Transform:
   m_GameObject: {fileID: 2036639622}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.22, y: -5.22, z: 0}
+  m_LocalPosition: {x: -18.22, y: -5.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8154,7 +8114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.54, y: -2.12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -8380,7 +8340,6 @@ GameObject:
   - component: {fileID: 2083202671}
   - component: {fileID: 2083202675}
   - component: {fileID: 2083202676}
-  - component: {fileID: 2083202677}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8459,7 +8418,10 @@ Transform:
   m_LocalPosition: {x: 0, y: -2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1392273148}
+  - {fileID: 115305684}
+  - {fileID: 1704586131}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2083202675
@@ -8518,34 +8480,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0fb8b6dd6f72945b7672829f802046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  zonaActual: 0
-  limiteIzquierdoGeneral: -1
-  limiteDerechoGeneral: 57
-  limiteIzquierdoUno: -7.8
-  limiteDerechoUno: 11
-  relevoScript: {fileID: 88651438}
-  compita: {fileID: 2056800446}
-  espadachin: {fileID: 414912542}
---- !u!114 &2083202677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083202670}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38ba9e5a7f1121e45ab9713f203c1bad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraFollowtwo
-  zonaActual: 0
-  limiteIzquierdoGeneral: -1
-  limiteDerechoGeneral: 57
-  limiteIzquierdoUno: -7.8
-  limiteDerechoUno: 11
-  relevoScript: {fileID: 0}
-  compita: {fileID: 0}
-  espadachin: {fileID: 0}
 --- !u!1 &2088598411
 GameObject:
   m_ObjectHideFlags: 0
@@ -8758,9 +8692,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 127670139}
-  - {fileID: 1392273148}
-  - {fileID: 115305684}
-  - {fileID: 1704586131}
   - {fileID: 2083202673}
   - {fileID: 1924020036}
   - {fileID: 414912543}
