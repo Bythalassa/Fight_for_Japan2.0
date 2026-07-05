@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 1fdc2c5a54df28547b6848a9868f8a95
+guid: a9e8ffdf6e8fad947b60785a9e1607a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2425060312249483497
-    second: Life.Container.HUD_0
+      213: -5725408366504784629
+    second: life.vacio_0
+  - first:
+      213: -9009648284597920060
+    second: life.vacio_1
+  - first:
+      213: -3995651195127358660
+    second: life.vacio_2
+  - first:
+      213: -340103177130214506
+    second: life.vacio_3
+  - first:
+      213: 3626287073957090655
+    second: life.vacio_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 290
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Life.Container.HUD_0
+      name: life.vacio_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 15
-        width: 190
-        height: 39
+        x: 16
+        y: 0
+        width: 1532
+        height: 724
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9e04786618b87a120800000000000000
-      internalID: 2425060312249483497
+      spriteID: b0dce68dc634b80b0800000000000000
+      internalID: -5725408366504784629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life.vacio_1
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 700
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ce555dce9c47f280800000000000000
+      internalID: -9009648284597920060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life.vacio_2
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 710
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3b911c68689c88c0800000000000000
+      internalID: -3995651195127358660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life.vacio_3
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 14
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69bfb2c56f5b74bf0800000000000000
+      internalID: -340103177130214506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life.vacio_4
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 0
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f559dc081e8235230800000000000000
+      internalID: 3626287073957090655
       vertices: []
       indices: 
       edges: []
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Life.Container.HUD_0: 2425060312249483497
+      life.vacio_0: -5725408366504784629
+      life.vacio_1: -9009648284597920060
+      life.vacio_2: -3995651195127358660
+      life.vacio_3: -340103177130214506
+      life.vacio_4: 3626287073957090655
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

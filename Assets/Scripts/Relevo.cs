@@ -12,12 +12,15 @@ public class Relevo : MonoBehaviour
     private float timeRespawn; //default 0f
     public GameObject compita;
     public GameObject espadachin;
-
+    public GameObject Iconcompita;
+    public GameObject Iconespadachin;
 
     void Start()
     {
         compita.SetActive(false);
         espadachin.SetActive(true);
+        Iconcompita.SetActive(false);
+        Iconespadachin.SetActive(true);
         isAvailable = false;
     }
 
@@ -43,12 +46,16 @@ public class Relevo : MonoBehaviour
                 compita.transform.position = espadachin.transform.position; // dicirle al prof porque no funciona
                 compita.SetActive(true);
                 espadachin.SetActive(false);
+                Iconcompita.SetActive(true);
+                Iconespadachin.SetActive(false);
             }
             else if (!isAvailable)
             {
                 espadachin.transform.position = compita.transform.position; // dicirle al prof porque no funciona
                 compita.SetActive(false);
                 espadachin.SetActive(true);
+                Iconcompita.SetActive(false);
+                Iconespadachin.SetActive(true);
             }
 
         }

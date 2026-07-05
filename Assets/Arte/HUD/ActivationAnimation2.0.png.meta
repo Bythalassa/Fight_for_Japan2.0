@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: cb404d8e64f1c7d459e7bcf15d240eb5
+guid: 1475492eae16c7141b834cc47f11415a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7197448176715048723
-    second: PoweUp.Container.HUD_0
+      213: 7697928688679886661
+    second: ActivationAnimation2.0_0
+  - first:
+      213: 2524107583038127580
+    second: ActivationAnimation2.0_1
+  - first:
+      213: -232587559838227989
+    second: ActivationAnimation2.0_2
+  - first:
+      213: -2227782453474864892
+    second: ActivationAnimation2.0_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 299
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PoweUp.Container.HUD_0
+      name: ActivationAnimation2.0_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 4
-        width: 98
-        height: 36
+        x: 36
+        y: 10
+        width: 364
+        height: 354
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de8dd9954078d1c90800000000000000
-      internalID: -7197448176715048723
+      spriteID: 54f9d036b5984da60800000000000000
+      internalID: 7697928688679886661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ActivationAnimation2.0_1
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 9
+        width: 364
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd7bd5397e670320800000000000000
+      internalID: 2524107583038127580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ActivationAnimation2.0_2
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 3
+        width: 364
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be1eaacb8dea5ccf0800000000000000
+      internalID: -232587559838227989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ActivationAnimation2.0_3
+      rect:
+        serializedVersion: 2
+        x: 1290
+        y: 6
+        width: 364
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40158cf69a35511e0800000000000000
+      internalID: -2227782453474864892
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PoweUp.Container.HUD_0: -7197448176715048723
+      ActivationAnimation2.0_0: 7697928688679886661
+      ActivationAnimation2.0_1: 2524107583038127580
+      ActivationAnimation2.0_2: -232587559838227989
+      ActivationAnimation2.0_3: -2227782453474864892
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
