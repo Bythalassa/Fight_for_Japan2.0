@@ -1,11 +1,12 @@
 using UnityEngine;
 
+//no funciona perfecto, pero a veces si funciona pedir auxilio a neyra                          
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Tipos de enemigos posibles")]
     public GameObject[] enemyPrefabs;
 
-    [Header("Puntos de spawn")]
+    [Header("Puntos de spawn")]  
     public Transform[] spawnPoints;
 
     [Header("Cantidad de enemigos por oleada")]
@@ -20,12 +21,14 @@ public class EnemySpawner : MonoBehaviour
 
     // Variables that cut Timer of Respawn
     private int spawnRounds = 0;
-    public int maxSpawnRounds; 
+    private int maxSpawnRounds = 2; 
     private bool canSpawn = true;
 
     void Start()
     {
         spawnTimer = spawnTimerSequence[0];
+
+       // Debug.Log($"[Spawner] spawnTimerSequence.Length={spawnTimerSequence.Length}, enemiesPerWave.Length={enemiesPerWave.Length}");
     }
 
     void Update()
@@ -38,15 +41,22 @@ public class EnemySpawner : MonoBehaviour
 
     private void TimerMechanic()
     {
+
         spawnTimer -= Time.deltaTime;
         if (spawnTimer < 0)
         {
+            //Debug.Log($"[Spawner] Disparando oleada. sequenceIndex={sequenceIndex}, spawnRounds antes={spawnRounds}");
+
+
             SpawnEnemy();
             spawnRounds++;
+
+            //Debug.Log($"[Spawner] spawnRounds despues={spawnRounds}, maxSpawnRounds={maxSpawnRounds}");
 
             if (spawnRounds >= maxSpawnRounds)
             {
                 canSpawn = false;
+                //Debug.Log("[Spawner] canSpawn puesto en false. Se corta el spawn.");
             }
 
             sequenceIndex = (sequenceIndex + 1) % spawnTimerSequence.Length;
@@ -60,13 +70,13 @@ public class EnemySpawner : MonoBehaviour
 
         if (spawnPoints.Length == 0 || enemyPrefabs.Length == 0)
         {
-            Debug.LogWarning("Faltan spawnPoints o enemyPrefabs en " + gameObject.name);
+            //Debug.LogWarning("Faltan spawnPoints o enemyPrefabs en " + gameObject.name);
             return;
         }
 
         if (enemiesPerWave.Length == 0)
         {
-            Debug.LogWarning("Falta configurar enemiesPerWave en " + gameObject.name);
+            //Debug.LogWarning("Falta configurar enemiesPerWave en " + gameObject.name);
             return;
         }
 

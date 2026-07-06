@@ -228,11 +228,11 @@ MonoBehaviour:
   - {fileID: 8891568253950891518, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
   spawnPoints:
   - {fileID: 202303043}
+  - {fileID: 202303043}
   enemiesPerWave: 0000000002000000
   spawnTimerSequence:
   - 2
   - 1
-  maxSpawnRounds: 2
 --- !u!1 &281578053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,7 +1283,6 @@ MonoBehaviour:
   spawnTimerSequence:
   - 2.5
   - 1
-  maxSpawnRounds: 2
 --- !u!212 &932272366
 SpriteRenderer:
   serializedVersion: 2
