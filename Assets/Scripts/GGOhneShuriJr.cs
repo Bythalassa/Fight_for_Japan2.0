@@ -15,14 +15,14 @@ public class DummyGGOhneShuriJr : MonoBehaviour
     public float Health;
 
     public float radiusMovement = 3f; // stop moving towards player
-    public float sideOffset = 3.5f; // "Offset" es un desplazamiento relativo al eje del player
+    public float sideOffset = 5.5f; //  la posición fija de destino / punto de corte
 
     //logica del vaivén
     private float side;
-    public float hoverRange = 2.5f; // amplitud del vaivén(acercamiento/retroceso)
-    public float hoverSpeed = 2f;   // velocidad del vaivén
+    public float hoverRange = 5.5f; // amplitud del vaivén(acercamiento/retroceso)
+    public float hoverSpeed = 9f;   // velocidad del vaivén
     private float hoverOffset = 0f;
-    private int hoverDirection = 5; // 1 = derecha, -1 = izquierda
+    private int hoverDirection = 1; // 1 = derecha, -1 = izquierda // no puede ser más q 1 (se queda en 1)
     //hover is equal to rondar/dar vueltas al rededor de un eje 
 
     void Start()
@@ -75,7 +75,7 @@ public class DummyGGOhneShuriJr : MonoBehaviour
                             hoverDirection *= -1; // acercar / alejarse
                         }
 
-                        transform.position = sidePos + new Vector3(hoverOffset, 0f, 0f);
+                        transform.position = new Vector3(sidePos.x + hoverOffset, sidePos.y, sidePos.z);
                     }
                 }
                 break;
