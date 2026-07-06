@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &202303043
 Transform:
   m_ObjectHideFlags: 0
@@ -339,6 +339,8 @@ GameObject:
   m_Component:
   - component: {fileID: 301527014}
   - component: {fileID: 301527015}
+  - component: {fileID: 301527017}
+  - component: {fileID: 301527016}
   m_Layer: 0
   m_Name: Arbustos (6)
   m_TagString: Untagged
@@ -420,6 +422,65 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &301527016
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301527013}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.95, y: 1.8766667}
+    newSize: {x: 3.95, y: 1.8766667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.95, y: 1.8766667}
+  m_EdgeRadius: 0
+--- !u!114 &301527017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301527013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05dcde2ceb2684c4a9a76a437652edad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArbustoHandle
+  enemySpawner: {fileID: 1917022404}
 --- !u!1 &404277032
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +829,8 @@ GameObject:
   m_Component:
   - component: {fileID: 662581309}
   - component: {fileID: 662581310}
+  - component: {fileID: 662581312}
+  - component: {fileID: 662581311}
   m_Layer: 0
   m_Name: Arbustos (5)
   m_TagString: Untagged
@@ -849,6 +912,65 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &662581311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662581308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05dcde2ceb2684c4a9a76a437652edad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArbustoHandle
+  enemySpawner: {fileID: 1917022404}
+--- !u!61 &662581312
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662581308}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.95, y: 1.8766667}
+    newSize: {x: 3.95, y: 1.8766667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.95, y: 1.8766667}
+  m_EdgeRadius: 0
 --- !u!1 &820972400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,12 +1138,12 @@ GameObject:
   - component: {fileID: 858621818}
   - component: {fileID: 858621819}
   m_Layer: 0
-  m_Name: Arbustos (1)
+  m_Name: arbustoPuerta2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &858621818
 Transform:
   m_ObjectHideFlags: 0
@@ -1251,7 +1373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &932272364
 Transform:
   m_ObjectHideFlags: 0
@@ -1449,6 +1571,8 @@ GameObject:
   m_Component:
   - component: {fileID: 996715361}
   - component: {fileID: 996715362}
+  - component: {fileID: 996715364}
+  - component: {fileID: 996715363}
   m_Layer: 0
   m_Name: Arbustos (2)
   m_TagString: Untagged
@@ -1530,6 +1654,65 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &996715363
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996715360}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.95, y: 1.8766667}
+    newSize: {x: 3.95, y: 1.8766667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.95, y: 1.8766667}
+  m_EdgeRadius: 0
+--- !u!114 &996715364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996715360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05dcde2ceb2684c4a9a76a437652edad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArbustoHandle
+  enemySpawner: {fileID: 1917022404}
 --- !u!1 &1435296552
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,12 +1755,12 @@ GameObject:
   - component: {fileID: 1688335676}
   - component: {fileID: 1688335677}
   m_Layer: 0
-  m_Name: Arbustos
+  m_Name: arbustoPuerta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1688335676
 Transform:
   m_ObjectHideFlags: 0
@@ -1662,6 +1845,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1694809841}
   - component: {fileID: 1694809842}
+  - component: {fileID: 1694809844}
+  - component: {fileID: 1694809843}
   m_Layer: 0
   m_Name: Arbustos (7)
   m_TagString: Untagged
@@ -1743,6 +1928,65 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1694809843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694809840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05dcde2ceb2684c4a9a76a437652edad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArbustoHandle
+  enemySpawner: {fileID: 1917022404}
+--- !u!61 &1694809844
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694809840}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.95, y: 1.8766667}
+    newSize: {x: 3.95, y: 1.8766667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.95, y: 1.8766667}
+  m_EdgeRadius: 0
 --- !u!1 &1697337542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,6 +2169,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1780733281}
   - component: {fileID: 1780733282}
+  - component: {fileID: 1780733284}
+  - component: {fileID: 1780733283}
   m_Layer: 0
   m_Name: Arbustos (4)
   m_TagString: Untagged
@@ -2006,6 +2252,65 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &1780733283
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780733280}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.95, y: 1.8766667}
+    newSize: {x: 3.95, y: 1.8766667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.95, y: 1.8766667}
+  m_EdgeRadius: 0
+--- !u!114 &1780733284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780733280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05dcde2ceb2684c4a9a76a437652edad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArbustoHandle
+  enemySpawner: {fileID: 1917022404}
 --- !u!1 &1826147398
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,6 +2321,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1826147399}
   - component: {fileID: 1826147400}
+  - component: {fileID: 1826147402}
+  - component: {fileID: 1826147401}
   m_Layer: 0
   m_Name: Arbustos (3)
   m_TagString: Untagged
@@ -2097,6 +2404,65 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &1826147401
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826147398}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.95, y: 1.8766667}
+    newSize: {x: 3.95, y: 1.8766667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3.95, y: 1.8766667}
+  m_EdgeRadius: 0
+--- !u!114 &1826147402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826147398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05dcde2ceb2684c4a9a76a437652edad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArbustoHandle
+  enemySpawner: {fileID: 1917022404}
 --- !u!1 &1885565383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2112,7 +2478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1885565384
 Transform:
   m_ObjectHideFlags: 0
@@ -2146,6 +2512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1917022402}
   - component: {fileID: 1917022403}
+  - component: {fileID: 1917022404}
   m_Layer: 0
   m_Name: SpawnerTriggerUno
   m_TagString: Untagged
@@ -2162,7 +2529,7 @@ Transform:
   m_GameObject: {fileID: 1917022401}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.9999995, y: -8, z: 0}
+  m_LocalPosition: {x: -1, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2227,6 +2594,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1917022404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917022401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9eab389e1b0134898d5485bd870f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerxTrigger
+  enemyPrefabs:
+  - {fileID: 107571417329968100, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
+  spawnPoints:
+  - {fileID: 1917022402}
+  enemiesPerWave: 00000000
 --- !u!1 &2012597049
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,7 +2717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2040089940
 Transform:
   m_ObjectHideFlags: 0
@@ -2353,120 +2737,6 @@ Transform:
   - {fileID: 605168738}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3827659564044329309
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 107571417329968100, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
-      propertyPath: m_Name
-      value: PigPansa
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445580030811473780, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.948967
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445580030811473780, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.7504306
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445580030811473780, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445580030811473780, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445580030811473780, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445580030811473780, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445580030811473780, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445580030811473780, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445580030811473780, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445580030811473780, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
---- !u!1001 &5632255231444420799
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5655845150628234690, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
-      propertyPath: m_Name
-      value: Tio-Foxy-JR
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.2660456
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8506565
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
 --- !u!1001 &6457527864691309417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2532,7 +2802,5 @@ SceneRoots:
   - {fileID: 820972401}
   - {fileID: 1746800500}
   - {fileID: 517453715}
-  - {fileID: 5632255231444420799}
   - {fileID: 6457527864691309417}
-  - {fileID: 3827659564044329309}
   - {fileID: 405162834}
