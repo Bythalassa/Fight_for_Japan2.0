@@ -617,6 +617,7 @@ GameObject:
   - component: {fileID: 517453718}
   - component: {fileID: 517453717}
   - component: {fileID: 517453716}
+  - component: {fileID: 517453719}
   m_Layer: 6
   m_Name: juanchibi
   m_TagString: Player
@@ -728,6 +729,20 @@ MonoBehaviour:
   sprite: {fileID: 281578054}
   speed: 3
   Health: 15
+--- !u!114 &517453719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517453714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431dc80f7d8303645add31ca1dc7b526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  targets: []
+  damage: 10
 --- !u!1 &605168737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,7 +1586,6 @@ GameObject:
   m_Component:
   - component: {fileID: 996715361}
   - component: {fileID: 996715362}
-  - component: {fileID: 996715364}
   - component: {fileID: 996715363}
   m_Layer: 0
   m_Name: Arbustos (2)
@@ -1700,19 +1714,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.95, y: 1.8766667}
   m_EdgeRadius: 0
---- !u!114 &996715364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996715360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05dcde2ceb2684c4a9a76a437652edad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ArbustoHandle
-  enemySpawner: {fileID: 1917022404}
 --- !u!1 &1435296552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,7 +2479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1885565384
 Transform:
   m_ObjectHideFlags: 0
@@ -2519,7 +2520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1917022402
 Transform:
   m_ObjectHideFlags: 0
@@ -2607,7 +2608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnerxTrigger
   enemyPrefabs:
-  - {fileID: 107571417329968100, guid: 4e74d682fffa19247878890b4c277f46, type: 3}
+  - {fileID: 8891568253950891518, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
   spawnPoints:
   - {fileID: 1917022402}
   enemiesPerWave: 00000000

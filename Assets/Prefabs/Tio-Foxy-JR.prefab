@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1663286531577157820}
   - component: {fileID: 5218738458614828976}
   - component: {fileID: 4204777153975173827}
+  - component: {fileID: 6273033582253237474}
   m_Layer: 3
   m_Name: Tio-Foxy-JR
   m_TagString: Untagged
@@ -107,7 +108,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Dummy
   state: 1
   Speed: 4
-  Health: 7
   radiusMovement: 0.5
   sideOffset: 4
   hoverRange: 3.5
@@ -158,3 +158,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.11, y: 4.88}
   m_EdgeRadius: 0
+--- !u!114 &6273033582253237474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5655845150628234690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9456eed223c3d0e4fb575c7f6f678cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeallthManager
+  Health: 10

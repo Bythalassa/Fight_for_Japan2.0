@@ -12,7 +12,6 @@ public class DummyMovement : MonoBehaviour
     public DummyEnum state = DummyEnum.LongDistance;
     private GameObject Target;
     public float Speed;
-    public float Health;
 
     public float radiusMovement = 3f; // stop moving towards player
     public float sideOffset = 20f; //  la posición fija de destino / punto de corte

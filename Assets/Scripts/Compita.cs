@@ -1,14 +1,10 @@
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-
 public class Compita : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public float speed;
-    public float Health;
-    private bool isAbleToAttack = false;
-    private float damage = 10f;
-    public GameObject Target;
+    
+    public float Health; //maybe lo extraigo
 
     void Start()
     {
@@ -29,21 +25,6 @@ public class Compita : MonoBehaviour
         direction.Normalize();
 
         transform.position += direction * speed * Time.deltaTime;
-    }
-    private void AttackHolder()
-    {
-
-        if (Input.GetKeyDown(KeyCode.X))
-    {
-        isAbleToAttack = true;
-    }
-
-        if (isAbleToAttack)
-        {
-            Debug.Log("Atacando");
-            //Target.GetComponent<Enemy>().Health -= damage;
-            isAbleToAttack = false;
-        }
     }
 
 }
