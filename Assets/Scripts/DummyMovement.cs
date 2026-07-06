@@ -7,7 +7,7 @@ public enum DummyEnum
     Near
 }
 
-public class DummyGGOhneShuriJr : MonoBehaviour
+public class DummyMovement : MonoBehaviour
 {
     public DummyEnum state = DummyEnum.LongDistance;
     private GameObject Target;
@@ -23,7 +23,7 @@ public class DummyGGOhneShuriJr : MonoBehaviour
     public float hoverSpeed = 9f;   // velocidad del vaivén
     private float hoverOffset = 0f;
     private int hoverDirection = 1; // 1 = derecha, -1 = izquierda // no puede ser más q 1 (se queda en 1)
-    public float minDistance = 5f; // distancia mínima relative 2 player
+    //not the best idea : private float minDistance = 2.7f; // distancia mínima relative 2 player
 
     //hover is equal to rondar/dar vueltas al rededor de un eje 
 
@@ -56,7 +56,7 @@ public class DummyGGOhneShuriJr : MonoBehaviour
                 }
                 break;
 
-            case DummyEnum.Near:
+            case DummyEnum.Near:// pedirle auxilio al prof como voy a dejar que el player se mueva libremente con el vaiven
                 {
                     {
                         Vector3 sidePos = targetPos + new Vector3(sideOffset * side, 0f, 0f); /// side no tiene sentido en este contexto 
@@ -72,24 +72,16 @@ public class DummyGGOhneShuriJr : MonoBehaviour
                         else
                         {
                             hoverOffset += hoverDirection * hoverSpeed * Time.deltaTime;
+
                             if (hoverOffset > hoverRange || hoverOffset < -hoverRange)
                             {
                                 hoverDirection *= -1; // acercar / alejarse
                             }
-
-                            float newX = sidePos.x + hoverOffset;
-
-                            // evita que el vaivén cruce hacia el lado del player (nunca sobreponerse)
-                            if (side > 0 && newX < targetPos.x + minDistance)
-                                newX = targetPos.x + minDistance;
-                            else if (side < 0 && newX > targetPos.x - minDistance)
-                                newX = targetPos.x - minDistance;
-
-                            transform.position = new Vector3(newX, sidePos.y, sidePos.z);
+                            transform.position = new Vector3(sidePos.x + hoverOffset, sidePos.y, sidePos.z);
                         }
                     }
-                }
                     break;
+                }
                 default:
                 break;
         }

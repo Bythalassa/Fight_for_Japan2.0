@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 275489529}
   - component: {fileID: 275489528}
   - component: {fileID: 275489531}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GG-OhneShuri-JR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,6 +271,7 @@ MonoBehaviour:
   sideOffset: 4
   hoverRange: 5.5
   hoverSpeed: 40
+  minDistance: 2
 --- !u!212 &275489529
 SpriteRenderer:
   serializedVersion: 2
@@ -401,7 +402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 281578055}
   - component: {fileID: 281578054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: compitaSprite
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -709,7 +710,7 @@ GameObject:
   - component: {fileID: 517453718}
   - component: {fileID: 517453717}
   - component: {fileID: 517453716}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: juanchibi
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1695,7 +1696,7 @@ GameObject:
   - component: {fileID: 1196347189}
   - component: {fileID: 1196347188}
   - component: {fileID: 1196347191}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tio-Foxy-JR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1721,6 +1722,7 @@ MonoBehaviour:
   sideOffset: 4
   hoverRange: 7.5
   hoverSpeed: 60
+  minDistance: 2
 --- !u!212 &1196347189
 SpriteRenderer:
   serializedVersion: 2
@@ -2684,9 +2686,17 @@ PrefabInstance:
       propertyPath: sideOffset
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5218738458614828976, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
+      propertyPath: minDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5655845150628234690, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
       propertyPath: m_Name
       value: Tio-Foxy-JR
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655845150628234690, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5655845150628234690, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
       propertyPath: m_IsActive
@@ -2802,12 +2812,20 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3405974984210334421, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
+      propertyPath: minDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405974984210334421, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
       propertyPath: radiusMovement
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8891568253950891518, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
       propertyPath: m_Name
       value: GG-OhneShuri-JR
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891568253950891518, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8891568253950891518, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
       propertyPath: m_IsActive
