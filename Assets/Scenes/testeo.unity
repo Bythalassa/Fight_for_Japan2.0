@@ -229,10 +229,15 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 202303043}
   - {fileID: 202303043}
-  enemiesPerWave: 0000000002000000
+  enemiesPerWave: 0100000002000000
   spawnTimerSequence:
   - 2
   - 1
+--- !u!1 &275489527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8891568253950891518, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
+  m_PrefabInstance: {fileID: 6457527864691309417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &281578053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,11 +1280,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefabs:
-  - {fileID: 8891568253950891518, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
+  - {fileID: 275489527}
   - {fileID: 596040336966180857, guid: cd86eac8f5cd4d347a6e05945dd2fb02, type: 3}
   spawnPoints:
   - {fileID: 932272364}
-  enemiesPerWave: 0000000000000000
+  - {fileID: 932272364}
+  enemiesPerWave: 0100000000000000
   spawnTimerSequence:
   - 2.5
   - 1
