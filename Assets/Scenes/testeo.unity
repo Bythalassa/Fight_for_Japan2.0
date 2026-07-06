@@ -231,8 +231,8 @@ MonoBehaviour:
   - {fileID: 202303043}
   enemiesPerWave: 0100000002000000
   spawnTimerSequence:
-  - 2
-  - 1
+  - 4
+  - 4
 --- !u!1 &275489527 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8891568253950891518, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
@@ -1287,8 +1287,8 @@ MonoBehaviour:
   - {fileID: 932272364}
   enemiesPerWave: 0100000000000000
   spawnTimerSequence:
-  - 2.5
-  - 1
+  - 4.5
+  - 4
 --- !u!212 &932272366
 SpriteRenderer:
   serializedVersion: 2

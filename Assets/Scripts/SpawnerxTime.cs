@@ -27,11 +27,12 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         spawnTimer = spawnTimerSequence[0];
-        Debug.Log($"[{gameObject.name}] spawnTimerSequence.Length={spawnTimerSequence.Length}, enemiesPerWave.Length={enemiesPerWave.Length}");
+        
+        /*Debug.Log($"[{gameObject.name}] spawnTimerSequence.Length={spawnTimerSequence.Length}, enemiesPerWave.Length={enemiesPerWave.Length}");
         for (int i = 0; i < spawnTimerSequence.Length; i++)
         {
             Debug.Log($"[{gameObject.name}] Index {i}: time={spawnTimerSequence[i]} | enemies={(i < enemiesPerWave.Length ? enemiesPerWave[i].ToString() : "N/A")}");
-        }
+        }*/
     }
 
     void Update()
@@ -48,18 +49,18 @@ public class EnemySpawner : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if (spawnTimer < 0)
         {
-            Debug.Log($"[{gameObject.name}] Disparando oleada. sequenceIndex={sequenceIndex}, spawnRounds antes={spawnRounds}");
+           // Debug.Log($"[{gameObject.name}] Disparando oleada. sequenceIndex={sequenceIndex}, spawnRounds antes={spawnRounds}");
 
 
             SpawnEnemy();
             spawnRounds++;
 
-            Debug.Log($"[{gameObject.name}] spawnRounds despues={spawnRounds}, maxSpawnRounds={maxSpawnRounds}");
+            //Debug.Log($"[{gameObject.name}] spawnRounds despues={spawnRounds}, maxSpawnRounds={maxSpawnRounds}");
 
             if (spawnRounds >= maxSpawnRounds)
             {
                 canSpawn = false;
-                Debug.Log($"[{gameObject.name}] canSpawn puesto en false. Se corta el spawn.");
+               // Debug.Log($"[{gameObject.name}] canSpawn puesto en false. Se corta el spawn.");
             }
 
             sequenceIndex = (sequenceIndex + 1) % spawnTimerSequence.Length;
@@ -73,18 +74,18 @@ public class EnemySpawner : MonoBehaviour
 
         if (spawnPoints.Length == 0 || enemyPrefabs.Length == 0)
         {
-            Debug.LogWarning($"[{gameObject.name}] Faltan spawnPoints o enemyPrefabs");
+            //Debug.LogWarning($"[{gameObject.name}] Faltan spawnPoints o enemyPrefabs");
             return;
         }
 
         if (enemiesPerWave.Length == 0)
         {
-            Debug.LogWarning($"[{gameObject.name}] Falta configurar enemiesPerWave");
+           // Debug.LogWarning($"[{gameObject.name}] Falta configurar enemiesPerWave");
             return;
         }
 
         int amount = enemiesPerWave[sequenceIndex % enemiesPerWave.Length];
-        Debug.Log($"[{gameObject.name}] Spawneando {amount} enemigos (sequenceIndex={sequenceIndex})");
+        //Debug.Log($"[{gameObject.name}] Spawneando {amount} enemigos (sequenceIndex={sequenceIndex})");
 
 
         for (int i = 0; i < amount; i++)
