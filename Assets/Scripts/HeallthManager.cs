@@ -14,5 +14,11 @@ public class HeallthManager : MonoBehaviour
         {
             isDead = true;
         }
+
+        if (isDead)
+        {
+            Destroy(gameObject);
+
+        }
     }
 }

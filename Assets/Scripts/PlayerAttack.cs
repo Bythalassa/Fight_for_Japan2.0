@@ -41,9 +41,12 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.Log("Atacando a " + targets.Count + " enemigos");
 
-            foreach (HeallthManager target in targets)
+            foreach (HeallthManager target in new List<HeallthManager>(targets))
             {
-                target.TakeDamage(damage);
+                if (target != null) // por si ya fue destruido
+                {
+                    target.TakeDamage(damage);
+                }
             }
 
             isAbleToAttack = false;
