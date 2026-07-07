@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class CamaraFollow : MonoBehaviour
 {
     public enum CameraState
@@ -47,12 +46,14 @@ public class CamaraFollow : MonoBehaviour
     public GameObject posicion16;
 
     [Header("Configuracion de movimiento")]
-    public float Speed = 3.5f;
+    public float Speed = 7f;
     public float radiusMovement = 1.7f;
-    public float radiusDeteccionZona = 0.5f; // que tan cerca debe estar el jugador de una posicion para activarla
-    //falta añadir los limites generales de la cámara
+    public float radiusDeteccionZona = 2f; // que tan cerca debe estar el jugador de una posicion para activarla
+    //falta añadir los limites generales de la cámarax 
+    public float margenSalidaZona = 0.5f;
 
     private CameraState estadoActual = CameraState.Libre;
+    private Vector3 velocidadActual = Vector3.zero; //smooth 4 camera
 
     void Update()
     {
@@ -130,8 +131,6 @@ public class CamaraFollow : MonoBehaviour
                 break;
         }
     }
-
-
     private GameObject JugadorActivo()
     {
         if (espadachin.CompareTag("Player"))
@@ -139,8 +138,6 @@ public class CamaraFollow : MonoBehaviour
 
         return compita;
     }
-
-
     private CameraState DeterminarEstado()
     {
         //->  default / default 2 es una copia replicaada
@@ -150,59 +147,69 @@ public class CamaraFollow : MonoBehaviour
         GameObject jugadorActivo = JugadorActivo();
 
         // En pelea ->condiciones del jugador relativas a las posiciones fijas en escena
-        if (posicion1 != null && EstaCerca(jugadorActivo.transform.position, posicion1.transform.position))
+        if (posicion1 != null && EstaEnZona(jugadorActivo.transform.position, posicion1.transform.position, CameraState.Posicion1))
         { return CameraState.Posicion1; }
 
-        if (posicion2 != null && EstaCerca(jugadorActivo.transform.position, posicion2.transform.position))
+        if (posicion2 != null && EstaEnZona(jugadorActivo.transform.position, posicion2.transform.position,CameraState.Posicion2))
         { return CameraState.Posicion2; }
 
-        if (posicion3 != null && EstaCerca(jugadorActivo.transform.position, posicion3.transform.position))
+        if (posicion3 != null && EstaEnZona(jugadorActivo.transform.position, posicion3.transform.position, CameraState.Posicion3))
         { return CameraState.Posicion3; }
 
-        if (posicion4 != null && EstaCerca(jugadorActivo.transform.position, posicion4.transform.position))
+        if (posicion4 != null && EstaEnZona(jugadorActivo.transform.position, posicion4.transform.position, CameraState.Posicion4))
         { return CameraState.Posicion4; }
 
-        if (posicion5 != null && EstaCerca(jugadorActivo.transform.position, posicion5.transform.position))
+        if (posicion5 != null && EstaEnZona(jugadorActivo.transform.position, posicion5.transform.position, CameraState.Posicion5))
         { return CameraState.Posicion5; }
 
-        if (posicion6 != null && EstaCerca(jugadorActivo.transform.position, posicion6.transform.position))
+        if (posicion6 != null && EstaEnZona(jugadorActivo.transform.position, posicion6.transform.position, CameraState.Posicion6))
         { return CameraState.Posicion6; }
 
-        if (posicion7 != null && EstaCerca(jugadorActivo.transform.position, posicion7.transform.position))
+        if (posicion7 != null && EstaEnZona(jugadorActivo.transform.position, posicion7.transform.position, CameraState.Posicion7))
         { return CameraState.Posicion7; }
 
-        if (posicion8 != null && EstaCerca(jugadorActivo.transform.position, posicion8.transform.position))
+        if (posicion8 != null && EstaEnZona(jugadorActivo.transform.position, posicion8.transform.position, CameraState.Posicion8))
         { return CameraState.Posicion8; }
 
-        if (posicion9 != null && EstaCerca(jugadorActivo.transform.position, posicion9.transform.position))
+        if (posicion9 != null && EstaEnZona(jugadorActivo.transform.position, posicion9.transform.position, CameraState.Posicion9))
         { return CameraState.Posicion9; }
 
-        if (posicion10 != null && EstaCerca(jugadorActivo.transform.position, posicion10.transform.position))
+        if (posicion10 != null && EstaEnZona(jugadorActivo.transform.position, posicion10.transform.position, CameraState.Posicion10))
         { return CameraState.Posicion10; }
 
-        if (posicion11 != null && EstaCerca(jugadorActivo.transform.position, posicion11.transform.position))
+        if (posicion11 != null && EstaEnZona(jugadorActivo.transform.position, posicion11.transform.position, CameraState.Posicion11))
         { return CameraState.Posicion11; }
 
-        if (posicion12 != null && EstaCerca(jugadorActivo.transform.position, posicion12.transform.position))
+        if (posicion12 != null && EstaEnZona(jugadorActivo.transform.position, posicion12.transform.position, CameraState.Posicion12))
         { return CameraState.Posicion12; }
 
-        if (posicion13 != null && EstaCerca(jugadorActivo.transform.position, posicion13.transform.position))
+        if (posicion13 != null && EstaEnZona(jugadorActivo.transform.position, posicion13.transform.position, CameraState.Posicion13))
         { return CameraState.Posicion13; }
 
-        if (posicion14 != null && EstaCerca(jugadorActivo.transform.position, posicion14.transform.position))
+        if (posicion14 != null && EstaEnZona(jugadorActivo.transform.position, posicion14.transform.position, CameraState.Posicion14))
         { return CameraState.Posicion14; }
 
-        if (posicion15 != null && EstaCerca(jugadorActivo.transform.position, posicion15.transform.position))
+        if (posicion15 != null && EstaEnZona(jugadorActivo.transform.position, posicion15.transform.position, CameraState.Posicion15))
         { return CameraState.Posicion15; }
 
-        if (posicion16 != null && EstaCerca(jugadorActivo.transform.position, posicion16.transform.position))
+        if (posicion16 != null && EstaEnZona(jugadorActivo.transform.position, posicion16.transform.position, CameraState.Posicion16))
         { return CameraState.Posicion16; }
 
         return CameraState.Libre;
         //porque hay q poner siempre uun return al final q paja 
     }
 
-    private bool HayEnemigoEnPelea() //función que revisa si hay enemigos en pelea
+    private bool EstaEnZona(Vector3 posJugador, Vector3 posZona, CameraState estadoZona)
+    {
+        float radio = radiusDeteccionZona;
+
+        if (estadoActual == estadoZona)
+            radio += margenSalidaZona;
+ 
+        return Vector3.Distance(posJugador, posZona) <= radio;
+    }
+
+private bool HayEnemigoEnPelea()
     {
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -210,15 +217,10 @@ public class CamaraFollow : MonoBehaviour
         {
             HeallthManager hm = enemigo.GetComponent<HeallthManager>();
             if (hm.OnPelea)
-            { return true; }
+                return true;
         }
 
         return false;
-    }
-
-    private bool EstaCerca(Vector3 a, Vector3 b)
-    {
-        return Vector3.Distance(a, b) <= radiusDeteccionZona;
     }
 
     //  logica original de espadachin/compita
@@ -230,16 +232,16 @@ public class CamaraFollow : MonoBehaviour
             FollowTarget(compita);
     }
 
-    public void FollowTarget(GameObject Target) //  core ><
+    public void FollowTarget(GameObject Target) //  core
     {
         Vector3 targetPos = Target.transform.position;
         Vector3 filterPos = new Vector3(targetPos.x, 0f, -1);
-        Vector3 myPos = transform.position;
 
+        Vector3 myPos = transform.position;
+ 
         if (Vector3.Distance(filterPos, myPos) > radiusMovement)
         {
-            Vector3 direction = (filterPos - myPos).normalized;
-            transform.position += direction * Speed * Time.deltaTime;
+            transform.position = Vector3.SmoothDamp(myPos, filterPos, ref velocidadActual, 1f / Speed);
         }
     }
 }
