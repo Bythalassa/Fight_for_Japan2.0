@@ -1,9 +1,7 @@
 using UnityEngine;
 public class Compita : MonoBehaviour
 {
-    public SpriteRenderer sprite;
     public float speed;
-    
     public float Health; //maybe lo extraigo
 
     void Start()

@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class HeallthManager : MonoBehaviour
 {
-    public float Health = 10;
+    public float health = 10;
+    public bool isDead = false;
 
     public void TakeDamage(float damage)
     {
-        Health -= damage;
-        Debug.Log(gameObject.name + " took " + damage + " damage. Remaining health: " + Health);
-    }
+        health -= damage;
+        Debug.Log(gameObject.name + " took " + damage + " damage. Remaining health: " + health);
 
+        if (health <= 0)
+        {
+            isDead = true;
+        }
+    }
 }
