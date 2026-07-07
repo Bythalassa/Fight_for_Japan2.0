@@ -874,6 +874,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 605168738}
   maxSpawnRounds: 2
+  timeToRespawnSE: 5
 --- !u!1 &662581308
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,6 +2754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HeallthManager
   health: 10
   isDead: 0
+  OnPelea: 1
 --- !u!1 &1917022401
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,7 +2970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2040089940
 Transform:
   m_ObjectHideFlags: 0
