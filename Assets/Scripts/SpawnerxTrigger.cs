@@ -13,6 +13,7 @@ public class SpawnerxTrigger : MonoBehaviour
     [Range(1, 3)]
     public int[] enemiesPerWave;
     //hola como estas muy bien y vos? 
+    // yuyos se meo, te toca limpiar, regresa al lobby
     // Variables que cortan el spawn por cantidad de colisiones
     private int sequenceIndex = 0;
     public void SpawnFromTrigger()
