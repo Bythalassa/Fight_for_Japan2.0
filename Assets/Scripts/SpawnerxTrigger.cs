@@ -12,7 +12,7 @@ public class SpawnerxTrigger : MonoBehaviour
     [Header("Cantidad de enemigos por oleada")]
     [Range(1, 3)]
     public int[] enemiesPerWave;
-
+    //hola como estas muy bien y vos? 
     // Variables que cortan el spawn por cantidad de colisiones
     private int sequenceIndex = 0;
     public void SpawnFromTrigger()
