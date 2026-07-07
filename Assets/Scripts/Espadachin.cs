@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Espadachin : MonoBehaviour
 {
-    public SpriteRenderer sprite;
     public float Health;
     public float Speed;
 
