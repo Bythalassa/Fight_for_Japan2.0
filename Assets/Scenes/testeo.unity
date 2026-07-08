@@ -823,7 +823,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   targets: []
-  damage: 5
+  damagePercent: 10
+  attackSignalDuration: 0.2
 --- !u!61 &400154614
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4144,9 +4145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9456eed223c3d0e4fb575c7f6f678cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeallthManager
+  maxHealth: 10
   health: 10
   isDead: 0
   OnPelea: 1
+  isInvulnerable: 0
 --- !u!1 &1917022401
 GameObject:
   m_ObjectHideFlags: 0
@@ -4565,7 +4568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   targets: []
-  damage: 3
+  damagePercent: 10
+  attackSignalDuration: 0.2
 --- !u!1 &2107473127
 GameObject:
   m_ObjectHideFlags: 0
@@ -4799,6 +4803,10 @@ PrefabInstance:
     - target: {fileID: 3405974984210334421, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
       propertyPath: Speed
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3405974984210334421, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3405974984210334421, guid: 8d4ee15d2fae3644c82bad77ed89425e, type: 3}
       propertyPath: hoverRange
