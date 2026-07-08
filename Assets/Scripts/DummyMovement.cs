@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//might need this script later
 public enum DummyEnum
 {
     None,
