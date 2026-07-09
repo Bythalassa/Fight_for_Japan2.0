@@ -1391,12 +1391,20 @@ PrefabInstance:
       value: Tio-Foxy-JR
       objectReference: {fileID: 0}
     - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7567
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7951
+      objectReference: {fileID: 0}
+    - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.605579
+      value: 8.105579
       objectReference: {fileID: 0}
     - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.10634
+      value: 1.3936601
       objectReference: {fileID: 0}
     - target: {fileID: 5995485634117211586, guid: 0c6e44e2159ebb64a8250d6c568f7513, type: 3}
       propertyPath: m_LocalPosition.z

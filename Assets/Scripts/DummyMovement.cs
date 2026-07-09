@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 //might need this script later
-public enum DummyState
+public enum DummyStateTwoo
 {
     Spawn,
     IdleAfterSpawn,
@@ -20,7 +20,7 @@ public enum DummyState
 public class DummyMovement : MonoBehaviour
 {
     [Header("Estado actual (solo lectura, para debug)")]
-    public DummyState state = DummyState.Spawn;
+    public DummyStateTwoo state = DummyStateTwoo.Spawn;
 
     [Header("Referencias")]
     private GameObject player;
@@ -130,14 +130,14 @@ public class DummyMovement : MonoBehaviour
         // del player en este instante, y no a una posicion vieja o cacheada.
         UpdatePlayerTracking();
 
-        if (health.Vida <= 0 && state != DummyState.Dead)
+        if (health.Vida <= 0 && state != DummyStateTwoo.Dead)
         {
             StopAllCoroutines();
-            state = DummyState.Dead;
+            state = DummyStateTwoo.Dead;
             return;
         }
 
-        if (!inRecovery && state != DummyState.Dead && health.recoveryThresholdReached && !health.isRecovering)
+        if (!inRecovery && state != DummyStateTwoo.Dead && health.recoveryThresholdReached && !health.isRecovering)
         {
             StartCoroutine(RecoveryRoutine());
             Debug.Log("StartCoroutine(RecoveryRoutine()) started");
@@ -145,34 +145,34 @@ public class DummyMovement : MonoBehaviour
 
         switch (state)
         {
-            case DummyState.Spawn:
-            case DummyState.IdleAfterSpawn:
-            case DummyState.WaitPhase:
-            case DummyState.ExtremeSway:
+            case DummyStateTwoo.Spawn:
+            case DummyStateTwoo.IdleAfterSpawn:
+            case DummyStateTwoo.WaitPhase:
+            case DummyStateTwoo.ExtremeSway:
                 // Estos estados se resuelven enteramente por Coroutine.
                 break;
 
-            case DummyState.WalkBehind:
+            case DummyStateTwoo.WalkBehind:
                 WalkBehindLogic();
                 break;
 
-            case DummyState.Approach:
+            case DummyStateTwoo.Approach:
                 ApproachLogic();
                 break;
 
-            case DummyState.Camping:
+            case DummyStateTwoo.Camping:
                 CampingLogic();
                 break;
 
-            case DummyState.CrossRange:
+            case DummyStateTwoo.CrossRange:
                 CrossRangeLogic();
                 break;
 
-            case DummyState.Attacking:
+            case DummyStateTwoo.Attacking:
                 AttackingLogic();
                 break;
 
-            case DummyState.Dead:
+            case DummyStateTwoo.Dead:
                 DeadLogic();
                 break;
         }
@@ -182,7 +182,7 @@ public class DummyMovement : MonoBehaviour
 
     IEnumerator SpawnRoutine()
     {
-        state = DummyState.Spawn;
+        state = DummyStateTwoo.Spawn;
         SetAnim("Idle");
         yield return new WaitForSeconds(idleSpawnTime); // 1b
 
@@ -202,7 +202,7 @@ public class DummyMovement : MonoBehaviour
             yield return null;
         }
 
-        state = DummyState.IdleAfterSpawn;
+        state = DummyStateTwoo.IdleAfterSpawn;
         DecideNextState();
     }
     void DecideNextState() //cambios de estado je nach condiciones
@@ -228,11 +228,11 @@ public class DummyMovement : MonoBehaviour
 
         if (!IsAnyEnemyBehindPlayer())
         {
-            state = DummyState.WalkBehind;
+            state = DummyStateTwoo.WalkBehind;
             return;
         }
 
-        state = DummyState.Approach;
+        state = DummyStateTwoo.Approach;
     }
 
     //WALK BEHIND (direccion fija por atras del player)
@@ -298,14 +298,14 @@ public class DummyMovement : MonoBehaviour
         // 2b: player se mueve -> Campeo
         if (IsPlayerMoving())
         {
-            state = DummyState.Camping;
+            state = DummyStateTwoo.Camping;
             return;
         }
 
         // 2c: player ataca pero no se mueve -> traspasar rango
         if (/*IsPlayerAttacking() &&*/ !IsPlayerMoving())
         {
-            state = DummyState.CrossRange;
+            state = DummyStateTwoo.CrossRange;
             return;
         }
 
@@ -316,7 +316,7 @@ public class DummyMovement : MonoBehaviour
         if (Vector3.Distance(targetPos, myPos) <= radiusMovement)
         {
             side = (myPos.x >= targetPos.x) ? -1f : 1f;
-            state = DummyState.Attacking;
+            state = DummyStateTwoo.Attacking;
         }
     }
 
@@ -327,7 +327,7 @@ public class DummyMovement : MonoBehaviour
 
     IEnumerator WaitPhaseRoutine()
     {
-        state = DummyState.WaitPhase;
+        state = DummyStateTwoo.WaitPhase;
         SetAnim("Walk");
 
         float facing = FacingSign(); // 1 = player a la derecha, -1 = player a la izquierda
@@ -355,11 +355,11 @@ public class DummyMovement : MonoBehaviour
         if (CountEnemiesNearPlayer() >= enemiesForWaitPhase)
         {
             campWaypointsSet = false;
-            state = DummyState.Camping;
+            state = DummyStateTwoo.Camping;
         }
         else
         {
-            state = DummyState.Approach;
+            state = DummyStateTwoo.Approach;
         }
     }
 
@@ -446,7 +446,7 @@ public class DummyMovement : MonoBehaviour
         if (CountEnemiesNearPlayer() < enemiesForWaitPhase && !IsPlayerMoving())
         {
             campWaypointsSet = false; // se recalculan la proxima vez que entre a Camping
-            state = DummyState.Approach;
+            state = DummyStateTwoo.Approach;
         }
     }
 
@@ -476,7 +476,7 @@ public class DummyMovement : MonoBehaviour
             SetAnim("Idle");
             if (CountEnemiesNearPlayer() >= enemiesForWaitPhase)
             {
-                state = DummyState.Camping;
+                state = DummyStateTwoo.Camping;
             }
             // si no hay 3 enemigos, se queda quieto en idle (no hace nada mas)
         }
@@ -486,7 +486,7 @@ public class DummyMovement : MonoBehaviour
     IEnumerator CheckExtremeSwayRoutine()
     {
         extremeSwayChecked = true;
-        state = DummyState.ExtremeSway;
+        state = DummyStateTwoo.ExtremeSway;
         SetAnim("Idle");
 
         yield return new WaitForSeconds(2f);
@@ -531,7 +531,7 @@ public class DummyMovement : MonoBehaviour
         transform.position = player.transform.position + new Vector3(radiusMovement * (side == 0 ? 1f : side), 0f, 0f);
 
         // d. ejecuta ataque
-        state = DummyState.Attacking;
+        state = DummyStateTwoo.Attacking;
     }
 
     //Recovery
@@ -565,7 +565,7 @@ public class DummyMovement : MonoBehaviour
         // si el player se aleja del rango, vuelve a perseguir
         if (Vector3.Distance(transform.position, player.transform.position) > radiusMovement * 1.5f)
         {
-            state = DummyState.Approach;
+            state = DummyStateTwoo.Approach;
         }
     }
 
