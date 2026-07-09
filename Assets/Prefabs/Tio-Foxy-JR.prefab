@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5995485634117211586}
   - component: {fileID: 1663286531577157820}
-  - component: {fileID: 5218738458614828976}
   - component: {fileID: 4204777153975173827}
   - component: {fileID: -4615769080398443065}
   - component: {fileID: 5514596317530109005}
@@ -95,32 +94,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &5218738458614828976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5655845150628234690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e577f8dc53487d468781dffc5650856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Dummy
-  state: 1
-  speed: 4
-  radiusMovement: 0.5
-  sideOffset: 4
-  hoverRange: 3.5
-  hoverSpeed: 60
-  idleSpawnTime: 2
-  attackCooldown: 4
-  enemiesForWaitPhase: 3
-  enemiesForExtremeSway: 5
-  groupCheckRadius: 8
-  damagePercent: 1
-  stepDistance: 1
-  deathAnimDuration: 1.5
 --- !u!61 &4204777153975173827
 BoxCollider2D:
   m_ObjectHideFlags: 0
