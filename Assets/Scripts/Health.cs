@@ -1,11 +1,12 @@
 using UnityEngine;
-using System.Collections; //component 4m: IEnumerator
+using System.Collections;
+using UnityEngine.AdaptivePerformance; //component 4m: IEnumerator
 
 public class Health : MonoBehaviour
 {
     [Header("Vida")]
-    public float maxVida = 10f;   // 100% de vida
-    public float Vida = 10f;      // vida actual
+    public float maxVida;   // 100% de vida
+    public float Vida;      // vida actual
 
     [Header("Estado")]
     public bool isDead = false;
@@ -41,10 +42,11 @@ public class Health : MonoBehaviour
             return;
         }
 
-        if (!recoveryThresholdReached && Vida <= recoveryThreshold)
+        if (!recoveryThresholdReached && Vida >= recoveryThreshold) // bruder: >= cuando a llegado al número o es menor, si no es igual entonces no puede ser mayor, pero si puede ser menor 
         {
             recoveryThresholdReached = true;
         }
+
     }
 
     //estado de recuperación
@@ -57,11 +59,13 @@ public class Health : MonoBehaviour
         float elapsed = 0f;
         while (elapsed < recoveryDuration)
         {
+            Debug.Log("RegenerateOverTime started");
             elapsed += Time.deltaTime;
             Vida += curacionPorSegundo * Time.deltaTime;
 
-            if (Vida > maxVida) Vida = maxVida; // por si se pasa un poco
+            if (Vida > maxVida) Vida = maxVida; //esto solo tiene sentido si :  if (!recoveryThresholdReached && Vida == recoveryThreshold)
             yield return null;
+            Debug.Log(gameObject.name + "Health is equal to" + Vida);
         }
 
         Vida = maxVida;

@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dummy
   state: 1
-  speed: 3
+  speed: 4
   radiusMovement: 0.5
   sideOffset: 4
   hoverRange: 3.5
@@ -206,12 +206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxVida: 10
-  Vida: 10
+  maxVida: 15
+  Vida: 15
   isDead: 0
   isInvulnerable: 0
   OnPelea: 0
-  recoveryThreshold: 0
+  recoveryThreshold: 15
   recoveryDuration: 5
   recoveryThresholdReached: 0
   isRecovering: 0
