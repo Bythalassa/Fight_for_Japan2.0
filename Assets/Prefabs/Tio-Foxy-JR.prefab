@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1663286531577157820}
   - component: {fileID: 5218738458614828976}
   - component: {fileID: 4204777153975173827}
-  - component: {fileID: 6273033582253237474}
   - component: {fileID: -4615769080398443065}
+  - component: {fileID: 5514596317530109005}
   m_Layer: 3
   m_Name: Tio-Foxy-JR
   m_TagString: Enemy
@@ -108,11 +108,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dummy
   state: 1
-  Speed: 4
+  speed: 3
   radiusMovement: 0.5
   sideOffset: 4
   hoverRange: 3.5
   hoverSpeed: 60
+  idleSpawnTime: 2
+  attackCooldown: 4
+  enemiesForWaitPhase: 3
+  enemiesForExtremeSway: 5
+  groupCheckRadius: 8
+  damagePercent: 1
+  stepDistance: 1
+  deathAnimDuration: 1.5
 --- !u!61 &4204777153975173827
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,21 +167,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.11, y: 4.88}
   m_EdgeRadius: 0
---- !u!114 &6273033582253237474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5655845150628234690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9456eed223c3d0e4fb575c7f6f678cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HeallthManager
-  health: 100
-  isDead: 0
-  OnPelea: 1
 --- !u!50 &-4615769080398443065
 Rigidbody2D:
   serializedVersion: 5
@@ -201,3 +194,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5514596317530109005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5655845150628234690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxVida: 10
+  Vida: 10
+  isDead: 0
+  isInvulnerable: 0
+  OnPelea: 0
+  recoveryThreshold: 0
+  recoveryDuration: 5
+  recoveryThresholdReached: 0
+  isRecovering: 0

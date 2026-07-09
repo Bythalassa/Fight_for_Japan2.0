@@ -215,7 +215,7 @@ private bool HayEnemigoEnPelea()
 
         foreach (GameObject enemigo in enemigos)
         {
-            HeallthManager hm = enemigo.GetComponent<HeallthManager>();
+            Health hm = enemigo.GetComponent<Health>();
             if (hm.OnPelea)
                 return true;
         }

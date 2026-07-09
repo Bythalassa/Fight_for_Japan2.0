@@ -1,6 +1,6 @@
-using UnityEngine;
+//Susing UnityEngine;
 
-public class HeallthManager : MonoBehaviour
+/*public class HeallthManager : MonoBehaviour
 {
     //planteando el daño porcentual
 
@@ -29,3 +29,4 @@ public class HeallthManager : MonoBehaviour
         }
     }
 }
+*/

@@ -28,9 +28,9 @@ public class SpawnerxEvento : MonoBehaviour
             return;
         }
 
-        HeallthManager[] enemies = FindObjectsByType<HeallthManager>(FindObjectsSortMode.None);
+        Health[] enemies = FindObjectsByType<Health>(FindObjectsSortMode.None);
 
-        foreach (HeallthManager enemy in enemies)
+        foreach (Health enemy in enemies)
         {
             if (enemy.isDead)
             {

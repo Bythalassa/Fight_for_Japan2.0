@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public List<HeallthManager> targets = new List<HeallthManager>();
+    public List<Health> targets = new List<Health>();
 
     public float damagePercent = 10f; // ahora es un %, no un numero fijo (10 = 10%)
     private bool isAbleToAttack;
@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            if (collision.TryGetComponent<HeallthManager>(out HeallthManager health))
+            if (collision.TryGetComponent<Health>(out Health health))
             {
                 targets.Add(health);
             }
@@ -27,7 +27,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            if (collision.TryGetComponent<HeallthManager>(out HeallthManager health))
+            if (collision.TryGetComponent<Health>(out Health health))
             {
                 targets.Remove(health);
             }
@@ -45,7 +45,7 @@ public class PlayerAttack : MonoBehaviour
         {
             IsAttacking = true; 
             Debug.Log("Atacando a " + targets.Count + " enemigos con " + damagePercent + "%");
-            foreach (HeallthManager target in new List<HeallthManager>(targets))
+            foreach (Health target in new List<Health>(targets))
             {
                 if (target != null)
                 {

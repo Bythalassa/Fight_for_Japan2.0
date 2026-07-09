@@ -25,7 +25,7 @@ public class DummyMovement : MonoBehaviour
     [Header("Referencias")]
     private GameObject player;
     private Animator anim;
-    private HeallthManager health; // vida de ESTE enemigo
+    private Health health;  // vida de ESTE enemigo
 
     [Header("Movimiento general")]
     public float speed = 3f;
@@ -53,8 +53,7 @@ public class DummyMovement : MonoBehaviour
     public float damagePercent = 1f; // 1, 2 o 3 segun el enemigo (1%, 2%, 3%)
 
     [Header("Recuperacion")]
-    public float recoveryLifeThreshold = 8f; // vida <= a esto activa recovery (de un maximo de 10)
-    public float recoveryDuration = 2f;
+   //THE REST IS ON health 
     private bool inRecovery = false;
 
     [Header("Pasos (WaitPhase / ExtremeSway)")]
@@ -71,34 +70,39 @@ public class DummyMovement : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
-        health = GetComponent<HeallthManager>();
+        health = GetComponent<Health>();
+
+       /* if (player != null) //porque me importa estas lineas no entiendo
+        {
+            playerAttack = player.GetComponent<PlayerAttackBase>(); // trae EspadachinAttack o CompitaAttack, lo que este en el player
+        }*/
 
         StartCoroutine(SpawnRoutine());
     }
 
     void Update()
     {
-        if (player == null) return;
+        if (player == null) return;//wegen?
+        if (health == null) return;//wegen?
 
-       // if (health != null && health.Vida <= 0 && state != DummyState.Dead)
+        if (health.Vida <= 0 && state != DummyState.Dead)
         {
             StopAllCoroutines();
             state = DummyState.Dead;
+            return;
         }
 
-       // if (health != null && !inRecovery && state != DummyState.Dead && health.Vida <= recoveryLifeThreshold)
+        if (!inRecovery && state != DummyState.Dead && health.recoveryThresholdReached && !health.isRecovering)
         {
             StartCoroutine(RecoveryRoutine());
         }
 
-
-        switch (state)
+            switch (state)
         {
             case DummyState.Spawn:
             case DummyState.IdleAfterSpawn:
             case DummyState.WaitPhase:
             case DummyState.ExtremeSway:
-            case DummyState.Recovery:
                 // Estos estados se resuelven enteramente por Coroutine.
                 break;
 
@@ -139,15 +143,9 @@ public class DummyMovement : MonoBehaviour
         state = DummyState.IdleAfterSpawn;
         DecideNextState();
     }
-    //IEnumerator is ...
-
     void DecideNextState() //cambios de estado je nach condiciones
     {
-      //  if (health != null && health.Vida <= 0)
-        {
-            state = DummyState.Dead;
-            return;
-        }
+        // El chequeo de muerte ya se maneja centralizado en Update(), no se duplica aqui.
 
         if (!extremeSwayChecked && CountEnemiesInScene() == enemiesForExtremeSway)
         {
@@ -204,7 +202,7 @@ public class DummyMovement : MonoBehaviour
         }
 
         // 2c: player ataca pero no se mueve -> traspasar rango
-        if (IsPlayerAttacking() && !IsPlayerMoving())
+        if (/*IsPlayerAttacking() &&*/ !IsPlayerMoving())
         {
             state = DummyState.CrossRange;
             return;
@@ -381,23 +379,20 @@ public class DummyMovement : MonoBehaviour
 
         // d. ejecuta ataque
         state = DummyState.Attacking;
-        }
+    }
 
     //Recovery
     IEnumerator RecoveryRoutine()
     {
         inRecovery = true;
-        state = DummyState.Recovery;
-        SetAnim("Recover");
+        SetAnim("Recover"); // ideal en una capa de animator aparte, para no pisar la anim de movimiento
 
-        if (health != null) health.isInvulnerable = true;
+        // No tocamos "state" ni "isInvulnerable": el enemigo se sigue moviendo
+        // con el estado que ya tenia (Approach, Camping, etc.) y puede seguir
+        // recibiendo golpes mientras Health regenera Vida de a poco.
+        yield return health.RegenerateOverTime();
 
-        yield return new WaitForSeconds(recoveryDuration);
-
-        if (health != null) health.isInvulnerable = false;
         inRecovery = false;
-
-        DecideNextState(); // vuelve a elegir el flujo normal
     }
 
     //ATTACKING
@@ -422,9 +417,9 @@ public class DummyMovement : MonoBehaviour
 
     void DoDamageToPlayer()
     {
-        if (player.TryGetComponent<HeallthManager>(out HeallthManager playerHealth))
+        if (player.TryGetComponent<Health>(out Health playerHealth))
         {
-            playerHealth.TakeDamage(damagePercent); // TODO: TakeDamage debe tratar esto como % de vida
+            playerHealth.TakeDamage(damagePercent); // TakeDamage trata esto como % de vida
         }
     }
 
@@ -483,14 +478,9 @@ public class DummyMovement : MonoBehaviour
         return false;
     }
 
-    bool IsPlayerAttacking()
+    /*bool IsPlayerAttacking()
     {
-        //return compitaMovement.isMoving; REPLACE this to the players script and function
-        return false;
-    }
-
-
-
-
-
+        Ya conectado a PlayerAttack.IsAttacking; si no hay referencia, asume que no ataca.
+        //return playerAttack != null && playerAttack.IsAttacking;
+    }*/
 }

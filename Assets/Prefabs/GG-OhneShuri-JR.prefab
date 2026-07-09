@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 977988599933254362}
   - component: {fileID: 3405974984210334421}
   - component: {fileID: 6910128687764782142}
-  - component: {fileID: 6415217748703011990}
   - component: {fileID: -8884264548910410911}
+  - component: {fileID: 9147470238248708345}
   m_Layer: 3
   m_Name: GG-OhneShuri-JR
   m_TagString: Enemy
@@ -108,11 +108,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dummy
   state: 1
-  Speed: 4
+  speed: 3
   radiusMovement: 0.5
   sideOffset: 4
   hoverRange: 2.5
   hoverSpeed: 40
+  idleSpawnTime: 2
+  attackCooldown: 4
+  enemiesForWaitPhase: 3
+  enemiesForExtremeSway: 5
+  groupCheckRadius: 8
+  damagePercent: 1
+  stepDistance: 1
+  deathAnimDuration: 1.5
 --- !u!61 &6910128687764782142
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,21 +167,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.28, y: 3.96}
   m_EdgeRadius: 0
---- !u!114 &6415217748703011990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8891568253950891518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9456eed223c3d0e4fb575c7f6f678cf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HeallthManager
-  health: 100
-  isDead: 0
-  OnPelea: 1
 --- !u!50 &-8884264548910410911
 Rigidbody2D:
   serializedVersion: 5
@@ -201,3 +194,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &9147470238248708345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891568253950891518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxVida: 10
+  Vida: 10
+  isDead: 0
+  isInvulnerable: 0
+  OnPelea: 0
+  recoveryThreshold: 0
+  recoveryDuration: 5
+  recoveryThresholdReached: 0
+  isRecovering: 0
