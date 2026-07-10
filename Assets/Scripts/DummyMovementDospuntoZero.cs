@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public enum DummyState
 {
@@ -16,6 +18,7 @@ public enum DummyState
 
 public class DummyMovementDospuntoZero : MonoBehaviour
 {
+
     private GameObject playerTarget;
     public GameObject enemyTarget;
     public Animator anim;
@@ -26,7 +29,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
     [Header("Movimiento general")]
     public float Maxspeed = 3f;
     public float radiusMovement = 3f; //(medir que chota con esto pq wtf)
-    public float AttackRadious = 2.5f;
+    //public float AttackRadious = 2.5f; llamar al radiusAttack del script PlayerAttack.cs
     public float PassiveAttackRadious = 5f; //relativamente muy lejos del jugador
     public float sideOffset = 20f; //same here
     private float side; // -1 izquierda / 1 derecha respecto al player
@@ -42,6 +45,10 @@ public class DummyMovementDospuntoZero : MonoBehaviour
     //Approach
     private float currentTimeApproach;
     private float MaxTimeApproach = 1.5f;
+    //Condicion state = ExtremeSway
+    public bool FiveEnemiesOnRange = false;
+    //Condicion state = WaitPhase 3 onrANGE
+    public bool ThreeEnemiesOnRange = false;
 
     [SerializeField] private RuntimeAnimatorController controladorThisEnemy; //no estoy usando esto
 
@@ -56,6 +63,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
         scriptHealth = GetComponent<Health>();
         scriptCamera = GetComponent<EnemyCameraCheck>();
         scriptPMovement = GetComponent<pMovement>();
+
     }
 
     void Update()
@@ -110,24 +118,20 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                     }
 
                     currentTimeApproach += Time.deltaTime;
-
                     if (currentTimeApproach >= MaxTimeApproach)
                     {
                         if (EnemyTargetPos.x != 1.39366f)
                         { state = DummyState.WalkBehind;}
                         else transform.position += direction * Maxspeed * Time.deltaTime;
                     }
-   
-                    // if 
 
-                    /*condiciones extracurrriculares 
-                     * 
-                     * if (5 EnemyTargetPos == AttackRadiousPassive ) {  state = DummyState.ExtremeSway; }
-                     * lo mueve ligeramente lejos al player
-                     * 
-                     * if (3 EnemyTargetPos == AttackRadious ) { state = DummyState.WaitPhase;  }
-                     * 
-                    */
+                    if (FiveEnemiesOnRange)
+                    { state = DummyState.ExtremeSway; }
+                    else transform.position += direction * Maxspeed * Time.deltaTime;
+
+                    if (ThreeEnemiesOnRange)
+                    { state = DummyState.WaitPhase; }
+                    else transform.position += direction * Maxspeed * Time.deltaTime;
 
                 }
                 break;
