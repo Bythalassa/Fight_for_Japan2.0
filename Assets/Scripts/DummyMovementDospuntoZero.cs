@@ -1,8 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public enum DummyState
 {
@@ -74,7 +71,8 @@ public class DummyMovementDospuntoZero : MonoBehaviour
     public float hoverSpeed = 9f;   // velocidad del vaivén
     private float hoverOffset = 0f;
     private int hoverDirection = 1; // 1 = derecha, -1 = izquierda // no puede ser más q 1 (se queda en 1)
-
+    // Attack
+    public float damagePercent = 10f;
 
     //me esta falttando porner todos los anims y testing
 
@@ -123,6 +121,9 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                         currentTime = 0;
                     }
                     else if (currentTime == 0) { state = DummyState.Approach; }
+
+                    if (scriptHealth.Vida <= 0) { state = DummyState.Dead; }
+
                 }
                 break;
 
@@ -156,6 +157,9 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                     if (ThreeEnemiesOnRange)
                     { state = DummyState.WaitPhase; }
                     else transform.position += direction * Maxspeed * Time.deltaTime;
+
+                    if (scriptHealth.Vida <= 0) { state = DummyState.Dead; }
+
                 }
                 break;
 
@@ -168,6 +172,8 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                     if (transform.position.x == PlayerTargetPos.x)
                     { state = DummyState.Approach; }
                     //moverse desde su posicion hacia x.1.39366, hasta el playerTarget x luego cambiar
+
+                    if (scriptHealth.Vida <= 0) { state = DummyState.Dead; }
 
                 }
                 break;
@@ -210,6 +216,8 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                         }
                     }
                     //recomendacion de reseteo extra en otra funcion pero yolo 
+                    if (scriptHealth.Vida <= 0) { state = DummyState.Dead; }
+
                 }
                 break;
             case DummyState.Camping:
@@ -278,6 +286,8 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                             waypointIndex = 0;
                         }
                     }
+
+                    if (scriptHealth.Vida <= 0) { state = DummyState.Dead; }
                 }
                 break;
             case DummyState.CrossRange:
@@ -303,8 +313,11 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                     else if (Vector3.Distance(PlayerTargetPos, myPos) > radiusMovement)
                        { state = DummyState.WaitPhase; }
                     }
+
+                    if (scriptHealth.Vida <= 0) { state = DummyState.Dead; }
+
                 }
-                 break;
+                break;
             case DummyState.ExtremeSway:
                 {
                     float dirSide = (side == 0f) ? 1f : side;
@@ -362,42 +375,69 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                             swayStep = 0; // reset para la próxima vez que entre a ExtremeSway
                             break;
                     }
+
+                    if (scriptHealth.Vida <= 0) { state = DummyState.Dead; }
+
                 }
                 break;
             case DummyState.Recovery:
+                {
+                    if (!scriptHealth.isRecovering)
                         {
-
-
-
-
-
+                            //SetAnim("Recover");
+                            scriptHealth.StartRegeneration(); 
                         }
-                 break;
+
+                    scriptHealth.TickRegeneration();
+                    if (!scriptHealth.isRecovering)
+                        {
+                             scriptHealth.isRecovering = false;
+                        } 
+                    }
+
+                if (scriptHealth.Vida <= 0) { state = DummyState.Dead; }
+
+                break;
             case DummyState.Attacking:
-                        {
-                            //solo animAtaque -> y Do damage . take from Vida 
-                            //
-                            //if player moving in y =  case switch campeo 
-                            //if player moving in x =  case switch wait phase  
+                 {
+                    //SetAnim("Attack");
+                    playerTarget.GetComponent<Health>().Vida -= damagePercent;
 
+                    Vector3 filteredPlayerPosX = new Vector3(
+                    playerTarget.transform.position.x > 3.5f ? playerTarget.transform.position.x : transform.position.x,
+                    transform.position.y,
+                    transform.position.z
+                    );
 
+                    Vector3 filteredPlayerPosY = new Vector3(
+                    transform.position.x,
+                    playerTarget.transform.position.x > 3.5f ? playerTarget.transform.position.y : transform.position.y,
+                    transform.position.z
+                    );
 
-                        }
-                 break;
+                    if (Vector3.Distance(filteredPlayerPosX, myPos) > radiusMovement)
+                    //moviendose en x
+                    { state = DummyState.WaitPhase; }
+                    else if (Vector3.Distance(filteredPlayerPosY, myPos) > radiusMovement)
+                    //moviendose en y
+                    { state = DummyState.Camping; }
+
+                    if (scriptHealth.Vida <= 0) { state = DummyState.Dead; }
+
+                }
+                break;
              case DummyState.Dead:
-                        {
+                 {
+                    //SetAnim("Death");
+                    //Destroy(gameObject, deathAnimDuration);
 
-                        }
+                 }
                   break;
              default:
                   break;
 
-
-
                     }
                 } 
-
-
 
     private void CheckingVidavar()
     {

@@ -139,7 +139,6 @@ public class DummyMovement : MonoBehaviour
 
         if (!inRecovery && state != DummyStateTwoo.Dead && health.recoveryThresholdReached && !health.isRecovering)
         {
-            StartCoroutine(RecoveryRoutine());
             Debug.Log("StartCoroutine(RecoveryRoutine()) started");
         }
 
@@ -535,19 +534,7 @@ public class DummyMovement : MonoBehaviour
     }
 
     //Recovery
-    IEnumerator RecoveryRoutine()
-    {
-        inRecovery = true;
-        SetAnim("Recover"); // ideal en una capa de animator aparte, para no pisar la anim de movimiento
-
-        // No tocamos "state" ni "isInvulnerable": el enemigo se sigue moviendo
-        // con el estado que ya tenia (Approach, Camping, etc.) y puede seguir
-        // recibiendo golpes mientras Health regenera Vida de a poco.
-        yield return health.RegenerateOverTime();
-        Debug.Log("RegenerateOverTime started");
-
-        inRecovery = false;
-    }
+   
 
     //ATTACKING
     void AttackingLogic()

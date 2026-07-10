@@ -19,7 +19,9 @@ public class Health : MonoBehaviour
     public bool recoveryThresholdReached = false;
     public bool isRecovering = false;
     //Threshold = Límite de tolerancia
-   
+
+    private float curacionPorSegundo;
+    private float recoveryElapsed;
 
     public void TakeDamage(float damagePercent)
     {
@@ -48,33 +50,32 @@ public class Health : MonoBehaviour
         }
 
     }
-
-    //estado de recuperación
-    public IEnumerator RegenerateOverTime()
+    public void StartRegeneration()
     {
         isRecovering = true;
         float vidaFaltante = maxVida - Vida;
-        float curacionPorSegundo = vidaFaltante / recoveryDuration;
+        curacionPorSegundo = vidaFaltante / recoveryDuration;
+        recoveryElapsed = 0f;
+        Debug.Log("RegenerateOverTime started");
+    }
 
-        float elapsed = 0f;
-        while (elapsed < recoveryDuration)
-        {
-            Debug.Log("RegenerateOverTime started");
-            elapsed += Time.deltaTime;
-            Vida += curacionPorSegundo * Time.deltaTime;
+    public void TickRegeneration()
+    {
+        if (!isRecovering) return;
 
-            if (Vida > maxVida) Vida = maxVida; //esto solo tiene sentido si :  if (!recoveryThresholdReached && Vida == recoveryThreshold)
-            yield return null;
-            Debug.Log(gameObject.name + "Health is equal to" + Vida);
-        }
+        recoveryElapsed += Time.deltaTime;
+        Vida += curacionPorSegundo * Time.deltaTime;
 
+        if (Vida > maxVida) Vida = maxVida;
+
+    Debug.Log(gameObject.name + " Health is equal to " + Vida);
+
+    if (recoveryElapsed >= recoveryDuration)
+    {
         Vida = maxVida;
         recoveryThresholdReached = false; // puede volver a dispararse mas adelante
         isRecovering = false;
     }
-
-    public void ResetRecoveryFlag()
-    {
-        recoveryThresholdReached = false;
     }
+
 }
