@@ -20,7 +20,9 @@ public class DummyMovementDospuntoZero : MonoBehaviour
     private GameObject playerTarget;
     private GameObject enemyTarget;
     private Animator anim;
-    private Health Vida; 
+    private Health Vida;
+    private Health recoveryThresholdReached;
+
 
     [Header("Movimiento general")]
     public float Maxspeed = 3f;
@@ -41,7 +43,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
     private float MaxTime = 3f;
 
 
-    [SerializeField] private RuntimeAnimatorController controladorThisEnemy;
+    [SerializeField] private RuntimeAnimatorController controladorThisEnemy; //no estoy usando esto
 
     [Header("Estado actual (solo lectura, para debug)")]
     public DummyState state = DummyState.IdleAfterSpawn;
@@ -53,7 +55,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
         anim = GetComponent<Animator>();
         Vida = GetComponent<Health>();
         isOnCamRange = GetComponent<EnemyCameraCheck>();
-
+        recoveryThresholdReached = GetComponent<Health>();
 
     }
 
@@ -68,6 +70,10 @@ public class DummyMovementDospuntoZero : MonoBehaviour
 
         switch (state)
         {
+
+            // if (Vida = recoveryThresholdReached ){ state = DummyState.Recovery; }
+            // if (Vida >= 0 ){ state = DummyState.Dead; }
+
             case DummyState.IdleAfterSpawn :
                 transform.position += direction * Maxspeed * Time.deltaTime; 
                 
@@ -91,7 +97,8 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                     //allEnemy aproach it 
                     transform.position += direction * Maxspeed * Time.deltaTime;
 
-                    //  if myPos == attackRadious { state = DummyState.campeo; } }
+                    //  if if myPos == attackRadious && player !facingMypos {  state = DummyState.CrossRange;  }
+                    //  if myPos == attackRadious && player facing My pos{ state = DummyState.campeo; } }
 
                     //falta recovery/ Cross RANGE // ATTACKING / DEAD
 
@@ -104,12 +111,10 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                      * 
                      * if (5 EnemyTargetPos == AttackRadiousPassive ) {  state = DummyState.ExtremeSway; }
                      * lo mueve ligeramente lejos al player
+                     * 
                      * if (3 EnemyTargetPos == AttackRadious ) { state = DummyState.WaitPhase;  }
                      * 
-                     * 
-                     * 
                     */
-
 
                 }
                 break;
@@ -120,10 +125,10 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                 break;
             case DummyState.WaitPhase:
                 {
-                    //movimiento normal de waIT PHASE lo mueve más cerca al player
-
-                    //if (!3 EnemyTargetPos == AttackRadious ) { state = DummyState.campeo; }
-
+                    //que se mueva en campeo 
+                    //en direccion -> alejandose de player = camina
+                    //llega a posicion del player de vuelta = puede atacar = i (si i = 3 {case switch to attack y i= 0 })
+                    //
                 }
                 break;
             case DummyState.Camping:
@@ -139,6 +144,11 @@ public class DummyMovementDospuntoZero : MonoBehaviour
             case DummyState.CrossRange:
                 {
 
+                    //logica de cambiio
+                    //y if player near : { state = DummyState.WaitPhase; }
+                    //y if player LongDistance : { state = DummyState.Campeo; }
+
+
                 }
                 break;
             case DummyState.ExtremeSway:
@@ -148,6 +158,8 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                 break;
             case DummyState.Recovery:
                 {
+
+
 
                 }
                 break;
