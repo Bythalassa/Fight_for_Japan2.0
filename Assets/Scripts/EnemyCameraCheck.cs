@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class EnemyCameraCheck : MonoBehaviour
 {
-    private Camera mainCamera;
-    public bool isOnCamRange;
-
+    public Camera mainCamera;
 
     void Start()
     {
@@ -14,6 +12,7 @@ public class EnemyCameraCheck : MonoBehaviour
     // Devuelve true si el enemigo está dentro de los límites visibles de la cámara
     public bool IsInsideCameraBounds()
     {
+         if (mainCamera == null ) return false;
         Vector3 viewportPos = mainCamera.WorldToViewportPoint(transform.position);
         /*WorldToViewportPoint - > Convierte la posición del enemigo al espacio de "viewport" de la cámara 
  * (valores de 0 a 1 en X e Y si está dentro del campo de visión)*/
@@ -25,16 +24,4 @@ public class EnemyCameraCheck : MonoBehaviour
         return isVisible;
     }
 
-    void Update()
-    {
-        if (IsInsideCameraBounds())
-        {
-            Debug.Log("Enemigo dentro de la cámara");
-            isOnCamRange = true;
-        }
-        else
-        {
-            Debug.Log("Enemigo fuera de la cámara");
-        }
-    }
 }
