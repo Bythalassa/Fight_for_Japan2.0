@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using static UnityEditor.PlayerSettings;
 using static UnityEngine.EventSystems.EventTrigger;
 
 public enum DummyState
@@ -34,6 +36,13 @@ public class DummyMovementDospuntoZero : MonoBehaviour
     public float sideOffset = 20f; //same here
     private float side; // -1 izquierda / 1 derecha respecto al player
 
+    [Header("Pacing 4 attacking --> applies to WaitPhase & Camping")]
+    [SerializeField] private int vueltasParaAtacar = 3;
+    [SerializeField] private RuntimeAnimatorController controladorThisEnemy; //no estoy usando esto
+
+    [Header("Estado actual (solo lectura, para debug)")]
+    public DummyState state = DummyState.IdleAfterSpawn;
+
     //var para la funcion de detectar camara &&  IdleAfterSpawn case
     private bool isOnCamRange = false;
 
@@ -47,13 +56,29 @@ public class DummyMovementDospuntoZero : MonoBehaviour
     private float MaxTimeApproach = 1.5f;
     //Condicion state = ExtremeSway
     public bool FiveEnemiesOnRange = false;
+    private int swayStep = 0;
+    private float swayTimer = 0f;
     //Condicion state = WaitPhase 3 onrANGE
     public bool ThreeEnemiesOnRange = false;
+    // case logic WaitPhase
+    private int vueltaCount = 0;
+    private float previousSide = 0f;
+    //camping config
+    private Vector2[] campingOffsetsIzquierda = new Vector2[] {
+    new Vector2(2.37f, 1.90f),
+    new Vector2(2f, 1.20f) };
+    private Vector2[] campingOffsetsDerecha = new Vector2[] {
+    new Vector2(2.37f, 1.90f),
+    new Vector2(2f, 1.20f) };
+    // CrossRange
+    public float hoverSpeed = 9f;   // velocidad del vaivén
+    private float hoverOffset = 0f;
+    private int hoverDirection = 1; // 1 = derecha, -1 = izquierda // no puede ser más q 1 (se queda en 1)
 
-    [SerializeField] private RuntimeAnimatorController controladorThisEnemy; //no estoy usando esto
 
-    [Header("Estado actual (solo lectura, para debug)")]
-    public DummyState state = DummyState.IdleAfterSpawn;
+    //me esta falttando porner todos los anims y testing
+
+    private int waypointIndex = 0;
 
     void Start()
     {
@@ -63,12 +88,10 @@ public class DummyMovementDospuntoZero : MonoBehaviour
         scriptHealth = GetComponent<Health>();
         scriptCamera = GetComponent<EnemyCameraCheck>();
         scriptPMovement = GetComponent<pMovement>();
-
     }
 
     void Update()
     {
-
         //main updated position
         Vector3 PlayerTargetPos = playerTarget.transform.position;
         Vector3 EnemyTargetPos = enemyTarget.transform.position;
@@ -120,8 +143,9 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                     currentTimeApproach += Time.deltaTime;
                     if (currentTimeApproach >= MaxTimeApproach)
                     {
-                        if (EnemyTargetPos.x != 1.39366f)
-                        { state = DummyState.WalkBehind;}
+                        if (EnemyTargetPos.y != 1.39366)
+                        //deberia ser y. 
+                        { state = DummyState.WalkBehind; }
                         else transform.position += direction * Maxspeed * Time.deltaTime;
                     }
 
@@ -132,74 +156,246 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                     if (ThreeEnemiesOnRange)
                     { state = DummyState.WaitPhase; }
                     else transform.position += direction * Maxspeed * Time.deltaTime;
-
                 }
                 break;
+
             case DummyState.WalkBehind:
                 {
-                    //  if (enemyTarget.transform.position = x.1.39366,z ) { state = DummyState.Approach; }
+                    Vector3 NewtargetPos = new Vector3(PlayerTargetPos.x, 1.39366f, transform.position.z);
+
+                    transform.position = Vector3.MoveTowards(transform.position, NewtargetPos, speed * Time.deltaTime);
+
+                    if (transform.position.x == PlayerTargetPos.x)
+                    { state = DummyState.Approach; }
+                    //moverse desde su posicion hacia x.1.39366, hasta el playerTarget x luego cambiar
+
                 }
                 break;
             case DummyState.WaitPhase:
                 {
-                    //que se mueva en campeo 
-                    //en direccion -> alejandose de player = camina
-                    //llega a posicion del player de vuelta = puede atacar = i (si i = 3 {case switch to attack y i= 0 })
-                    //
+                    float distanceBeforeMove = Vector3.Distance(PlayerTargetPos, myPos);
+
+                    if (distanceBeforeMove <= radiusMovement)
+                    {
+                        side = (myPos.x >= PlayerTargetPos.x) ? -1f : 1f;
+
+                        // si el lado cambió respecto al anterior, se completó una vuelta
+                        if (side != previousSide && previousSide != 0f)
+                        {
+                            vueltaCount++;
+                        }
+                        previousSide = side;
+
+                        //identifico myPos.x si esta a la izquierda o a la derecha
+                        //si esta en izquierda/ numerosNegativos -> 
+                        //myPos.x esta en derecha/numerosPositivos se suman
+                        //-> se desplaza más / 2.0 = x
+                    }
+
+                    Vector3 newTargetPos = (side == -1f)
+                        ? new Vector3(myPos.x - 2f, transform.position.y, transform.position.z)
+                        : new Vector3(myPos.x + 2f, transform.position.y, transform.position.z);
+
+                    transform.position = Vector3.MoveTowards(transform.position, newTargetPos, Maxspeed * Time.deltaTime);
+
+                    // ¿ya cumplió las vueltas necesarias y esta vez se acercó en vez de alejarse?
+                    if (vueltaCount >= vueltasParaAtacar)
+                    {
+                        float distanceAfterMove = Vector3.Distance(PlayerTargetPos, transform.position);
+
+                        if (distanceAfterMove < distanceBeforeMove)
+                        {
+                            state = DummyState.Attacking;
+                            vueltaCount = 0; // reset para la próxima vez que vuelva a WaitPhase
+                        }
+                    }
+                    //recomendacion de reseteo extra en otra funcion pero yolo 
                 }
                 break;
             case DummyState.Camping:
                 {
+                    float distanceBeforeMove = Vector3.Distance(PlayerTargetPos, myPos);
+                    Vector2 offsetIzq = campingOffsetsIzquierda[waypointIndex];
+                    Vector2 offsetDer = campingOffsetsDerecha[waypointIndex];
 
-                    //que se mueva en campeo 
-                    //en direccion -> alejandose de player = camina
-                    //llega a posicion del player de vuelta = puede atacar = i (si i = 3 {case switch to attack y i= 0 })
-                    //If dentro de campeo is facing player 
-                    //if (3 EnemyTargetPos == AttackRadious ) { state = DummyState.WaitPhase; }
+                    if (distanceBeforeMove <= radiusMovement)
+                    {
+                        side = (myPos.x >= PlayerTargetPos.x) ? -1f : 1f;
+
+                        if (side != previousSide && previousSide != 0f)
+                        {
+                            vueltaCount++;
+                        }
+                        previousSide = side;
+                    }
+
+                    // si x = -1 (izquierda), se resta myPos - offset
+                    Vector3 newTargetPosIzquierda = new Vector3(
+                        myPos.x - offsetIzq.x,
+                        myPos.y - offsetIzq.y,
+                        transform.position.z
+                    );
+
+                    // si x = 1 (derecha), se suma myPos + offset
+                    Vector3 newTargetPosDerecha = new Vector3(
+                        myPos.x + offsetDer.x,
+                        myPos.y + offsetDer.y,
+                        transform.position.z
+                    );
+
+                    // ambos ejes se reflejan según el lado, y se calculan respecto a myPos, no acumulando -> segun la posicion en x, y se ejecuta la matematica
+                    // aqui necesitaria otro vector que calcula posiciones en resta si myPos x and y 
+                    // primer calculo si x = -1 se restara en la siguiente posicion --2.37 , y = -1 se restara en la siguiente posicion -1.90
+                    // segundo calculo se calcula myPos.x restandolo -2 , y = myPos.y restandolo -1.20
+                    // se ejecuta el primer calculo de nuevo 
+                    // me imagino que deberia habre un newTargetPosIzquierda y newTargetPosDerecha
+
+                    /* el otro vector
+                     * primer calculo si x = 1 se sumara en la siguiente posicion +2.37 , y = +1 se sumara en la siguiente posicion +1.90
+                    // segundo calculo se calcula myPos.x sumandolo +2 , y = myPos.y sumandolo +1.20
+                    // se ejecuta el primer calculo de nuevo 
+                    // me imagino que deberia habre un newTargetPosIzquierda y newTargetPosDerecha                     
+                     */
+
+                    Vector3 newTargetPos = (side == -1f) ? newTargetPosIzquierda : newTargetPosDerecha;
+
+                    transform.position = Vector3.MoveTowards(transform.position, newTargetPos, Maxspeed * Time.deltaTime);
+
+                    if (Vector3.Distance(transform.position, newTargetPos) < 0.05f)
+                    {
+                        waypointIndex = (waypointIndex + 1) % campingOffsetsIzquierda.Length;
+                        // avanzando el índice usando campingOffsetsIzquierda.Length como referencia de
+                        // "cuántos pasos tiene el ciclo" — asumiendo que ambos arrays tienen el mismo largo
+                    }
+
+                    if (vueltaCount >= vueltasParaAtacar)
+                    {
+                        float distanceAfterMove = Vector3.Distance(PlayerTargetPos, transform.position);
+                        if (distanceAfterMove < distanceBeforeMove)
+                        {
+                            state = DummyState.Attacking;
+                            vueltaCount = 0;
+                            waypointIndex = 0;
+                        }
+                    }
                 }
                 break;
             case DummyState.CrossRange:
                 {
+                    if (Vector3.Distance(PlayerTargetPos, myPos) <= radiusMovement)
+                    {
+                        side = (myPos.x >= PlayerTargetPos.x) ? -1f : 1f;
+                        //al llegar al rango minimo de alcance, calculala posición
+                        Vector3 sidePos = PlayerTargetPos + new Vector3(sideOffset * side, 0f, 0f);
+                        transform.position += direction * Maxspeed * Time.deltaTime;
 
-                    //logica de cambiio
-                    //y if player near : { state = DummyState.WaitPhase; }
-                    //y if player LongDistance : { state = DummyState.Campeo; }
-
-
+                        if (Vector3.Distance(myPos, sidePos) > 0.05f)
+                        {
+                            transform.position += direction * Maxspeed * Time.deltaTime;
+                        }
+                        else
+                        {
+                            hoverOffset += hoverDirection * hoverSpeed * Time.deltaTime;
+                        }
+                    
+                    if (Vector3.Distance(PlayerTargetPos, myPos) < radiusMovement)
+                       { state = DummyState.WaitPhase; }
+                    else if (Vector3.Distance(PlayerTargetPos, myPos) > radiusMovement)
+                       { state = DummyState.WaitPhase; }
+                    }
                 }
-                break;
+                 break;
             case DummyState.ExtremeSway:
                 {
+                    float dirSide = (side == 0f) ? 1f : side;
 
+                    //creando nuestra cinematica
+                    switch (swayStep)
+                    {
+                        case 0: // a. camina rápido hacia el player
+                            //expected fast anim will be replaced 4 a big jump thing SetAnim("Run");
+                            swayStep = 1;
+                            break;
+
+                        case 1:
+                            if (Vector3.Distance(transform.position, playerTarget.transform.position) > radiusMovement)
+                            {
+                                Vector3 dir = (playerTarget.transform.position - transform.position).normalized;
+                                transform.position += dir * (speed * 2.5f) * Time.deltaTime;
+                            }
+                            else
+                            {
+                                swayStep = 2;
+                            }
+                            break;
+
+                        case 2: // b. retrocede a la esquina, más lento
+                            Vector3 corner = transform.position + new Vector3(sideOffset * dirSide, 0f, 0f);
+                            if (Vector3.Distance(transform.position, corner) > 0.1f)
+                            {
+                                Vector3 dir = (corner - transform.position).normalized;
+                                transform.position += dir * (speed * 1.5f) * Time.deltaTime;
+                            }
+                            else
+                            {
+                                swayStep = 3;
+                            }
+                            break;
+
+                        case 3: // c. salto directo al rango del player
+                            //expected fast anim will be replaced 4 a big jump thing SetAnim("Run");
+                            swayTimer = 0.5f; // TODO: igualar a la duracion real del clip de salto
+                            swayStep = 4;
+                            break;
+
+                        case 4:
+                            swayTimer -= Time.deltaTime;
+                            if (swayTimer <= 0f)
+                            {
+                                transform.position = PlayerTargetPos + new Vector3(radiusMovement * dirSide, 0f, 0f);
+                                swayStep = 5;
+                            }
+                            break;
+
+                        case 5: // d. ejecuta ataque
+                            state = DummyState.Attacking;
+                            swayStep = 0; // reset para la próxima vez que entre a ExtremeSway
+                            break;
+                    }
                 }
                 break;
             case DummyState.Recovery:
-                {
+                        {
 
 
 
-                }
-                break;
+
+
+                        }
+                 break;
             case DummyState.Attacking:
-                {
-                    //solo animAtaque -> y Do damage . take from Vida 
-                    //
-                    //if player moving in y =  case switch campeo 
-                    //if player moving in x =  case switch wait phase  
-                }
-                break;
-            case DummyState.Dead:
-                {
-
-                }
-                break;
-            default:
-                break;
+                        {
+                            //solo animAtaque -> y Do damage . take from Vida 
+                            //
+                            //if player moving in y =  case switch campeo 
+                            //if player moving in x =  case switch wait phase  
 
 
-               
-        }
-    } 
+
+                        }
+                 break;
+             case DummyState.Dead:
+                        {
+
+                        }
+                  break;
+             default:
+                  break;
+
+
+
+                    }
+                } 
 
 
 
