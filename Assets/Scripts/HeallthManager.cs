@@ -1,6 +1,6 @@
-//Susing UnityEngine;
+using UnityEngine;
 
-/*public class HeallthManager : MonoBehaviour
+public class HeallthManager : MonoBehaviour
 {
     //planteando el daño porcentual
 
@@ -26,7 +26,7 @@
         if (health <= 0)
         {
             isDead = true;
+            Destroy(gameObject);
         }
     }
 }
-*/

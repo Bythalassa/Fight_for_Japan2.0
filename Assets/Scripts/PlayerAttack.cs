@@ -73,11 +73,11 @@ public class PlayerAttack : MonoBehaviour
             IsAttacking = false;
         }
 
-        VerificarEnemigosEnRangoDeAtaque();
+        //VerificarEnemigosEnRangoDeAtaque();
 
     }
 
-    void VerificarEnemigosEnRangoDeAtaque()
+    /*void VerificarEnemigosEnRangoDeAtaque()
     {
         Vector3 myPos = transform.position;
         foreach (var enemy in passiveRadiusScript.targets)
@@ -111,9 +111,9 @@ public class PlayerAttack : MonoBehaviour
         foreach (var enemy in EnemigosenAttackRange)
         {
             enemy.ThreeEnemiesOnRange = hayTresEnRango;
-        }
+        }*/
     }
-}
+
 
 
     

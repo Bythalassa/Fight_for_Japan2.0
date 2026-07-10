@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8555043998400675072}
   - component: {fileID: 2541910004992949947}
   - component: {fileID: 7315266625927574863}
-  - component: {fileID: 2557103300258580324}
-  - component: {fileID: -3581069170100063728}
+  - component: {fileID: 344434626999754719}
+  - component: {fileID: -9120394657211417226}
   m_Layer: 3
   m_Name: PigPansa
   m_TagString: Enemy
@@ -168,7 +168,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2557103300258580324
+--- !u!114 &344434626999754719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,19 +177,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 107571417329968100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
+  m_Script: {fileID: 11500000, guid: 9456eed223c3d0e4fb575c7f6f678cf8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxVida: 15
-  Vida: 15
+  m_EditorClassIdentifier: Assembly-CSharp::HeallthManager
+  maxHealth: 10
+  health: 10
   isDead: 0
+  OnPelea: 1
   isInvulnerable: 0
-  OnPelea: 0
-  recoveryThreshold: 12
-  recoveryDuration: 5
-  recoveryThresholdReached: 0
-  isRecovering: 0
---- !u!114 &-3581069170100063728
+--- !u!114 &-9120394657211417226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,22 +194,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 107571417329968100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1440aaf51f14c3e488c94006b7221129, type: 3}
+  m_Script: {fileID: 11500000, guid: a5d3f7ef28c3db14ea621689afa1e7fd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DummyMovementDospuntoZero
-  enemyTarget: {fileID: 0}
-  anim: {fileID: 0}
-  scriptHealth: {fileID: 0}
-  scriptCamera: {fileID: 0}
-  scriptPMovement: {fileID: 0}
-  Maxspeed: 3
-  radiusMovement: 3
-  PassiveAttackRadious: 5
+  m_EditorClassIdentifier: Assembly-CSharp::DummyMovementOld
+  state: 1
+  Speed: 4
+  radiusMovement: 4.5
   sideOffset: 20
-  vueltasParaAtacar: 3
-  controladorThisEnemy: {fileID: 0}
-  state: 0
-  FiveEnemiesOnRange: 0
-  ThreeEnemiesOnRange: 0
+  hoverRange: 5.5
   hoverSpeed: 9
-  damagePercent: 10

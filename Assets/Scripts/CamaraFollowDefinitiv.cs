@@ -10,7 +10,7 @@ public class CamaraFollow : MonoBehaviour
         Posicion4,
         Posicion5,
         Posicion6,
-        Posicion7,
+       /* Posicion7,
         Posicion8,
         Posicion9,
         Posicion10,
@@ -19,7 +19,7 @@ public class CamaraFollow : MonoBehaviour
         Posicion13,
         Posicion14,
         Posicion15,
-        Posicion16,
+        Posicion16,*/
     }
 
     [Header("Referencias generales")]
@@ -34,7 +34,7 @@ public class CamaraFollow : MonoBehaviour
     public GameObject posicion4;
     public GameObject posicion5;
     public GameObject posicion6;
-    public GameObject posicion7;
+    /*public GameObject posicion7;
     public GameObject posicion8;
     public GameObject posicion9;
     public GameObject posicion10;
@@ -43,7 +43,7 @@ public class CamaraFollow : MonoBehaviour
     public GameObject posicion13;
     public GameObject posicion14;
     public GameObject posicion15;
-    public GameObject posicion16;
+    public GameObject posicion16;*/
 
     [Header("Configuracion de movimiento")]
     public float Speed = 7f;
@@ -85,7 +85,7 @@ public class CamaraFollow : MonoBehaviour
                 FollowTarget(posicion6);
                 break;
 
-            case CameraState.Posicion7:
+           /* case CameraState.Posicion7:
                 FollowTarget(posicion7);
                 break;
 
@@ -123,7 +123,7 @@ public class CamaraFollow : MonoBehaviour
 
             case CameraState.Posicion16:
                 FollowTarget(posicion16);
-                break;
+                break;*/
 
             case CameraState.Libre:
             default:
@@ -165,7 +165,7 @@ public class CamaraFollow : MonoBehaviour
         if (posicion6 != null && EstaEnZona(jugadorActivo.transform.position, posicion6.transform.position, CameraState.Posicion6))
         { return CameraState.Posicion6; }
 
-        if (posicion7 != null && EstaEnZona(jugadorActivo.transform.position, posicion7.transform.position, CameraState.Posicion7))
+       /* if (posicion7 != null && EstaEnZona(jugadorActivo.transform.position, posicion7.transform.position, CameraState.Posicion7))
         { return CameraState.Posicion7; }
 
         if (posicion8 != null && EstaEnZona(jugadorActivo.transform.position, posicion8.transform.position, CameraState.Posicion8))
@@ -193,7 +193,7 @@ public class CamaraFollow : MonoBehaviour
         { return CameraState.Posicion15; }
 
         if (posicion16 != null && EstaEnZona(jugadorActivo.transform.position, posicion16.transform.position, CameraState.Posicion16))
-        { return CameraState.Posicion16; }
+        { return CameraState.Posicion16; }*/
 
         return CameraState.Libre;
         //porque hay q poner siempre uun return al final q paja 
@@ -215,7 +215,7 @@ private bool HayEnemigoEnPelea()
 
         foreach (GameObject enemigo in enemigos)
         {
-            Health hm = enemigo.GetComponent<Health>();
+            HeallthManager hm = enemigo.GetComponent<HeallthManager>();
             if (hm.OnPelea)
                 return true;
         }

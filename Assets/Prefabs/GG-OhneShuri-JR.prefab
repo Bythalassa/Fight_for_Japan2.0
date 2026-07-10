@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2067382251837257272}
   - component: {fileID: 977988599933254362}
   - component: {fileID: 6910128687764782142}
+  - component: {fileID: 2616510279915006458}
+  - component: {fileID: -8210677491500355664}
   - component: {fileID: -8884264548910410911}
-  - component: {fileID: 9147470238248708345}
-  - component: {fileID: 6977134788126230761}
   m_Layer: 3
   m_Name: GG-OhneShuri-JR
   m_TagString: Enemy
@@ -141,6 +141,41 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.28, y: 3.96}
   m_EdgeRadius: 0
+--- !u!114 &2616510279915006458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891568253950891518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9456eed223c3d0e4fb575c7f6f678cf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HeallthManager
+  maxHealth: 10
+  health: 10
+  isDead: 0
+  OnPelea: 1
+  isInvulnerable: 0
+--- !u!114 &-8210677491500355664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8891568253950891518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d3f7ef28c3db14ea621689afa1e7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DummyMovementOld
+  state: 1
+  Speed: 5
+  radiusMovement: 3
+  sideOffset: 20
+  hoverRange: 5.5
+  hoverSpeed: 9
 --- !u!50 &-8884264548910410911
 Rigidbody2D:
   serializedVersion: 5
@@ -168,52 +203,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &9147470238248708345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8891568253950891518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxVida: 18
-  Vida: 18
-  isDead: 0
-  isInvulnerable: 0
-  OnPelea: 0
-  recoveryThreshold: 15
-  recoveryDuration: 5
-  recoveryThresholdReached: 0
-  isRecovering: 0
---- !u!114 &6977134788126230761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8891568253950891518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1440aaf51f14c3e488c94006b7221129, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DummyMovementDospuntoZero
-  enemyTarget: {fileID: 0}
-  anim: {fileID: 0}
-  scriptHealth: {fileID: 0}
-  scriptCamera: {fileID: 0}
-  scriptPMovement: {fileID: 0}
-  Maxspeed: 3
-  radiusMovement: 3
-  PassiveAttackRadious: 5
-  sideOffset: 20
-  vueltasParaAtacar: 3
-  controladorThisEnemy: {fileID: 0}
-  state: 0
-  FiveEnemiesOnRange: 0
-  ThreeEnemiesOnRange: 0
-  hoverSpeed: 9
-  damagePercent: 10

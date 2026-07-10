@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4204777153975173827}
   - component: {fileID: -4615769080398443065}
   - component: {fileID: 5514596317530109005}
-  - component: {fileID: -1842962401009930388}
+  - component: {fileID: -2499269069628454065}
   m_Layer: 3
   m_Name: Tio-Foxy-JR
   m_TagString: Enemy
@@ -189,7 +189,7 @@ MonoBehaviour:
   recoveryDuration: 5
   recoveryThresholdReached: 0
   isRecovering: 0
---- !u!114 &-1842962401009930388
+--- !u!114 &-2499269069628454065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,21 +198,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5655845150628234690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1440aaf51f14c3e488c94006b7221129, type: 3}
+  m_Script: {fileID: 11500000, guid: a5d3f7ef28c3db14ea621689afa1e7fd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DummyMovementDospuntoZero
-  enemyTarget: {fileID: 0}
-  scriptHealth: {fileID: 0}
-  scriptCamera: {fileID: 0}
-  scriptPMovement: {fileID: 0}
-  Maxspeed: 5.88
+  m_EditorClassIdentifier: Assembly-CSharp::DummyMovementOld
+  state: 1
+  Speed: 6.3
   radiusMovement: 3
-  PassiveAttackRadious: 5
   sideOffset: 20
-  vueltasParaAtacar: 3
-  state: 0
-  enemySpreadRange: 1.5
-  FiveEnemiesOnRange: 0
-  ThreeEnemiesOnRange: 0
+  hoverRange: 5.5
   hoverSpeed: 9
-  damagePercent: 10
