@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.AdaptivePerformance; //component 4m: IEnumerator
 
 public class Health : MonoBehaviour
 {

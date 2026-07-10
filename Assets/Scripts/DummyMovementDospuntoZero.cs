@@ -20,7 +20,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
 
     private GameObject playerTarget;
     public GameObject enemyTarget;
-    public Animator anim;
+   // public Animator anim;
     public Health scriptHealth;
     public EnemyCameraCheck scriptCamera;
     public pMovement scriptPMovement;
@@ -35,10 +35,14 @@ public class DummyMovementDospuntoZero : MonoBehaviour
 
     [Header("Pacing 4 attacking --> applies to WaitPhase & Camping")]
     [SerializeField] private int vueltasParaAtacar = 3;
-    [SerializeField] private RuntimeAnimatorController controladorThisEnemy; //no estoy usando esto
+   // [SerializeField] private RuntimeAnimatorController controladorThisEnemy; //no estoy usando esto
 
     [Header("Estado actual (solo lectura, para debug)")]
     public DummyState state = DummyState.IdleAfterSpawn;
+
+    [Header("Identidad única del enemigo")]
+    [SerializeField] private float enemySpreadRange = 1.5f; // qué tan disperso puede caer cada enemigo
+    private float enemyUniqueOffset;
 
     //var para la funcion de detectar camara &&  IdleAfterSpawn case
     private bool isOnCamRange = false;
@@ -82,10 +86,15 @@ public class DummyMovementDospuntoZero : MonoBehaviour
     {
         playerTarget = GameObject.FindGameObjectWithTag("Player");
         enemyTarget = GameObject.FindGameObjectWithTag("Enemy");
-        anim = GetComponent<Animator>();
+       // anim = GetComponent<Animator>();
         scriptHealth = GetComponent<Health>();
         scriptCamera = GetComponent<EnemyCameraCheck>();
-        scriptPMovement = GetComponent<pMovement>();
+        scriptPMovement = playerTarget.GetComponent<pMovement>();
+
+        if (scriptPMovement == null)
+            Debug.LogError(gameObject.name + ": el GameObject 'Player' no tiene el script pMovement.");
+
+        enemyUniqueOffset = Random.Range(-enemySpreadRange, enemySpreadRange);
     }
 
     void Update()
@@ -94,6 +103,8 @@ public class DummyMovementDospuntoZero : MonoBehaviour
         Vector3 PlayerTargetPos = playerTarget.transform.position;
         Vector3 EnemyTargetPos = enemyTarget.transform.position;
         Vector3 myPos = transform.position;
+
+        isOnCamRange = scriptCamera.IsInsideCameraBounds();
 
         Vector2 dirHaciaEnemigo = (myPos - PlayerTargetPos).normalized; //para lógica de detección (saber dónde está el enemigo respecto al jugador).
         Vector3 direction = (PlayerTargetPos - myPos).normalized; //para lógica de persecución (hacer que el enemigo avance hacia el jugador).
@@ -107,25 +118,27 @@ public class DummyMovementDospuntoZero : MonoBehaviour
         {
 
             case DummyState.IdleAfterSpawn:
+                { 
                 transform.position += direction * Maxspeed * Time.deltaTime;
 
-                if (isOnCamRange)
+                if (!isOnCamRange)
+                {
+                    transform.position += direction * Maxspeed * Time.deltaTime;
+                }
+                else
                 {
                     currentTime += Time.deltaTime;
+
                     if (currentTime >= MaxTime)
                     {
-                        speed = 0f; // ya no c mueve
-                        Maxspeed = speed;
-                        anim.SetTrigger("Idle");
-
-                        currentTime = 0;
+                        currentTime = 0f;
+                        state = DummyState.Approach; // transición directa, sin depender de "==0"
                     }
-                    else if (currentTime == 0) { state = DummyState.Approach; }
-
-                    if (scriptHealth.Vida <= 0) { state = DummyState.Dead; }
-
                 }
-                break;
+
+                if (scriptHealth.Vida <= 0) { state = DummyState.Dead; }
+                }
+          break;
 
             case DummyState.Approach:
                 {
@@ -165,7 +178,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
 
             case DummyState.WalkBehind:
                 {
-                    Vector3 NewtargetPos = new Vector3(PlayerTargetPos.x, 1.39366f, transform.position.z);
+                    Vector3 NewtargetPos = new Vector3(PlayerTargetPos.x + enemyUniqueOffset, 1.39366f, transform.position.z);
 
                     transform.position = Vector3.MoveTowards(transform.position, NewtargetPos, speed * Time.deltaTime);
 
@@ -296,7 +309,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                     {
                         side = (myPos.x >= PlayerTargetPos.x) ? -1f : 1f;
                         //al llegar al rango minimo de alcance, calculala posición
-                        Vector3 sidePos = PlayerTargetPos + new Vector3(sideOffset * side, 0f, 0f);
+                        Vector3 sidePos = PlayerTargetPos + new Vector3(sideOffset * side + enemyUniqueOffset, 0f, 0f);
                         transform.position += direction * Maxspeed * Time.deltaTime;
 
                         if (Vector3.Distance(myPos, sidePos) > 0.05f)
@@ -365,7 +378,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                             swayTimer -= Time.deltaTime;
                             if (swayTimer <= 0f)
                             {
-                                transform.position = PlayerTargetPos + new Vector3(radiusMovement * dirSide, 0f, 0f);
+                                transform.position = PlayerTargetPos + new Vector3(radiusMovement * dirSide + enemyUniqueOffset, 0f, 0f);
                                 swayStep = 5;
                             }
                             break;
@@ -429,7 +442,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
              case DummyState.Dead:
                  {
                     //SetAnim("Death");
-                    //Destroy(gameObject, deathAnimDuration);
+                    Destroy(gameObject/*, deathAnimDuration*/);
 
                  }
                   break;
@@ -437,14 +450,15 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                   break;
 
                     }
-                } 
+                }
 
     private void CheckingVidavar()
     {
         if (scriptHealth.Vida <= scriptHealth.recoveryThreshold) { state = DummyState.Recovery; }
-        if (scriptHealth.Vida <= scriptHealth.maxVida) { state = DummyState.Dead; }
+        if (scriptHealth.Vida <= 0) { state = DummyState.Dead; } 
+
     }
 
-    
 
- }
+
+}

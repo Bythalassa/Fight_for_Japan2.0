@@ -47,8 +47,6 @@ public class DummyMovement : MonoBehaviour
     [Header("Vaiven (hover) - Camping")]
     public float hoverRange = 5.5f;
     public float hoverSpeed = 9f;
-    private float hoverOffset = 0f;
-    private int hoverDirection = 1;
 
     [Header("Timers")]
     public float idleSpawnTime = 2f;      // 1b
