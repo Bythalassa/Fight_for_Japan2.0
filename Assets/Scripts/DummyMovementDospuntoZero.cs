@@ -39,7 +39,9 @@ public class DummyMovementDospuntoZero : MonoBehaviour
     private float speed;//testear si puedo usar este speed para todo ekisdfeeee
     private float currentTime;
     private float MaxTime = 3f;
-
+    //Approach
+    private float currentTimeApproach;
+    private float MaxTimeApproach = 1.5f;
 
     [SerializeField] private RuntimeAnimatorController controladorThisEnemy; //no estoy usando esto
 
@@ -67,6 +69,8 @@ public class DummyMovementDospuntoZero : MonoBehaviour
         Vector2 dirHaciaEnemigo = (myPos - PlayerTargetPos).normalized; //para lógica de detección (saber dónde está el enemigo respecto al jugador).
         Vector3 direction = (PlayerTargetPos - myPos).normalized; //para lógica de persecución (hacer que el enemigo avance hacia el jugador).
         float relacionMirada = Vector2.Dot(scriptPMovement.FacingDirection, dirHaciaEnemigo);
+        /*Vector2 nos dice si dos vectores apuntan en la misma dirección, en direcciones opuestas
+         * o si son perpendiculares.*/
 
         CheckingVidavar();
 
@@ -105,13 +109,18 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                         state = DummyState.CrossRange;
                     }
 
+                    currentTimeApproach += Time.deltaTime;
 
-                    /*condiciones extracurrriculares
-                     * Caminar detras del player
-                     * if despues de 1.5f segundos 
-                     * 
-                     * { if (!enemyTarget.transform.position = x.1.39366,z ) {  state = DummyState.WalkBehind; }
-                     * else  transform.position += direction * Maxspeed * Time.deltaTime; 
+                    if (currentTimeApproach >= MaxTimeApproach)
+                    {
+                        if (EnemyTargetPos.x != 1.39366f)
+                        { state = DummyState.WalkBehind;}
+                        else transform.position += direction * Maxspeed * Time.deltaTime;
+                    }
+   
+                    // if 
+
+                    /*condiciones extracurrriculares 
                      * 
                      * if (5 EnemyTargetPos == AttackRadiousPassive ) {  state = DummyState.ExtremeSway; }
                      * lo mueve ligeramente lejos al player
