@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public enum DummyState
@@ -18,11 +17,11 @@ public enum DummyState
 public class DummyMovementDospuntoZero : MonoBehaviour
 {
     private GameObject playerTarget;
-    private GameObject enemyTarget;
-    private Animator anim;
-    private Health Vida;
-    private Health recoveryThresholdReached;
-
+    public GameObject enemyTarget;
+    public Animator anim;
+    public Health scriptHealth;
+    public EnemyCameraCheck scriptCamera;
+    public pMovement scriptPMovement;
 
     [Header("Movimiento general")]
     public float Maxspeed = 3f;
@@ -34,12 +33,11 @@ public class DummyMovementDospuntoZero : MonoBehaviour
 
     //var para la funcion de detectar camara &&  IdleAfterSpawn case
     private bool isOnCamRange = false;
-    
-    
+
     //lista de Changeable Vars je nach case context
     //TimetoIdle
     private float speed;//testear si puedo usar este speed para todo ekisdfeeee
-    private float currentTime; 
+    private float currentTime;
     private float MaxTime = 3f;
 
 
@@ -53,10 +51,9 @@ public class DummyMovementDospuntoZero : MonoBehaviour
         playerTarget = GameObject.FindGameObjectWithTag("Player");
         enemyTarget = GameObject.FindGameObjectWithTag("Enemy");
         anim = GetComponent<Animator>();
-        Vida = GetComponent<Health>();
-        isOnCamRange = GetComponent<EnemyCameraCheck>();
-        recoveryThresholdReached = GetComponent<Health>();
-
+        scriptHealth = GetComponent<Health>();
+        scriptCamera = GetComponent<EnemyCameraCheck>();
+        scriptPMovement = GetComponent<pMovement>();
     }
 
     void Update()
@@ -66,17 +63,19 @@ public class DummyMovementDospuntoZero : MonoBehaviour
         Vector3 PlayerTargetPos = playerTarget.transform.position;
         Vector3 EnemyTargetPos = enemyTarget.transform.position;
         Vector3 myPos = transform.position;
-        Vector3 direction = (PlayerTargetPos - myPos).normalized;
+
+        Vector2 dirHaciaEnemigo = (myPos - PlayerTargetPos).normalized; //para lógica de detección (saber dónde está el enemigo respecto al jugador).
+        Vector3 direction = (PlayerTargetPos - myPos).normalized; //para lógica de persecución (hacer que el enemigo avance hacia el jugador).
+        float relacionMirada = Vector2.Dot(scriptPMovement.FacingDirection, dirHaciaEnemigo);
+
+        CheckingVidavar();
 
         switch (state)
         {
 
-            // if (Vida = recoveryThresholdReached ){ state = DummyState.Recovery; }
-            // if (Vida >= 0 ){ state = DummyState.Dead; }
+            case DummyState.IdleAfterSpawn:
+                transform.position += direction * Maxspeed * Time.deltaTime;
 
-            case DummyState.IdleAfterSpawn :
-                transform.position += direction * Maxspeed * Time.deltaTime; 
-                
                 if (isOnCamRange)
                 {
                     currentTime += Time.deltaTime;
@@ -88,7 +87,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
 
                         currentTime = 0;
                     }
-                    else if (currentTime == 0 ) { state = DummyState.Approach; }
+                    else if (currentTime == 0) { state = DummyState.Approach; }
                 }
                 break;
 
@@ -97,10 +96,15 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                     //allEnemy aproach it 
                     transform.position += direction * Maxspeed * Time.deltaTime;
 
-                    //  if if myPos == attackRadious && player !facingMypos {  state = DummyState.CrossRange;  }
-                    //  if myPos == attackRadious && player facing My pos{ state = DummyState.campeo; } }
+                    if (relacionMirada > 0.5f)
+                    {
+                        state = DummyState.Camping;
+                    }
+                    else
+                    {
+                        state = DummyState.CrossRange;
+                    }
 
-                    //falta recovery/ Cross RANGE // ATTACKING / DEAD
 
                     /*condiciones extracurrriculares
                      * Caminar detras del player
@@ -120,7 +124,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                 break;
             case DummyState.WalkBehind:
                 {
-                  //  if (enemyTarget.transform.position = x.1.39366,z ) { state = DummyState.Approach; }
+                    //  if (enemyTarget.transform.position = x.1.39366,z ) { state = DummyState.Approach; }
                 }
                 break;
             case DummyState.WaitPhase:
@@ -133,7 +137,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                 break;
             case DummyState.Camping:
                 {
-                    
+
                     //que se mueva en campeo 
                     //en direccion -> alejandose de player = camina
                     //llega a posicion del player de vuelta = puede atacar = i (si i = 3 {case switch to attack y i= 0 })
@@ -178,10 +182,20 @@ public class DummyMovementDospuntoZero : MonoBehaviour
                 break;
             default:
                 break;
+
+
+               
         }
+    } 
+
+
+
+    private void CheckingVidavar()
+    {
+        if (scriptHealth.Vida <= scriptHealth.recoveryThreshold) { state = DummyState.Recovery; }
+        if (scriptHealth.Vida <= scriptHealth.maxVida) { state = DummyState.Dead; }
     }
 
-
-
+    
 
  }
