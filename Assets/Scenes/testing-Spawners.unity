@@ -823,8 +823,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   targets: []
+  EnemigosenAttackRange: []
   damagePercent: 10
+  radiusAttack: 3.5
   attackSignalDuration: 0.2
+  passiveRadiusScript: {fileID: 0}
 --- !u!61 &400154614
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4456,7 +4459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2040089940
 Transform:
   m_ObjectHideFlags: 0
@@ -4568,8 +4571,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   targets: []
+  EnemigosenAttackRange: []
   damagePercent: 10
+  radiusAttack: 3.5
   attackSignalDuration: 0.2
+  passiveRadiusScript: {fileID: 0}
 --- !u!1 &2107473127
 GameObject:
   m_ObjectHideFlags: 0

@@ -104,6 +104,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
         Vector3 myPos = transform.position;
 
        isOnCamRange = scriptCamera.IsInsideCameraBounds();
+
         print(isOnCamRange);
 
         Vector2 dirHaciaEnemigo = (myPos - PlayerTargetPos).normalized; //para lógica de detección (saber dónde está el enemigo respecto al jugador).
