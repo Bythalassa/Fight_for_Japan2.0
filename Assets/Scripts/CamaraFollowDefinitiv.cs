@@ -235,7 +235,7 @@ private bool HayEnemigoEnPelea()
     public void FollowTarget(GameObject Target) //  core
     {
         Vector3 targetPos = Target.transform.position;
-        Vector3 filterPos = new Vector3(targetPos.x, 0f, -1);
+        Vector3 filterPos = new Vector3(targetPos.x, 0, -1);
 
         Vector3 myPos = transform.position;
  
