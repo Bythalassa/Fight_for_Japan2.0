@@ -35,7 +35,7 @@ public class DummyMovementDospuntoZero : MonoBehaviour
 
     [Header("Pacing 4 attacking --> applies to WaitPhase & Camping")]
     [SerializeField] private int vueltasParaAtacar = 3;
-    [SerializeField] private RuntimeAnimatorController controladorThisEnemy; //no estoy usando esto
+   // [SerializeField] private RuntimeAnimatorController controladorThisEnemy; //no estoy usando esto
 
     [Header("Estado actual (solo lectura, para debug)")]
     public DummyState state = DummyState.IdleAfterSpawn;

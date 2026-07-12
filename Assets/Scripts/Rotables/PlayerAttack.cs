@@ -104,7 +104,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        // optimización: Limpiar la lista de enemigos destruidos o que salieron por completo del radar pasivo
+        //optimización: Limpiar la lista de enemigos destruidos o que salieron por completo del radar pasivo
         EnemigosenAttackRange.RemoveAll(enemy => enemy == null || !passiveRadiusScript.targets.Contains(enemy));
 
         bool hayTresEnRango = EnemigosenAttackRange.Count == 3;

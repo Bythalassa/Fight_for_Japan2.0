@@ -49,7 +49,7 @@ public class CamaraFollowDefLobby : MonoBehaviour
     public GameObject posicion16;*/
 
     [Header("Configuracion de movimiento")]
-    public float Speed = 7f;
+    public float Speed = 1f;
     public float radiusMovement = 1.7f;
     public float radiusDeteccionZona = 2f; // que tan cerca debe estar el jugador de una posicion para activarla
     //falta añadir los limites generales de la cámarax 
