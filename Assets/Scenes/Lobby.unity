@@ -1988,6 +1988,7 @@ MonoBehaviour:
   radiusMovement: 7
   radiusAttack: 2
   isAbleToAttack: 1
+  ThreeEnemiesOnRange: 0
   vueltasParaAtacar: 3
 --- !u!1 &457386752
 GameObject:
@@ -2122,9 +2123,10 @@ MonoBehaviour:
   Speed: 4
   damage: 2
   DetectionRadius: 2.5
-  radiusMovement: 7
+  radiusMovement: 10
   radiusAttack: 2
   isAbleToAttack: 1
+  ThreeEnemiesOnRange: 0
   vueltasParaAtacar: 3
 --- !u!50 &457386757
 Rigidbody2D:
@@ -10199,6 +10201,7 @@ MonoBehaviour:
   radiusMovement: 7
   radiusAttack: 2
   isAbleToAttack: 1
+  ThreeEnemiesOnRange: 0
   vueltasParaAtacar: 3
 --- !u!1 &1703169315
 GameObject:

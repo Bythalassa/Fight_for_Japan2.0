@@ -1,4 +1,5 @@
 using Unity.Multiplayer.PlayMode;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 
@@ -36,6 +37,9 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     private float currentTime;
     private float MaxTime = 2f;
 
+    //Condicion state = WaitPhase 3 onrANGE
+    public bool ThreeEnemiesOnRange = false;
+    // no estoy creando nuevas var para los vueltaCount de esta función
 
     [Header("Pacing 4 attacking --> applies to WaitPhase & Camping")]
     [SerializeField] private int vueltasParaAtacar = 3;
@@ -81,8 +85,67 @@ public class MovimientoEnemiesLobby : MonoBehaviour
         {
             case EnemyEnum.None:
                 break;
-            case EnemyEnum.Idle:
+            case EnemyEnum.Idle: //A.K A Wait phase. reduced version
                 {
+
+                    //movimiento esperado : moverse hacia adelante y hacia atras en vaiven lineal
+                    //valores de movimiento: 
+
+                    Vector3 newTargetPos = (side == -1f)
+                            ? new Vector3(myPos.x - 2f, transform.position.y, transform.position.z)
+                            : new Vector3(myPos.x + 2f, transform.position.y, transform.position.z);
+
+                    float distanceBeforeMove = Vector3.Distance(PlayerTargetPos, myPos);
+                    //infos for debug:
+                    //Calcula la distancia en línea recta entre la posición del jugador y la del enemigo en el espacio 3D.
+
+                    if (distanceBeforeMove <= radiusMovement)
+                        //infos for debug:
+                        //Sabiendo que radiusMovement del enemigo del inspector actual es 10f
+                        //la distancia entre player y enemy es menor a 10f entonces ->
+
+                        Debug.Log($"distanceBeforeMove is {distanceBeforeMove}"); //rpta : 6.32267 
+                        // las vars van en {}  { distanceBeforeMove}
+                    {
+                        side = (myPos.x >= PlayerTargetPos.x) ? -1f : 1f;
+                        //float side evalua si la x esta en -1f :1f
+
+                        // si el lado cambió respecto al anterior, se completó una vuelta
+                        if (side != previousSide && previousSide != 0f) { vueltaCount++; }
+                        previousSide = side;
+                    }
+
+                    //aqui recien lo muevo a NewTarget pos
+                    transform.position = Vector3.MoveTowards(transform.position, newTargetPos, Speed * Time.deltaTime);
+                    //debugear hacia donde se esta moviendo
+
+
+                    //comparando esta logica con el unico vaiven que si sirve en el script> 
+                    //arriba de start 
+                    /* private Vector2[] campingOffsetsUp = new Vector2[] {
+                             new Vector2(0, 1.26f), // punto arriba
+                             new Vector2(0, 0.15f)  // punto abajo
+                         };
+
+                         private Vector3 basePos;   // posicion inicial de referencia
+                         private int targetIndex = 0; // hacia que punto se esta moviendo
+
+                      //en start 
+                        basePos = transform.position;
+
+                    //la funcion es solo 3 lineas ptm 
+                    Vector3 targetPos = basePos + (Vector3)campingOffsetsUp[targetIndex];
+                    
+                    transform.position = Vector3.MoveTowards(transform.position, targetPos, Speed * Time.deltaTime);
+
+                        if (Vector3.Distance(transform.position, targetPos) < 0.01f)
+                        {
+                            targetIndex = (targetIndex + 1) % campingOffsetsUp.Length;
+                        }
+
+                     */
+
+
                     if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadius)
                         state = EnemyEnum.Chase;
                 }
