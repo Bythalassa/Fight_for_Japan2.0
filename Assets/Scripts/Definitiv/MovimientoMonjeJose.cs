@@ -10,6 +10,8 @@ public class MovimientoMonjeJose : MonoBehaviour
         new Vector2(0, 1.26f), // punto arriba
         new Vector2(0, 0.15f)  // punto abajo
     };
+    //Offsets (Desplazamientos / Márgenes)
+    //Up = Y
 
     private Vector3 basePos;   // posicion inicial de referencia
     private int targetIndex = 0; // hacia que punto se esta moviendo

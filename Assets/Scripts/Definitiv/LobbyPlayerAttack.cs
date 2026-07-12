@@ -32,7 +32,7 @@ public class LobbyPlayerAttack : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
-        {
+        { 
             if (collision.TryGetComponent<Health>(out Health Vida))
             {
                 targets.Remove(Vida);

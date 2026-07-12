@@ -20,7 +20,8 @@ public enum EnemyEnum
 
 public class MovimientoEnemiesLobby : MonoBehaviour
 {
-    //public GameObject PlayerTarget;
+    public Rigidbody2D rb;
+
     public EnemyEnum state = EnemyEnum.Idle;
     public Health scriptHealth;
     public float Speed;
@@ -36,9 +37,10 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     private float MaxTime = 2f;
 
     private Vector2[] IdleOffsetsX = new Vector2[] {
-                    new Vector2(12.26f, 0), // punto izquierda
-                    new Vector2(16.15f, 0) };  // punto derecha                  
-                    //Offsets (Desplazamientos / Márgenes)
+    new Vector2(-3.5f, 0),   // izquierda: se resta a basePos
+    new Vector2(3.5f, 0)   // derecha: se suma a basePos
+};
+    //Offsets (Desplazamientos / Márgenes)
 
     private Vector3 basePos;   // posicion inicial de referencia
     private int targetIndex = 0; // hacia que punto se esta moviendo
@@ -73,7 +75,7 @@ public class MovimientoEnemiesLobby : MonoBehaviour
         //--> iddle / wait case 
         basePos = transform.position;
         Debug.Log("Enemy is in position" + basePos);
-        /*Enemy is in position(10.91, -1.43, 0.00)*/
+        /*Enemy is in position(xx)*/
         
     }
 
@@ -83,7 +85,7 @@ public class MovimientoEnemiesLobby : MonoBehaviour
 
 
         if (Relevo.CurrentPlayer == null) return; // por si el enemigo se activa antes que Relevo
-        Debug.Log("CurrentPlayer is " + Relevo.CurrentPlayer.name);
+        //Debug.Log("CurrentPlayer is " + Relevo.CurrentPlayer.name);
 
         Vector3 PlayerTargetPos = Relevo.CurrentPlayer.position;
         Vector3 myPos = transform.position;
@@ -100,83 +102,28 @@ public class MovimientoEnemiesLobby : MonoBehaviour
             case EnemyEnum.Idle: //A.K A Wait phase. reduced version
                 {
                     Debug.Log("Enemy is in Idle");
-                    //movimiento esperado : moverse hacia adelante y hacia atras en vaiven lineal
+                    //parte 1 movimiento esperado : vaiven lineal
+                    /*el comportamiento deberia ser, aunque mi player se mueve 
+                     * el enemigo se queda en el movimiento izquierda a derecha }
+                     * hasta que el radio de deteccion se hace menor solo porque el player se acerca */
                     //valores de movimiento: 
 
-                    Vector3 myNewPos = basePos + (Vector3)IdleOffsetsX[targetIndex];
-                    Debug.Log("Enemy is in position -> targetPos = basePos + (Vector3)IdleOffsetsX[targetIndex] is : " + myNewPos);
-                    /*Enemy is in position Enemy is in position -> targetPos = basePos + (Vector3)IdleOffsetsX[targetIndex] is : (23.17, -1.43, 0.00)*/
-                    //el vector x se asigno 23.17  pero no tiene sentido porque su movimiento no se suma sino se resta ()
-                    // entonces la pregunta es cual es la mate que asigna el vector para que se reste ligeramente a la posicion actual ejemplo -2f y luego
-                    //se sume 2.5f constantemente en un loop de movimiento izquierda a derecha
+                    /*parte 2: 
+                     FixedUpdate()Física, Rigidbody, rb.MovePosition()
+                     */
 
-                    transform.position = Vector3.MoveTowards(transform.position, PlayerTargetPos, Speed * Time.deltaTime);
-                    
 
-                    if (Vector3.Distance(transform.position, myNewPos) < 0.01f)
-                        Debug.Log("Distance is minor than 0.01f ");
-                    //olvidate, la mate para pasar a derecha es si se resto su posición (izquierda) o se se sumo su posicion (derecha) 
+                    Vector3 targetPos = new Vector3(basePos.x + IdleOffsetsX[targetIndex].x, basePos.y, basePos.z);
+                    // la mate que suma la posición de base con los margenes
 
+                    Vector2 newPos = Vector2.MoveTowards(rb.position, targetPos, Speed * Time.deltaTime);
+                    rb.MovePosition(newPos);
+                    //-> MovePosition es una función de movimiento
+
+                    if (Vector2.Distance(rb.position, targetPos) < 0.01f)
                     {
                         targetIndex = (targetIndex + 1) % IdleOffsetsX.Length;
                     }
-
-
-                    /*
-                    Vector3 newTargetPos = (side == -1f)
-                            ? new Vector3(myPos.x - 2f, transform.position.y, transform.position.z)
-                            : new Vector3(myPos.x + 2f, transform.position.y, transform.position.z);
-
-                    float distanceBeforeMove = Vector3.Distance(PlayerTargetPos, myPos);
-                    //infos for debug:
-                    //Calcula la distancia en línea recta entre la posición del jugador y la del enemigo en el espacio 3D.
-
-                    if (distanceBeforeMove <= radiusMovement)
-                        //infos for debug:
-                        //Sabiendo que radiusMovement del enemigo del inspector actual es 10f
-                        //la distancia entre player y enemy es menor a 10f entonces ->
-
-                        Debug.Log($"distanceBeforeMove is {distanceBeforeMove}"); //rpta : 6.32267 
-                        // las vars van en {}  { distanceBeforeMove}
-                    {
-                        side = (myPos.x >= PlayerTargetPos.x) ? -1f : 1f;
-                        //float side evalua si la x esta en -1f :1f
-
-                        // si el lado cambió respecto al anterior, se completó una vuelta
-                        if (side != previousSide && previousSide != 0f) { vueltaCount++; }
-                        previousSide = side;
-                    }
-
-                    //aqui recien lo muevo a NewTarget pos
-                    transform.position = Vector3.MoveTowards(transform.position, newTargetPos, Speed * Time.deltaTime);
-                    //debugear hacia donde se esta moviendo
-
-
-                    //comparando esta logica con el unico vaiven que si sirve en el script> 
-                    //arriba de start 
-                    /* private Vector2[] campingOffsetsUp = new Vector2[] {
-                             new Vector2(0, 1.26f), // punto arriba
-                             new Vector2(0, 0.15f)  // punto abajo
-                         };
-
-                         private Vector3 basePos;   // posicion inicial de referencia
-                         private int targetIndex = 0; // hacia que punto se esta moviendo
-
-                      //en start 
-                        basePos = transform.position;
-
-                    //la funcion es solo 3 lineas ptm 
-                    Vector3 targetPos = basePos + (Vector3)campingOffsetsUp[targetIndex];
-                    
-                    transform.position = Vector3.MoveTowards(transform.position, targetPos, Speed * Time.deltaTime);
-
-                        if (Vector3.Distance(transform.position, targetPos) < 0.01f)
-                        {
-                            targetIndex = (targetIndex + 1) % campingOffsetsUp.Length;
-                        }
-
-                     */
-
 
                     if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadius)
                         state = EnemyEnum.Chase;
