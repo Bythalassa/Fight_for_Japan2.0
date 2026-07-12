@@ -57,6 +57,15 @@ TagManager:
   - name: Objetos4
     uniqueID: 1473220871
     locked: 0
+  - name: Objetos5
+    uniqueID: 3124293177
+    locked: 0
+  - name: objetos6
+    uniqueID: 739668645
+    locked: 0
+  - name: objetos7
+    uniqueID: 2948992973
+    locked: 0
   - name: Hud_c1
     uniqueID: 1995730469
     locked: 0
