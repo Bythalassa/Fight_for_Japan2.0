@@ -200,8 +200,8 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                      */
 
 
-                    if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusOne)
-                        state = EnemyEnum.Idle;
+            /*        if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusOne)
+                        state = EnemyEnum.Idle;*/
                     if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne)
                         state = EnemyEnum.Chase;
 
