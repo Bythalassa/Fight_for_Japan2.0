@@ -28,41 +28,34 @@ public class MovimientoEnemiesLobby : MonoBehaviour
 
     public float damage;
 
-    public float DetectionRadius;
-    public float radiusMovement;
+    public float DetectionRadiusOne;//5.7f bastante para que lo persiga al toque 
+    public float DetectionRadiusTwo;// 1.5f poco para que sea un movimiento exclusivo
+
+    public float radiusMovement; 
     public float radiusAttack;
 
     public bool isAbleToAttack = true;
     private float currentTime;
     private float MaxTime = 2f;
 
+    //IDDLE
     private Vector2[] IdleOffsetsX = new Vector2[] {
     new Vector2(-3.5f, 0),   // izquierda: se resta a basePos
     new Vector2(3.5f, 0)   // derecha: se suma a basePos
-};
-    //Offsets (Desplazamientos / Márgenes)
+}; //Offsets (Desplazamientos / Márgenes)
 
     private Vector3 basePos;   // posicion inicial de referencia
     private int targetIndex = 0; // hacia que punto se esta moviendo
 
+    //Vaiven
+    private Vector2[] VaivenOffsetsXY = new Vector2[] {
+    new Vector2(-3.5f, 0),   // izquierda: se resta a basePos
+    new Vector2(3.5f, 0)   // derecha: se suma a basePos
+}; //Offsets (Desplazamientos / Márgenes)
+
 
     [Header("Pacing 4 attacking --> applies to WaitPhase & Camping")]
     [SerializeField] private int vueltasParaAtacar = 3;
-
-
-
-    /*recreation of Camping state*/
-    //camping config
-    private Vector2[] campingOffsetsIzquierda = new Vector2[] {
-    new Vector2(2.37f, 1.90f),
-    new Vector2(2f, 1.20f) };
-    private Vector2[] campingOffsetsDerecha = new Vector2[] {
-    new Vector2(2.37f, 1.90f),
-    new Vector2(2f, 1.20f) };
-    private int vueltaCount = 0;
-    private float previousSide = 0f;
-    private int waypointIndex = 0;
-    private float side; // -1 izquierda / 1 derecha respecto al player
 
 
 
@@ -122,7 +115,7 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                         targetIndex = (targetIndex + 1) % IdleOffsetsX.Length;
                     }
 
-                    if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadius)
+                    if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne)
                         state = EnemyEnum.Chase;
                 }
                 break;
@@ -132,9 +125,9 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                     Vector3 direction = (PlayerTargetPos - myPos).normalized;
                     transform.position += direction * Speed * Time.deltaTime;
 
-                    if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadius)
+                    if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusOne)
                         state = EnemyEnum.Idle;
-                    if (Vector3.Distance(PlayerTargetPos, myPos) < radiusAttack)
+                    if (Vector3.Distance(PlayerTargetPos, myPos) <= DetectionRadiusTwo)
                         state = EnemyEnum.BasicVaiven;
                 }
                 break;
@@ -151,15 +144,19 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                     */
 
                     //parte 1 movimiento esperado : 
-                    /*cc
-                     * */
+                    /*Solo entra a Basic Vaiven si esta en DetectionRadiusTwo o menos
+                     * actualiza su BasePos -> suma basePos.x && basePos.y a los intervalos nuevos (1 arriba - izquierda 2. abajo - derecha)
+                     */
 
-                    /*parte 2: 
-                     cc
+                    /*parte 2:cambia de estado a ataque
+                     * calcula su posicion 3 veces
+                     * en el indice 3 -> case switch to attack => en attack se repite el movimiento vaiven 
+                     * -> no se lopeea solo pasa 1 vez ya que al llegar al punto más cercano del player lo ataca
+                     * -> luego de take damage -> regresa al estado de BasicVaiven o otros estados              
                      */
 
 
-                    Vector3 targetPos = new Vector3(basePos.x + IdleOffsetsX[targetIndex].x, basePos.y, basePos.z);
+                    Vector3 targetPos = new Vector3(basePos.x && basePos.y + VaivenOffsetsXY[targetIndex].x, basePos.y, basePos.z);
                     // la mate que suma la posición de base con los margenes
 
                     Vector2 newPos = Vector2.MoveTowards(rb.position, targetPos, Speed * Time.deltaTime);
@@ -168,12 +165,13 @@ public class MovimientoEnemiesLobby : MonoBehaviour
 
                     if (Vector2.Distance(rb.position, targetPos) < 0.01f)
                     {
-                        targetIndex = (targetIndex + 1) % IdleOffsetsX.Length;
+                        targetIndex = (targetIndex + 1) % VaivenOffsetsXY.Length;
                     }
 
-                    if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadius)
+                    if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusOne)
+                        state = EnemyEnum.Idle;
+                    if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne)
                         state = EnemyEnum.Chase;
-
 
 
                 }
