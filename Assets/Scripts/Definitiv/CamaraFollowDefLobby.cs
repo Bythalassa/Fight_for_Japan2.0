@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CamaraFollowDefLobby : MonoBehaviour
 {
-    public float limiteIzquierdoUno = -12f;
+    public float limiteIzquierdoUno = -1f;
     public float limiteDerechoUno = 103f;
     public enum CameraState
     {
