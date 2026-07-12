@@ -1,5 +1,3 @@
-using Unity.Multiplayer.PlayMode;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 
@@ -37,12 +35,23 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     private float currentTime;
     private float MaxTime = 2f;
 
-    //Condicion state = WaitPhase 3 onrANGE
-    public bool ThreeEnemiesOnRange = false;
-    // no estoy creando nuevas var para los vueltaCount de esta función
+    private Vector2[] IdleOffsetsX = new Vector2[] {
+                    new Vector2(12.26f, 0), // punto izquierda
+                    new Vector2(16.15f, 0) };  // punto derecha                  
+                    //Offsets (Desplazamientos / Márgenes)
+
+    private Vector3 basePos;   // posicion inicial de referencia
+    private int targetIndex = 0; // hacia que punto se esta moviendo
+
 
     [Header("Pacing 4 attacking --> applies to WaitPhase & Camping")]
     [SerializeField] private int vueltasParaAtacar = 3;
+
+
+
+
+
+
     /*recreation of Camping state*/
     //camping config
     private Vector2[] campingOffsetsIzquierda = new Vector2[] {
@@ -56,12 +65,16 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     private int waypointIndex = 0;
     private float side; // -1 izquierda / 1 derecha respecto al player
 
+
+
+
     void Start()
     {
-        /* PlayerTarget = GameObject.FindGameObjectWithTag("Player");
-         Debug.Log("Player Target is" + PlayerTarget);*/
-
-        //Debug.Log("CurrentPlayer is" + Relevo.CurrentPlayer);
+        //--> iddle / wait case 
+        basePos = transform.position;
+        Debug.Log("Enemy is in position" + basePos);
+        /*Enemy is in position(10.91, -1.43, 0.00)*/
+        
     }
 
     // Update is called once per frame
@@ -80,17 +93,36 @@ public class MovimientoEnemiesLobby : MonoBehaviour
             state = EnemyEnum.Dead;
         }*/
 
-
         switch (state)
         {
             case EnemyEnum.None:
                 break;
             case EnemyEnum.Idle: //A.K A Wait phase. reduced version
                 {
-
+                    Debug.Log("Enemy is in Idle");
                     //movimiento esperado : moverse hacia adelante y hacia atras en vaiven lineal
                     //valores de movimiento: 
 
+                    Vector3 myNewPos = basePos + (Vector3)IdleOffsetsX[targetIndex];
+                    Debug.Log("Enemy is in position -> targetPos = basePos + (Vector3)IdleOffsetsX[targetIndex] is : " + myNewPos);
+                    /*Enemy is in position Enemy is in position -> targetPos = basePos + (Vector3)IdleOffsetsX[targetIndex] is : (23.17, -1.43, 0.00)*/
+                    //el vector x se asigno 23.17  pero no tiene sentido porque su movimiento no se suma sino se resta ()
+                    // entonces la pregunta es cual es la mate que asigna el vector para que se reste ligeramente a la posicion actual ejemplo -2f y luego
+                    //se sume 2.5f constantemente en un loop de movimiento izquierda a derecha
+
+                    transform.position = Vector3.MoveTowards(transform.position, PlayerTargetPos, Speed * Time.deltaTime);
+                    
+
+                    if (Vector3.Distance(transform.position, myNewPos) < 0.01f)
+                        Debug.Log("Distance is minor than 0.01f ");
+                    //olvidate, la mate para pasar a derecha es si se resto su posición (izquierda) o se se sumo su posicion (derecha) 
+
+                    {
+                        targetIndex = (targetIndex + 1) % IdleOffsetsX.Length;
+                    }
+
+
+                    /*
                     Vector3 newTargetPos = (side == -1f)
                             ? new Vector3(myPos.x - 2f, transform.position.y, transform.position.z)
                             : new Vector3(myPos.x + 2f, transform.position.y, transform.position.z);
@@ -152,6 +184,7 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                 break;
             case EnemyEnum.Chase:
                 {
+                    Debug.Log("Enemy is in Chase");
                     Vector3 direction = (PlayerTargetPos - myPos).normalized;
                     transform.position += direction * Speed * Time.deltaTime;
 
@@ -196,7 +229,7 @@ public class MovimientoEnemiesLobby : MonoBehaviour
 
                     // ambos ejes se reflejan según el lado, y se calculan respecto a myPos, no acumulando -> segun la posicion en x, y se ejecuta la matematica
                     // aqui necesitaria otro vector que calcula posiciones en resta si myPos x and y 
-                    // primer calculo si x = -1 se restara en la siguiente posicion --2.37 , y = -1 se restara en la siguiente posicion -1.90
+                    // primer      calculo si x = -1 se restara en la siguiente posicion --2.37 , y = -1 se restara en la siguiente posicion -1.90
                     // segundo calculo se calcula myPos.x restandolo -2 , y = myPos.y restandolo -1.20
                     // se ejecuta el primer calculo de nuevo 
                     // me imagino que deberia habre un newTargetPosIzquierda y newTargetPosDerecha
