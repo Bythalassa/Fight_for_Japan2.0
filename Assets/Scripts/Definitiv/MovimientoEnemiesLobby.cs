@@ -51,9 +51,6 @@ public class MovimientoEnemiesLobby : MonoBehaviour
 
 
 
-
-
-
     /*recreation of Camping state*/
     //camping config
     private Vector2[] campingOffsetsIzquierda = new Vector2[] {
@@ -83,7 +80,7 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     void Update()
     {
 
-
+        if (scriptHealth.Vida <= 0) { state = EnemyEnum.Dead; }
         if (Relevo.CurrentPlayer == null) return; // por si el enemigo se activa antes que Relevo
         //Debug.Log("CurrentPlayer is " + Relevo.CurrentPlayer.name);
 
@@ -142,86 +139,49 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                 }
                 break;
             case EnemyEnum.BasicVaiven:
-                {
-                    // intentando recrear el bloque de Camping del script nivel 2 
+                {          
+                    Debug.Log("Enemy is in BasicVaiven");
 
-                    float distanceBeforeMove = Vector3.Distance(PlayerTargetPos, myPos);
-                    Vector2 offsetIzq = campingOffsetsIzquierda[waypointIndex];
-                    Vector2 offsetDer = campingOffsetsDerecha[waypointIndex];
+                    //solo en el estado de basic vaiven puede irse a estado -> attack 
+                    //comportamiento esperado contexto: 
+                    /*1// comportamiento esperado de BasicVaiven  : hace lo mismo que hace idle 
+                    pero esta vez calcula posiciones actualizadas del player 
+                    // -> dentro del rango de ATTACK RADIUS va a sumar o restar su posicion constantemente en ambos ejes x, y 
+                    // de forma que logra hacer una diagonal 
+                    */
 
-                    if (distanceBeforeMove <= radiusMovement)
-                    {
-                        side = (myPos.x >= PlayerTargetPos.x) ? -1f : 1f;
+                    //parte 1 movimiento esperado : 
+                    /*cc
+                     * */
 
-                        if (side != previousSide && previousSide != 0f)
-                        {
-                            vueltaCount++;
-                        }
-                        previousSide = side;
-                    }
-
-                    // si x = -1 (izquierda), se resta myPos - offset
-                    Vector3 newTargetPosIzquierda = new Vector3(
-                        myPos.x - offsetIzq.x,
-                        myPos.y - offsetIzq.y,
-                        transform.position.z
-                    );
-
-                    // si x = 1 (derecha), se suma myPos + offset
-                    Vector3 newTargetPosDerecha = new Vector3(
-                        myPos.x + offsetDer.x,
-                        myPos.y + offsetDer.y,
-                        transform.position.z
-                    );
-
-                    // ambos ejes se reflejan según el lado, y se calculan respecto a myPos, no acumulando -> segun la posicion en x, y se ejecuta la matematica
-                    // aqui necesitaria otro vector que calcula posiciones en resta si myPos x and y 
-                    // primer      calculo si x = -1 se restara en la siguiente posicion --2.37 , y = -1 se restara en la siguiente posicion -1.90
-                    // segundo calculo se calcula myPos.x restandolo -2 , y = myPos.y restandolo -1.20
-                    // se ejecuta el primer calculo de nuevo 
-                    // me imagino que deberia habre un newTargetPosIzquierda y newTargetPosDerecha
-
-                    /* el otro vector
-                     * primer calculo si x = 1 se sumara en la siguiente posicion +2.37 , y = +1 se sumara en la siguiente posicion +1.90
-                    // segundo calculo se calcula myPos.x sumandolo +2 , y = myPos.y sumandolo +1.20
-                    // se ejecuta el primer calculo de nuevo 
-                    // me imagino que deberia habre un newTargetPosIzquierda y newTargetPosDerecha                     
+                    /*parte 2: 
+                     cc
                      */
 
-                    Vector3 newTargetPos = (side == -1f) ? newTargetPosIzquierda : newTargetPosDerecha;
 
-                    transform.position = Vector3.MoveTowards(transform.position, newTargetPos, Speed * Time.deltaTime);
+                    Vector3 targetPos = new Vector3(basePos.x + IdleOffsetsX[targetIndex].x, basePos.y, basePos.z);
+                    // la mate que suma la posición de base con los margenes
 
-                    if (Vector3.Distance(transform.position, newTargetPos) < 0.05f)
+                    Vector2 newPos = Vector2.MoveTowards(rb.position, targetPos, Speed * Time.deltaTime);
+                    rb.MovePosition(newPos);
+                    //-> MovePosition es una función de movimiento
+
+                    if (Vector2.Distance(rb.position, targetPos) < 0.01f)
                     {
-                        waypointIndex = (waypointIndex + 1) % campingOffsetsIzquierda.Length;
-                        // avanzando el índice usando campingOffsetsIzquierda.Length como referencia de
-                        // "cuántos pasos tiene el ciclo" — asumiendo que ambos arrays tienen el mismo largo
+                        targetIndex = (targetIndex + 1) % IdleOffsetsX.Length;
                     }
 
-                    if (vueltaCount >= vueltasParaAtacar)
-                    {
-                        float distanceAfterMove = Vector3.Distance(PlayerTargetPos, transform.position);
-                        if (distanceAfterMove < distanceBeforeMove)
-                        {
-                            state = EnemyEnum.Attack;
-                            vueltaCount = 0;
-                            waypointIndex = 0;
-                        }
-                    }
+                    if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadius)
+                        state = EnemyEnum.Chase;
 
-                    if (scriptHealth.Vida <= 0) { state = EnemyEnum.Dead; }
 
-                    //MOVIMIENTO VAIVEN 
-                    //INDEX x 3 veces
-                    //3ra vez -> case switch : ataca
-                    //se resetea
-                    //si ataco 1 vez case swithc to vaivem
 
                 }
                 break;
             case EnemyEnum.Attack:
                 {
+                    Debug.Log("Enemy is in Attack");
+
                     if (isAbleToAttack)
                     {
                         Debug.Log("Atacando");
@@ -238,12 +198,16 @@ public class MovimientoEnemiesLobby : MonoBehaviour
 
                     if (Vector3.Distance(PlayerTargetPos, myPos) > radiusAttack)
                         state = EnemyEnum.Chase;
+                    //-> salida a idle
+                    //-> salida a Basic vaiven 
+
+
                 }
                 break;
             case EnemyEnum.Dead:
                 {
+                    Debug.Log("Enemy is Dead");
                     //SetAnim("Death");
-                    Destroy(gameObject);
                 }
                 break;
                     default:

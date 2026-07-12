@@ -2123,7 +2123,7 @@ MonoBehaviour:
   scriptHealth: {fileID: 1459048133}
   Speed: 8.9
   damage: 2
-  DetectionRadius: 2.5
+  DetectionRadius: 5.7
   radiusMovement: 10
   radiusAttack: 2
   isAbleToAttack: 1
