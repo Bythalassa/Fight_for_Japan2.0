@@ -19,6 +19,7 @@ public enum EnemyEnum
 
 public class MovimientoEnemiesLobby : MonoBehaviour
 {
+
     public Rigidbody2D rb;
 
     public EnemyEnum state = EnemyEnum.Idle;
