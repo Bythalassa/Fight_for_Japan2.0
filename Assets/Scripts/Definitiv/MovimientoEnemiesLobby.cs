@@ -1,6 +1,4 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
-
 
 //basic: 3 estados basicos (chase si no esta on pelea, si esta onpelea idle, attack si esta en el radio )
 //en el radio un vaiven minimo 
