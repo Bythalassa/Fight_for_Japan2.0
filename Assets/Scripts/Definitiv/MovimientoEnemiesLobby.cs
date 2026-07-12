@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 
 //basic: 3 estados basicos (chase si no esta on pelea, si esta onpelea idle, attack si esta en el radio )
@@ -25,12 +26,9 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     public EnemyEnum state = EnemyEnum.Idle;
     public Health scriptHealth;
     public float Speed;
+    public float ChaseSpeed;
 
     public float damage;
-
-    public float DetectionRadiusOne;//7f bastante para que lo persiga al toque 
-    public float DetectionRadiusTwo;// 1.5f poco para que sea un movimiento exclusivo
-
     public float radiusMovement; 
     public float radiusAttack;
 
@@ -51,15 +49,23 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     private Vector2[] VaivenOffsetsXY = new Vector2[] {
     new Vector2(2.5f, 1.9f),  // paso 1 (magnitudes, sin signo)
     new Vector2(3f, 1.2f)      // paso 2 (magnitudes, sin signo)
+
+
 }; //Offsets (Desplazamientos / Márgenes)
     private float side;
     private float minDistance = 0.1f;
     private bool sideCalculated = false;
     private float VaiSpeed = 4;
 
+
+    public float DetectionRadiusOne;//7f bastante para que lo persiga al toque 
+    public float DetectionRadiusTwo;// 1.5f poco para que sea un movimiento exclusivo
+    public float exitBuffer = 1.5f;
+    public float exitBufferVaiven = 0.3f;
+
+
     [Header("Pacing 4 attacking --> applies to WaitPhase & Camping")]
     [SerializeField] private int vueltasParaAtacar = 3;
-
 
 
 
@@ -75,7 +81,6 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
        // arreglar esto de dead pero es solo para anim asiq big F if (scriptHealth.Vida <= 0) { state = EnemyEnum.Dead; }
 
         if (Relevo.CurrentPlayer == null) return; // por si el enemigo se activa antes que Relevo
@@ -84,10 +89,19 @@ public class MovimientoEnemiesLobby : MonoBehaviour
         Vector3 PlayerTargetPos = Relevo.CurrentPlayer.position;
         Vector3 myPos = transform.position;
 
-        /*if (scriptHealth != null && scriptHealth.Vida <= 0 && state != EnemyEnum.Dead)
+        if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusOne + exitBuffer)
         {
-            state = EnemyEnum.Dead;
-        }*/
+            state = EnemyEnum.Idle;
+        }
+        else if (Vector3.Distance(PlayerTargetPos, myPos) <= DetectionRadiusTwo)
+        {
+            state = EnemyEnum.BasicVaiven;
+        }
+        else if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusTwo + exitBufferVaiven && Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne)
+        {
+            state = EnemyEnum.Chase;
+        }
+
 
         switch (state)
         {
@@ -105,8 +119,7 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                     /*parte 2: 
                      FixedUpdate()Física, Rigidbody, rb.MovePosition()
                      */
-
-
+                
                     Vector3 targetPos = new Vector3(basePos.x + IdleOffsetsX[targetIndex].x, basePos.y, basePos.z);
                     // la mate que suma la posición de base con los margenes
 
@@ -118,23 +131,16 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                     {
                         targetIndex = (targetIndex + 1) % IdleOffsetsX.Length;
                     }
-                    //idle 
-                    if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne)
-                        state = EnemyEnum.Chase;
                 }
                 break;
             case EnemyEnum.Chase:
                 {
                     Debug.Log("(Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne) : Enemy is in Chase");
+
                     Vector3 direction = (PlayerTargetPos - myPos).normalized;
-                    transform.position += direction * Speed * Time.deltaTime;
+                    Vector2 newPos = rb.position + (Vector2)(direction * ChaseSpeed * Time.deltaTime);
+                    rb.MovePosition(newPos);
 
-                    //chase 
-
-                    if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusOne)
-                        state = EnemyEnum.Idle;
-                    if (Vector3.Distance(PlayerTargetPos, myPos) <= DetectionRadiusTwo)
-                        state = EnemyEnum.BasicVaiven;
                 }
                 break;
             case EnemyEnum.BasicVaiven:
@@ -170,26 +176,13 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                         anchor.z
                     );
 
-                    transform.position = Vector3.MoveTowards(transform.position, targetPos, VaiSpeed * Time.deltaTime);
+                    Vector2 newPos = Vector2.MoveTowards(rb.position, targetPos, VaiSpeed * Time.deltaTime);
+                    rb.MovePosition(newPos);
 
-                    if (Vector3.Distance(transform.position, targetPos) < 0.01f)
+                    if (Vector2.Distance(rb.position, targetPos) < 0.01f)
                     {
                         targetIndex = (targetIndex + 1) % VaivenOffsetsXY.Length;
-
-                        if (targetIndex == 0)
-                        {
-                            sideCalculated = false;
-
-                            if (Vector3.Distance(PlayerTargetPos, transform.position) < DetectionRadiusOne)
-                            {   
-                                state = EnemyEnum.Chase;
-
-
-                            }
-                            if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusOne)
-                                state = EnemyEnum.Idle;
-
-                        }
+                        if (targetIndex == 0) sideCalculated = false;
                     }
 
                     /*parte 2:cambia de estado a ataque
@@ -198,8 +191,6 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                      * -> no se lopeea solo pasa 1 vez ya que al llegar al punto más cercano del player lo ataca
                      * -> luego de take damage -> regresa al estado de BasicVaiven o otros estados              
                      */
-
-
                 }
                 break;
            /* case EnemyEnum.Attack:
@@ -219,13 +210,6 @@ public class MovimientoEnemiesLobby : MonoBehaviour
 
                         currentTime = 0;
                     }
-
-                    if (Vector3.Distance(PlayerTargetPos, myPos) > radiusAttack)
-                        state = EnemyEnum.Chase;
-                    //-> salida a idle
-                    //-> salida a Basic vaiven 
-
-
                 }
                 break;*/
             case EnemyEnum.Dead:

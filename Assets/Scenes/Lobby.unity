@@ -1984,12 +1984,15 @@ MonoBehaviour:
   state: 1
   scriptHealth: {fileID: 1459048133}
   Speed: 4
+  ChaseSpeed: 0
   damage: 2
-  DetectionRadiusOne: 0
-  DetectionRadiusTwo: 0
   radiusMovement: 7
   radiusAttack: 2
   isAbleToAttack: 1
+  DetectionRadiusOne: 0
+  DetectionRadiusTwo: 0
+  exitBuffer: 1.5
+  exitBufferVaiven: 0.3
   vueltasParaAtacar: 3
 --- !u!1 &457386752
 GameObject:
@@ -2123,12 +2126,15 @@ MonoBehaviour:
   state: 1
   scriptHealth: {fileID: 1459048133}
   Speed: 8.9
+  ChaseSpeed: 13
   damage: 2
-  DetectionRadiusOne: 7
-  DetectionRadiusTwo: 1.5
   radiusMovement: 10
   radiusAttack: 2
   isAbleToAttack: 1
+  DetectionRadiusOne: 7
+  DetectionRadiusTwo: 1.5
+  exitBuffer: 1.5
+  exitBufferVaiven: 0.3
   vueltasParaAtacar: 3
 --- !u!50 &457386757
 Rigidbody2D:
@@ -2156,7 +2162,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!61 &457386758
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10199,12 +10205,15 @@ MonoBehaviour:
   state: 1
   scriptHealth: {fileID: 1459048133}
   Speed: 4.8
+  ChaseSpeed: 0
   damage: 2
-  DetectionRadiusOne: 0
-  DetectionRadiusTwo: 0
   radiusMovement: 7
   radiusAttack: 2
   isAbleToAttack: 1
+  DetectionRadiusOne: 0
+  DetectionRadiusTwo: 0
+  exitBuffer: 1.5
+  exitBufferVaiven: 0.3
   vueltasParaAtacar: 3
 --- !u!1 &1703169315
 GameObject:
