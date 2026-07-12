@@ -1980,6 +1980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5992b22b4962124c92d60505670929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoEnemiesLobby
+  rb: {fileID: 0}
   state: 1
   scriptHealth: {fileID: 1459048133}
   Speed: 4
@@ -2117,9 +2118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5992b22b4962124c92d60505670929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoEnemiesLobby
+  rb: {fileID: 457386757}
   state: 1
   scriptHealth: {fileID: 1459048133}
-  Speed: 4
+  Speed: 8.9
   damage: 2
   DetectionRadius: 2.5
   radiusMovement: 10
@@ -9377,7 +9379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f9cee79a4769b4290ac6e2c7b86562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pMovement
-  speed: 7
+  speed: 5.2
 --- !u!114 &1539646892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10191,6 +10193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5992b22b4962124c92d60505670929e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovimientoEnemiesLobby
+  rb: {fileID: 0}
   state: 1
   scriptHealth: {fileID: 1459048133}
   Speed: 4.8

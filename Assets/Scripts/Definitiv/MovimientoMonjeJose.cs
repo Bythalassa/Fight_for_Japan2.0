@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MovimientoMonjeJose : MonoBehaviour
 {
-    private float Speed = 2.8f;
+    private float Speed = 1.7f;
     public SpriteRenderer sombraSmall;
     public SpriteRenderer sombraBig;
 
