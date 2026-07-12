@@ -1,3 +1,4 @@
+using Unity.Multiplayer.PlayMode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +16,8 @@ public class Relevo : MonoBehaviour
     public GameObject Iconcompita;
     public GameObject Iconespadachin;
 
+    public static Transform CurrentPlayer;
+
     void Start()
     {
         compita.SetActive(false);
@@ -22,6 +25,8 @@ public class Relevo : MonoBehaviour
         Iconcompita.SetActive(false);
         Iconespadachin.SetActive(true);
         isAvailable = false;
+        CurrentPlayer = espadachin.transform;
+
     }
 
     void Update()
@@ -48,6 +53,8 @@ public class Relevo : MonoBehaviour
                 espadachin.SetActive(false);
                 Iconcompita.SetActive(true);
                 Iconespadachin.SetActive(false);
+                CurrentPlayer = compita.transform;
+
             }
             else if (!isAvailable)
             {
@@ -56,6 +63,8 @@ public class Relevo : MonoBehaviour
                 espadachin.SetActive(true);
                 Iconcompita.SetActive(false);
                 Iconespadachin.SetActive(true);
+                CurrentPlayer = espadachin.transform;
+
             }
 
         }

@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damagePercent)
     {
+        Debug.Log("entered to function TakeDamage"); 
         if (isInvulnerable || isDead)
         {
             Debug.Log(gameObject.name + " esta invulnerable/muerto, no recibe daño.");
@@ -52,6 +53,7 @@ public class Health : MonoBehaviour
     }
     public void StartRegeneration()
     {
+        Debug.Log("entered to function StartRegeneration");
         isRecovering = true;
         float vidaFaltante = maxVida - Vida;
         curacionPorSegundo = vidaFaltante / recoveryDuration;
@@ -61,6 +63,7 @@ public class Health : MonoBehaviour
 
     public void TickRegeneration()
     {
+        Debug.Log("entered to function TickRegeneration");
         if (!isRecovering) return;
 
         recoveryElapsed += Time.deltaTime;
