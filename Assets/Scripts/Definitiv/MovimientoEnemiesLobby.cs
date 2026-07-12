@@ -47,12 +47,14 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     private Vector3 basePos;   // posicion inicial de referencia
     private int targetIndex = 0; // hacia que punto se esta moviendo
 
-    //Vaiven
+    //BasicVaiven
     private Vector2[] VaivenOffsetsXY = new Vector2[] {
-    new Vector2(-3.5f, 0),   // izquierda: se resta a basePos
-    new Vector2(3.5f, 0)   // derecha: se suma a basePos
+    new Vector2(13.11f, 8.7f),  // paso 1 (magnitudes, sin signo)
+    new Vector2(12f, 6.6f)      // paso 2 (magnitudes, sin signo)
 }; //Offsets (Desplazamientos / Márgenes)
-
+    private float side;
+    private float minDistance = 13f;
+    private bool sideCalculated = false;
 
     [Header("Pacing 4 attacking --> applies to WaitPhase & Camping")]
     [SerializeField] private int vueltasParaAtacar = 3;
@@ -73,7 +75,8 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     void Update()
     {
 
-        if (scriptHealth.Vida <= 0) { state = EnemyEnum.Dead; }
+       // arreglar esto de dead pero es solo para anim asiq big F if (scriptHealth.Vida <= 0) { state = EnemyEnum.Dead; }
+
         if (Relevo.CurrentPlayer == null) return; // por si el enemigo se activa antes que Relevo
         //Debug.Log("CurrentPlayer is " + Relevo.CurrentPlayer.name);
 
@@ -91,7 +94,7 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                 break;
             case EnemyEnum.Idle: //A.K A Wait phase. reduced version
                 {
-                    Debug.Log("Enemy is in Idle");
+                    Debug.Log("Distance(PlayerTargetPos, myPos) > DetectionRadiusOne) : Enemy is in Idle");
                     //parte 1 movimiento esperado : vaiven lineal
                     /*el comportamiento deberia ser, aunque mi player se mueve 
                      * el enemigo se queda en el movimiento izquierda a derecha }
@@ -121,7 +124,7 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                 break;
             case EnemyEnum.Chase:
                 {
-                    Debug.Log("Enemy is in Chase");
+                    Debug.Log("(Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne) : Enemy is in Chase");
                     Vector3 direction = (PlayerTargetPos - myPos).normalized;
                     transform.position += direction * Speed * Time.deltaTime;
 
@@ -133,7 +136,7 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                 break;
             case EnemyEnum.BasicVaiven:
                 {          
-                    Debug.Log("Enemy is in BasicVaiven");
+                    Debug.Log("Distance(PlayerTargetPos, myPos) <= DetectionRadiusTwo) : Enemy is in BasicVaiven");
 
                     //solo en el estado de basic vaiven puede irse a estado -> attack 
                     //comportamiento esperado contexto: 
@@ -148,13 +151,34 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                      * actualiza su BasePos -> suma basePos.x && basePos.y a los intervalos nuevos (1 arriba - izquierda 2. abajo - derecha)
                      */
 
-                    /*parte 2:cambia de estado a ataque
-                     * calcula su posicion 3 veces
-                     * en el indice 3 -> case switch to attack => en attack se repite el movimiento vaiven 
-                     * -> no se lopeea solo pasa 1 vez ya que al llegar al punto más cercano del player lo ataca
-                     * -> luego de take damage -> regresa al estado de BasicVaiven o otros estados              
-                     */
+                    // side se calcula UNA sola vez por ciclo, no cada frame
+                    if (!sideCalculated)
+                    {
+                        side = (myPos.x < PlayerTargetPos.x) ? -1f : 1f;
+                        sideCalculated = true;
+                    }
 
+                    // ancla: sigue al player, manteniendo 0.5f de distancia minima en X
+                    Vector3 anchor = PlayerTargetPos + new Vector3(side * minDistance, 0, 0);
+
+                    Vector3 targetPos = new Vector3(
+                        anchor.x + side * VaivenOffsetsXY[targetIndex].x,
+                        anchor.y + side * VaivenOffsetsXY[targetIndex].y,
+                        anchor.z
+                    );
+
+                    transform.position = Vector3.MoveTowards(transform.position, targetPos, Speed * Time.deltaTime);
+
+                    if (Vector3.Distance(transform.position, targetPos) < 0.01f)
+                    {
+                        targetIndex = (targetIndex + 1) % VaivenOffsetsXY.Length;
+
+                        if (targetIndex == 0)
+                        {
+                            sideCalculated = false;
+                        }
+                    }
+                    /*
 
                     Vector3 targetPos = new Vector3(basePos.x && basePos.y + VaivenOffsetsXY[targetIndex].x, basePos.y, basePos.z);
                     // la mate que suma la posición de base con los margenes
@@ -166,13 +190,20 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                     if (Vector2.Distance(rb.position, targetPos) < 0.01f)
                     {
                         targetIndex = (targetIndex + 1) % VaivenOffsetsXY.Length;
-                    }
+                    }*/
+
+                    /*parte 2:cambia de estado a ataque
+                     * calcula su posicion 3 veces
+                     * en el indice 3 -> case switch to attack => en attack se repite el movimiento vaiven 
+                     * -> no se lopeea solo pasa 1 vez ya que al llegar al punto más cercano del player lo ataca
+                     * -> luego de take damage -> regresa al estado de BasicVaiven o otros estados              
+                     */
+
 
                     if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusOne)
                         state = EnemyEnum.Idle;
                     if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne)
                         state = EnemyEnum.Chase;
-
 
                 }
                 break;

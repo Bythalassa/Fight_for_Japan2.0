@@ -1985,7 +1985,8 @@ MonoBehaviour:
   scriptHealth: {fileID: 1459048133}
   Speed: 4
   damage: 2
-  DetectionRadius: 2.5
+  DetectionRadiusOne: 0
+  DetectionRadiusTwo: 0
   radiusMovement: 7
   radiusAttack: 2
   isAbleToAttack: 1
@@ -2123,7 +2124,8 @@ MonoBehaviour:
   scriptHealth: {fileID: 1459048133}
   Speed: 8.9
   damage: 2
-  DetectionRadius: 5.7
+  DetectionRadiusOne: 5.7
+  DetectionRadiusTwo: 1.5
   radiusMovement: 10
   radiusAttack: 2
   isAbleToAttack: 1
@@ -10198,7 +10200,8 @@ MonoBehaviour:
   scriptHealth: {fileID: 1459048133}
   Speed: 4.8
   damage: 2
-  DetectionRadius: 2.5
+  DetectionRadiusOne: 0
+  DetectionRadiusTwo: 0
   radiusMovement: 7
   radiusAttack: 2
   isAbleToAttack: 1
