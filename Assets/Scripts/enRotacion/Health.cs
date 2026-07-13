@@ -45,12 +45,13 @@ public class Health : MonoBehaviour
             return;
         }
 
-        if (!recoveryThresholdReached && Vida >= recoveryThreshold) // bruder: >= cuando a llegado al número o es menor, si no es igual entonces no puede ser mayor, pero si puede ser menor 
+        if (!recoveryThresholdReached && Vida >= recoveryThreshold) // bruder: >= cuando a llegado al número o es menor,
+                                                                    // si no es igual entonces no puede ser mayor, pero si puede ser menor 
         {
             recoveryThresholdReached = true;
         }
-
     }
+
     public void StartRegeneration()
     {
         Debug.Log("entered to function StartRegeneration");

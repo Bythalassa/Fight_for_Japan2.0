@@ -1,7 +1,7 @@
 using UnityEngine;
 
 //no funciona perfecto, pero a veces si funciona pedir auxilio a neyra                          
-public class EnemySpawner : MonoBehaviour
+public class SpawnerxTime : MonoBehaviour
 {
     [Header("Tipos de enemigos posibles")]
     public GameObject[] enemyPrefabs;
@@ -45,12 +45,10 @@ public class EnemySpawner : MonoBehaviour
 
     private void TimerMechanic()
     {
-
         spawnTimer -= Time.deltaTime;
         if (spawnTimer < 0)
         {
            // Debug.Log($"[{gameObject.name}] Disparando oleada. sequenceIndex={sequenceIndex}, spawnRounds antes={spawnRounds}");
-
 
             SpawnEnemy();
             spawnRounds++;
@@ -70,8 +68,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-
-
         if (spawnPoints.Length == 0 || enemyPrefabs.Length == 0)
         {
             //Debug.LogWarning($"[{gameObject.name}] Faltan spawnPoints o enemyPrefabs");
@@ -86,7 +82,6 @@ public class EnemySpawner : MonoBehaviour
 
         int amount = enemiesPerWave[sequenceIndex % enemiesPerWave.Length];
         //Debug.Log($"[{gameObject.name}] Spawneando {amount} enemigos (sequenceIndex={sequenceIndex})");
-
 
         for (int i = 0; i < amount; i++)
         {

@@ -63,8 +63,8 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     public float exitBufferVaiven = 0.3f;
 
 
-    [Header("Pacing 4 attacking --> applies to WaitPhase & Camping")]
-    [SerializeField] private int vueltasParaAtacar = 3;
+  /*  [Header("Pacing 4 attacking --> applies to WaitPhase & Camping")]
+    [SerializeField] private int vueltasParaAtacar = 3;*/
 
 
 

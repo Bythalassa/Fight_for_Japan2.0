@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class LobbyPlayerAttack : MonoBehaviour
 {
     public List<Health> targets = new List<Health>();
-    public List<MovimientoEnemiesLobby> EnemigosenAttackRange = new List<MovimientoEnemiesLobby>();
+
 
     public float damagePercent = 10f; // ahora es un %, no un numero fijo (10 = 10%)
     private bool isAbleToAttack;

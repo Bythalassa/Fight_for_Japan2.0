@@ -138,12 +138,12 @@ public class CamaraFollowDefLobby : MonoBehaviour
     {
         if (espadachin.CompareTag("Player"))
             return espadachin;
-
+        
         return compita;
     }
     private CameraState DeterminarEstado()
     {
-        //->  default / default 2 es una copia replicaada
+       
         if (!HayEnemigoEnPelea())
         { return CameraState.Libre; }
 
@@ -199,7 +199,7 @@ public class CamaraFollowDefLobby : MonoBehaviour
          { return CameraState.Posicion16; }*/
 
         return CameraState.Libre;
-        //porque hay q poner siempre uun return al final q paja 
+        
     }
 
     private bool EstaEnZona(Vector3 posJugador, Vector3 posZona, CameraState estadoZona)
@@ -211,7 +211,7 @@ public class CamaraFollowDefLobby : MonoBehaviour
 
         return Vector3.Distance(posJugador, posZona) <= radio;
     }
-
+    
     private bool HayEnemigoEnPelea()
     {
         GameObject[] enemigos = GameObject.FindGameObjectsWithTag("Enemy");
@@ -222,7 +222,6 @@ public class CamaraFollowDefLobby : MonoBehaviour
             if (hm.OnPelea)
                 return true;
         }
-
         return false;
     }
 

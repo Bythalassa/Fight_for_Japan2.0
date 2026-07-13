@@ -35,7 +35,7 @@ public class Relevo : MonoBehaviour
         timeRespawn -= Time.deltaTime;
         if (timeRespawn < 0) timeRespawn = 0;
     }
-
+    
     private void LeerInteraccion()
     {
         if (timeRespawn > 0) { return; }
@@ -47,7 +47,6 @@ public class Relevo : MonoBehaviour
 
             if (isAvailable)
             {
-                compita.transform.position = espadachin.transform.position; // dicirle al prof porque no funciona
                 compita.SetActive(true);
                 espadachin.SetActive(false);
                 Iconcompita.SetActive(true);
@@ -57,13 +56,11 @@ public class Relevo : MonoBehaviour
             }
             else if (!isAvailable)
             {
-                espadachin.transform.position = compita.transform.position; // dicirle al prof porque no funciona
                 compita.SetActive(false);
                 espadachin.SetActive(true);
                 Iconcompita.SetActive(false);
                 Iconespadachin.SetActive(true);
                 CurrentPlayer = espadachin.transform;
-
             }
 
         }
