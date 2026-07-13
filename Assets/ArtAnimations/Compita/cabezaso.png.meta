@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 7bfe1ed374a6c62488e942da2c5a41aa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2325831788365433069
+    second: cabezaso_0
+  - first:
+      213: 4542787866841664791
+    second: cabezaso_1
+  - first:
+      213: 1791229987505975576
+    second: cabezaso_2
+  - first:
+      213: 1751789123804631446
+    second: cabezaso_3
+  - first:
+      213: 341738146568174228
+    second: cabezaso_4
+  - first:
+      213: -1440178147563390306
+    second: cabezaso_5
+  - first:
+      213: -2646490856203819557
+    second: cabezaso_6
+  - first:
+      213: 1271067071279782085
+    second: cabezaso_7
+  - first:
+      213: 2960111927068005083
+    second: cabezaso_8
+  - first:
+      213: 4593032396601277227
+    second: cabezaso_9
+  - first:
+      213: -4481836595286027397
+    second: cabezaso_10
+  - first:
+      213: 4234231655919478293
+    second: cabezaso_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cabezaso_0
+      rect:
+        serializedVersion: 2
+        x: 1960
+        y: 308
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 317ba2faf4cf8bfd0800000000000000
+      internalID: -2325831788365433069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabezaso_1
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 15
+        width: 409
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d4d050f793b0f30800000000000000
+      internalID: 4542787866841664791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabezaso_2
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 16
+        width: 319
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 811325cee2abbd810800000000000000
+      internalID: 1791229987505975576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabezaso_3
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 17
+        width: 319
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69194cd3dea9f4810800000000000000
+      internalID: 1751789123804631446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabezaso_4
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 14
+        width: 310
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a7560a8091eb400800000000000000
+      internalID: 341738146568174228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabezaso_5
+      rect:
+        serializedVersion: 2
+        x: 1375
+        y: 146
+        width: 46
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9a343dea95730ce0800000000000000
+      internalID: -1440178147563390306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabezaso_6
+      rect:
+        serializedVersion: 2
+        x: 1444
+        y: 14
+        width: 310
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd5e6a68696c54bd0800000000000000
+      internalID: -2646490856203819557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabezaso_7
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 146
+        width: 45
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c8d35554ccb3a110800000000000000
+      internalID: 1271067071279782085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabezaso_8
+      rect:
+        serializedVersion: 2
+        x: 1768
+        y: 17
+        width: 339
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd219444d1e641920800000000000000
+      internalID: 2960111927068005083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabezaso_9
+      rect:
+        serializedVersion: 2
+        x: 2115
+        y: 16
+        width: 339
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2bb74931aabdbf30800000000000000
+      internalID: 4593032396601277227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabezaso_10
+      rect:
+        serializedVersion: 2
+        x: 2462
+        y: 18
+        width: 319
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7351a4cc515dc1c0800000000000000
+      internalID: -4481836595286027397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cabezaso_11
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 18
+        width: 319
+        height: 260
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5166bc3d14303ca30800000000000000
+      internalID: 4234231655919478293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      cabezaso_0: -2325831788365433069
+      cabezaso_1: 4542787866841664791
+      cabezaso_10: -4481836595286027397
+      cabezaso_11: 4234231655919478293
+      cabezaso_2: 1791229987505975576
+      cabezaso_3: 1751789123804631446
+      cabezaso_4: 341738146568174228
+      cabezaso_5: -1440178147563390306
+      cabezaso_6: -2646490856203819557
+      cabezaso_7: 1271067071279782085
+      cabezaso_8: 2960111927068005083
+      cabezaso_9: 4593032396601277227
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

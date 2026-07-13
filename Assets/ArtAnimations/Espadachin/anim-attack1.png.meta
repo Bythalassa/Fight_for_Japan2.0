@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: b2a0be355dacdf54e80b29123b842f32
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5998879557805379799
+    second: anim-attack1_0
+  - first:
+      213: -8649056943291637544
+    second: anim-attack1_1
+  - first:
+      213: -197477176560503434
+    second: anim-attack1_2
+  - first:
+      213: 5515363994039151502
+    second: anim-attack1_3
+  - first:
+      213: -1923974844221823918
+    second: anim-attack1_4
+  - first:
+      213: 5198245567040161713
+    second: anim-attack1_5
+  - first:
+      213: -8050590954259798026
+    second: anim-attack1_6
+  - first:
+      213: 1292768294862829405
+    second: anim-attack1_7
+  - first:
+      213: -7078677730479577390
+    second: anim-attack1_8
+  - first:
+      213: -2701252972305060626
+    second: anim-attack1_9
+  - first:
+      213: -5306544783655200435
+    second: anim-attack1_10
+  - first:
+      213: -5085429594901425752
+    second: anim-attack1_11
+  - first:
+      213: -4657705689353488458
+    second: anim-attack1_12
+  - first:
+      213: 3086876022998612368
+    second: anim-attack1_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: anim-attack1_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 35
+        width: 401
+        height: 477
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92f68aa53d2bfbca0800000000000000
+      internalID: -5998879557805379799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_1
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 38
+        width: 416
+        height: 477
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d0e9f4e88068f780800000000000000
+      internalID: -8649056943291637544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_2
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 41
+        width: 401
+        height: 477
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6753ddfdd8b624df0800000000000000
+      internalID: -197477176560503434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_3
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 39
+        width: 617
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8beea7b4528a8c40800000000000000
+      internalID: 5515363994039151502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_4
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 239
+        width: 57
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 254ee55a21bac45e0800000000000000
+      internalID: -1923974844221823918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_5
+      rect:
+        serializedVersion: 2
+        x: 1985
+        y: 46
+        width: 617
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b78dae3dc0e32840800000000000000
+      internalID: 5198245567040161713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_6
+      rect:
+        serializedVersion: 2
+        x: 2588
+        y: 246
+        width: 57
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f72f535e2e864090800000000000000
+      internalID: -8050590954259798026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_7
+      rect:
+        serializedVersion: 2
+        x: 2676
+        y: 20
+        width: 754
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57bf203ae5d0f110800000000000000
+      internalID: 1292768294862829405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_8
+      rect:
+        serializedVersion: 2
+        x: 3443
+        y: 26
+        width: 752
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6eb4bcb1c73cd90800000000000000
+      internalID: -7078677730479577390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_9
+      rect:
+        serializedVersion: 2
+        x: 4223
+        y: 29
+        width: 752
+        height: 492
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eece949cbb8338ad0800000000000000
+      internalID: -2701252972305060626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_10
+      rect:
+        serializedVersion: 2
+        x: 1926
+        y: 219
+        width: 49
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d49978172ad5b56b0800000000000000
+      internalID: -5306544783655200435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_11
+      rect:
+        serializedVersion: 2
+        x: 2569
+        y: 202
+        width: 58
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a154a92abcec69b0800000000000000
+      internalID: -5085429594901425752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_12
+      rect:
+        serializedVersion: 2
+        x: 2612
+        y: 226
+        width: 51
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b7f4c56a518c5fb0800000000000000
+      internalID: -4657705689353488458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anim-attack1_13
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 195
+        width: 58
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 099b0805369c6da20800000000000000
+      internalID: 3086876022998612368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      anim-attack1_0: -5998879557805379799
+      anim-attack1_1: -8649056943291637544
+      anim-attack1_10: -5306544783655200435
+      anim-attack1_11: -5085429594901425752
+      anim-attack1_12: -4657705689353488458
+      anim-attack1_13: 3086876022998612368
+      anim-attack1_2: -197477176560503434
+      anim-attack1_3: 5515363994039151502
+      anim-attack1_4: -1923974844221823918
+      anim-attack1_5: 5198245567040161713
+      anim-attack1_6: -8050590954259798026
+      anim-attack1_7: 1292768294862829405
+      anim-attack1_8: -7078677730479577390
+      anim-attack1_9: -2701252972305060626
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

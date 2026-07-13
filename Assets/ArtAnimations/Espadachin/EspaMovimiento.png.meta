@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 71a58df166c0cd54986d8dde2aa7c662
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4879698729789984654
+    second: EspaMovimiento_0
+  - first:
+      213: 4489520872838231935
+    second: EspaMovimiento_1
+  - first:
+      213: -2270262259474604082
+    second: EspaMovimiento_2
+  - first:
+      213: 2714836247452204288
+    second: EspaMovimiento_3
+  - first:
+      213: 2617362027423676108
+    second: EspaMovimiento_4
+  - first:
+      213: -1566224665240428348
+    second: EspaMovimiento_5
+  - first:
+      213: -3509141829875027439
+    second: EspaMovimiento_6
+  - first:
+      213: -3809513651877712914
+    second: EspaMovimiento_7
+  - first:
+      213: -4154413192116989957
+    second: EspaMovimiento_8
+  - first:
+      213: 6688410268483795656
+    second: EspaMovimiento_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EspaMovimiento_0
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 11
+        width: 391
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8f8e08142c28b340800000000000000
+      internalID: 4879698729789984654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspaMovimiento_1
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 12
+        width: 380
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f777935827bfd4e30800000000000000
+      internalID: 4489520872838231935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspaMovimiento_2
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 9
+        width: 376
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf5a0dd0886e70e0800000000000000
+      internalID: -2270262259474604082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspaMovimiento_3
+      rect:
+        serializedVersion: 2
+        x: 1305
+        y: 10
+        width: 382
+        height: 477
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00d3eb8ee290da520800000000000000
+      internalID: 2714836247452204288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspaMovimiento_4
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 13
+        width: 383
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc63f2585ecb25420800000000000000
+      internalID: 2617362027423676108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspaMovimiento_5
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 8
+        width: 381
+        height: 468
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c0a3e517f6a34ae0800000000000000
+      internalID: -1566224665240428348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspaMovimiento_6
+      rect:
+        serializedVersion: 2
+        x: 2512
+        y: 6
+        width: 382
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 112b5d319160d4fc0800000000000000
+      internalID: -3509141829875027439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspaMovimiento_7
+      rect:
+        serializedVersion: 2
+        x: 2905
+        y: 10
+        width: 374
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eebe3dc6483e12bc0800000000000000
+      internalID: -3809513651877712914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspaMovimiento_8
+      rect:
+        serializedVersion: 2
+        x: 3288
+        y: 8
+        width: 382
+        height: 471
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bff8ba9763f8856c0800000000000000
+      internalID: -4154413192116989957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspaMovimiento_9
+      rect:
+        serializedVersion: 2
+        x: 3688
+        y: 10
+        width: 383
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ca3d05d3b102dc50800000000000000
+      internalID: 6688410268483795656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      EspaMovimiento_0: 4879698729789984654
+      EspaMovimiento_1: 4489520872838231935
+      EspaMovimiento_2: -2270262259474604082
+      EspaMovimiento_3: 2714836247452204288
+      EspaMovimiento_4: 2617362027423676108
+      EspaMovimiento_5: -1566224665240428348
+      EspaMovimiento_6: -3509141829875027439
+      EspaMovimiento_7: -3809513651877712914
+      EspaMovimiento_8: -4154413192116989957
+      EspaMovimiento_9: 6688410268483795656
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
