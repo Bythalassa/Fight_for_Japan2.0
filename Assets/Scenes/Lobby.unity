@@ -12622,6 +12622,14 @@ PrefabInstance:
       value: LobbyRedNinja
       objectReference: {fileID: 0}
     - target: {fileID: 2810495607690209826, guid: 4a2c75f317ac61b44955a3e6b911748d, type: 3}
+      propertyPath: VaiSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810495607690209826, guid: 4a2c75f317ac61b44955a3e6b911748d, type: 3}
+      propertyPath: ChaseSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810495607690209826, guid: 4a2c75f317ac61b44955a3e6b911748d, type: 3}
       propertyPath: scriptHealth
       value: 
       objectReference: {fileID: 1459048133}

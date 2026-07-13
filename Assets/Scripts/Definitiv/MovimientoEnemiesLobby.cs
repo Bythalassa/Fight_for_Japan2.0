@@ -54,7 +54,7 @@ public class MovimientoEnemiesLobby : MonoBehaviour
     private float side;
     private float minDistance = 0.1f;
     private bool sideCalculated = false;
-    private float VaiSpeed = 4;
+    public float VaiSpeed = 9;
 
 
     public float DetectionRadiusOne;//7f bastante para que lo persiga al toque 
