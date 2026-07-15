@@ -6623,7 +6623,7 @@ Transform:
   m_GameObject: {fileID: 1350968979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: -10}
+  m_LocalPosition: {x: 88, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12623,11 +12623,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2810495607690209826, guid: 4a2c75f317ac61b44955a3e6b911748d, type: 3}
       propertyPath: VaiSpeed
-      value: 30
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 2810495607690209826, guid: 4a2c75f317ac61b44955a3e6b911748d, type: 3}
       propertyPath: ChaseSpeed
-      value: 30
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 2810495607690209826, guid: 4a2c75f317ac61b44955a3e6b911748d, type: 3}
       propertyPath: scriptHealth
