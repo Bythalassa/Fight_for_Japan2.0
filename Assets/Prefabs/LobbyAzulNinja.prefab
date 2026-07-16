@@ -137,11 +137,11 @@ MonoBehaviour:
   radiusMovement: 10
   radiusAttack: 2
   isAbleToAttack: 1
+  VaiSpeed: 22
   DetectionRadiusOne: 7
   DetectionRadiusTwo: 1.5
   exitBuffer: 1.5
   exitBufferVaiven: 0.3
-  vueltasParaAtacar: 3
 --- !u!50 &7366847665580149739
 Rigidbody2D:
   serializedVersion: 5

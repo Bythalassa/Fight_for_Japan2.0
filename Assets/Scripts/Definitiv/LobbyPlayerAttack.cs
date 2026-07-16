@@ -15,8 +15,6 @@ public class LobbyPlayerAttack : MonoBehaviour
     public float attackSignalDuration = 0.2f; // cuanto tiempo se mantiene IsAttacking en true tras golpear
     private float attackSignalTimer = 0f;
 
-    //medir la distancia de todos los enemigos targeted desde la referencia del script PassiveRadius
-    public PassiveRadius passiveRadiusScript;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
