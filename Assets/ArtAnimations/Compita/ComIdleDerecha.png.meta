@@ -109,10 +109,10 @@ TextureImporter:
       name: ComIdleDerecha_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 31
-        width: 340
-        height: 299
+        x: 13
+        y: 28
+        width: 270
+        height: 300
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,12 +131,12 @@ TextureImporter:
       name: ComIdleDerecha_1
       rect:
         serializedVersion: 2
-        x: 29
-        y: 162
+        x: 14
+        y: 368
         width: 9
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 1.1448416, y: 12.348959}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -153,10 +153,10 @@ TextureImporter:
       name: ComIdleDerecha_2
       rect:
         serializedVersion: 2
-        x: 368
-        y: 28
-        width: 256
-        height: 303
+        x: 282
+        y: 27
+        width: 338
+        height: 302
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
