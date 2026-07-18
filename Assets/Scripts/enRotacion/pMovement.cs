@@ -12,9 +12,13 @@ public class pMovement : MonoBehaviour
 
     // True solo en los frames en los que hay input real (para DummyMovement.IsPlayerMoving()).
     public bool IsMoving { get; private set; }
+    private Animator animator;
+
 
     void Start()
     {
+
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,7 +30,17 @@ public class pMovement : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-        Vector3 direction = new Vector3(x, y, 0);
+        Vector3 myPos = transform.position;
+        //igualar Vector2 a Vector3
+
+
+        //Vector3.zero == (0,0,0)
+        if(myPos != Vector3.zero) { 
+        animator.SetFloat("X", x);
+        animator.SetFloat("Y", y);
+        }
+
+    Vector3 direction = new Vector3(x, y, 0);
         direction.Normalize();
 
         if (direction.sqrMagnitude > 0.0001f)
