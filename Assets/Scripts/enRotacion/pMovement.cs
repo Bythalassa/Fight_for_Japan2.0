@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class pMovement : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class pMovement : MonoBehaviour
     {
 
         animator = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -30,17 +32,22 @@ public class pMovement : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-        Vector3 myPos = transform.position;
-        //igualar Vector2 a Vector3
 
+        Vector2 MoveDir = new Vector2(x, y).normalized;
 
-        //Vector3.zero == (0,0,0)
-        if(myPos != Vector3.zero) { 
-        animator.SetFloat("X", x);
-        animator.SetFloat("Y", y);
+        if (MoveDir != Vector2.zero)
+        {
+            animator.SetFloat("X", MoveDir.x);
+            animator.SetFloat("Y", MoveDir.y);
+
+            animator.SetBool("IsMoving", true); //->SetBool(string name, bool value)
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
         }
 
-    Vector3 direction = new Vector3(x, y, 0);
+        Vector3 direction = new Vector3(x, y, 0);
         direction.Normalize();
 
         if (direction.sqrMagnitude > 0.0001f)
