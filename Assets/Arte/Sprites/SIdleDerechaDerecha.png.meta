@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 4e46e294799ef3d46bfcc2bb2bcbf7f6
+guid: 4ceecd4e6139009448f5ee46694153a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1417164337872379693
-    second: SIdleIzquierda_0
-  - first:
-      213: 4148915990901432478
-    second: SIdleIzquierda_1
+      213: -1636518645658059640
+    second: SIdleDerechaDerecha_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 190
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SIdleIzquierda_0
+      name: SIdleDerechaDerecha_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 31
-        width: 345
-        height: 299
+        x: 2
+        y: 28
+        width: 256
+        height: 303
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2f1c33f477caa310800000000000000
-      internalID: 1417164337872379693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SIdleIzquierda_1
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 162
-        width: 9
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e902e90ac19e39930800000000000000
-      internalID: 4148915990901432478
+      spriteID: 88c7f3166fae949e0800000000000000
+      internalID: -1636518645658059640
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      SIdleIzquierda_0: 1417164337872379693
-      SIdleIzquierda_1: 4148915990901432478
+      SIdleDerechaDerecha_0: -1636518645658059640
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
