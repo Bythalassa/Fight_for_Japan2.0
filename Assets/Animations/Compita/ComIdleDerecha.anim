@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ComIdleIzquierda
+  m_Name: ComIdleDerecha
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -6482762902521449668, guid: b745e7bf9654d984390738b022725ba7, type: 3}
+      value: {fileID: -8155939848965657138, guid: 329f0ca61dc39484a8a5e004f740693f, type: 3}
     - time: 0.083333336
-      value: {fileID: -2155163591329972432, guid: b745e7bf9654d984390738b022725ba7, type: 3}
+      value: {fileID: 6372635714455346689, guid: 329f0ca61dc39484a8a5e004f740693f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -6482762902521449668, guid: b745e7bf9654d984390738b022725ba7, type: 3}
-    - {fileID: -2155163591329972432, guid: b745e7bf9654d984390738b022725ba7, type: 3}
+    - {fileID: -8155939848965657138, guid: 329f0ca61dc39484a8a5e004f740693f, type: 3}
+    - {fileID: 6372635714455346689, guid: 329f0ca61dc39484a8a5e004f740693f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

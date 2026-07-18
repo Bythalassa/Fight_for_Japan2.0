@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: 9ae1adf5a58dfa349820a2ae1d5f29da
+guid: 329f0ca61dc39484a8a5e004f740693f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5364760900038608763
-    second: "mu\xF1eco_0"
+      213: -8155939848965657138
+    second: ComIdleDerecha_0
   - first:
-      213: -841972597445281512
-    second: "mu\xF1eco_1"
+      213: -4853734447136455805
+    second: ComIdleDerecha_1
   - first:
-      213: 7520100282290268744
-    second: "mu\xF1eco_2"
-  - first:
-      213: 7992713738969671029
-    second: "mu\xF1eco_3"
+      213: 6372635714455346689
+    second: ComIdleDerecha_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -93,59 +90,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -161,89 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "mu\xF1eco_0"
+      name: ComIdleDerecha_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 6
-        width: 409
-        height: 260
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 25
+        y: 31
+        width: 340
+        height: 299
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b77c4b76d95737a40800000000000000
-      internalID: 5364760900038608763
+      spriteID: ecde2fc5be740de80800000000000000
+      internalID: -8155939848965657138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "mu\xF1eco_1"
+      name: ComIdleDerecha_1
       rect:
         serializedVersion: 2
-        x: 489
-        y: 6
-        width: 409
-        height: 261
+        x: 29
+        y: 162
+        width: 9
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 81939a23266b054f0800000000000000
-      internalID: -841972597445281512
+      spriteID: 383ca5c8c3214acb0800000000000000
+      internalID: -4853734447136455805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "mu\xF1eco_2"
+      name: ComIdleDerecha_2
       rect:
         serializedVersion: 2
-        x: 955
-        y: 6
-        width: 409
-        height: 263
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 368
+        y: 28
+        width: 256
+        height: 303
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 84ae9311d53cc5860800000000000000
-      internalID: 7520100282290268744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "mu\xF1eco_3"
-      rect:
-        serializedVersion: 2
-        x: 1421
-        y: 6
-        width: 409
-        height: 264
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 575eba26cc2dbee60800000000000000
-      internalID: 7992713738969671029
+      spriteID: 10e141b2b66207850800000000000000
+      internalID: 6372635714455346689
       vertices: []
       indices: 
       edges: []
@@ -252,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3a530b654979bcc40b7f9243c32c9c55
     internalID: 0
     vertices: []
     indices: 
@@ -262,10 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "mu\xF1eco_0": 5364760900038608763
-      "mu\xF1eco_1": -841972597445281512
-      "mu\xF1eco_2": 7520100282290268744
-      "mu\xF1eco_3": 7992713738969671029
+      ComIdleDerecha_0: -8155939848965657138
+      ComIdleDerecha_1: -4853734447136455805
+      ComIdleDerecha_2: 6372635714455346689
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
