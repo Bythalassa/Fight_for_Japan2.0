@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 97806d2eb413c4b41b82b7dca501411a
+guid: 9ce5222ac02b98149be3d55bd32a2edf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4360621309413804574
-    second: Espadachin.2.0_0
+      213: 1464838240308473181
+    second: EspIdleIzquierda_0
+  - first:
+      213: 3009868056608285876
+    second: EspIdleIzquierda_1
+  - first:
+      213: 9052281669209510773
+    second: EspIdleIzquierda_2
+  - first:
+      213: -1332104737629745868
+    second: EspIdleIzquierda_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 79
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +109,35 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Espadachin.2.0_0
+      name: EspIdleIzquierda_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 308
-        height: 378
+        x: 6
+        y: 42
+        width: 347
+        height: 282
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 4, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5daef65e96245410800000000000000
+      internalID: 1464838240308473181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspIdleIzquierda_1
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 42
+        width: 328
+        height: 282
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +146,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e5346cc506fb73c0800000000000000
-      internalID: -4360621309413804574
+      spriteID: 4b4aeeeec0335c920800000000000000
+      internalID: 3009868056608285876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspIdleIzquierda_2
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 75
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5735304973a20ad70800000000000000
+      internalID: 9052281669209510773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EspIdleIzquierda_3
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 43
+        width: 315
+        height: 283
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43dc6f58cc9638de0800000000000000
+      internalID: -1332104737629745868
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 282431a06d5d65e4da9d939e4174325e
+    spriteID: 82f3afa1f874e4f4cb371b67e5ecfd3b
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Espadachin.2.0_0: -4360621309413804574
+      EspIdleIzquierda_0: 1464838240308473181
+      EspIdleIzquierda_1: 3009868056608285876
+      EspIdleIzquierda_2: 9052281669209510773
+      EspIdleIzquierda_3: -1332104737629745868
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

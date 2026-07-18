@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 2547bd5dabe305c4fb26e8acf2636798
+guid: 3d940eccb7afd8f4a8ca8dd4befe776b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6320656075519638717
-    second: idleespadachin_0
+      213: 4298298616313543684
+    second: newIdle2.0_0
   - first:
-      213: -8683529124098715200
-    second: idleespadachin_1
+      213: 5102997078488657329
+    second: newIdle2.0_1
   - first:
-      213: -2820425144671322829
-    second: idleespadachin_2
+      213: 4470405018561421095
+    second: newIdle2.0_2
   - first:
-      213: 4976292323558948099
-    second: idleespadachin_3
+      213: -5596544058787881919
+    second: newIdle2.0_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 79
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,59 +93,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -161,89 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idleespadachin_0
+      name: newIdle2.0_0
       rect:
         serializedVersion: 2
-        x: 148
-        y: 38
-        width: 308
-        height: 378
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 39
+        width: 305
+        height: 290
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 343cc3f99c48848a0800000000000000
-      internalID: -6320656075519638717
+      spriteID: 40cfbe371df96ab30800000000000000
+      internalID: 4298298616313543684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idleespadachin_1
+      name: newIdle2.0_1
       rect:
         serializedVersion: 2
-        x: 748
-        y: 38
-        width: 308
-        height: 383
+        x: 304
+        y: 75
+        width: 11
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0c15659d448ed7780800000000000000
-      internalID: -8683529124098715200
+      spriteID: 1bd2c295ecc71d640800000000000000
+      internalID: 5102997078488657329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idleespadachin_2
+      name: newIdle2.0_2
       rect:
         serializedVersion: 2
-        x: 1348
-        y: 38
-        width: 308
-        height: 380
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+        x: 328
+        y: 41
+        width: 322
+        height: 286
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 1, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33d39403646dbd8d0800000000000000
-      internalID: -2820425144671322829
+      spriteID: 72f1a7ddda11a0e30800000000000000
+      internalID: 4470405018561421095
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idleespadachin_3
+      name: newIdle2.0_3
       rect:
         serializedVersion: 2
-        x: 1948
-        y: 38
-        width: 308
-        height: 375
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 660
+        y: 43
+        width: 363
+        height: 284
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 30dfb34b0875f0540800000000000000
-      internalID: 4976292323558948099
+      spriteID: 14c102e84d41552b0800000000000000
+      internalID: -5596544058787881919
       vertices: []
       indices: 
       edges: []
@@ -252,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a671f118b98b1914c9cda68100551fb6
     internalID: 0
     vertices: []
     indices: 
@@ -262,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      idleespadachin_0: -6320656075519638717
-      idleespadachin_1: -8683529124098715200
-      idleespadachin_2: -2820425144671322829
-      idleespadachin_3: 4976292323558948099
+      newIdle2.0_0: 4298298616313543684
+      newIdle2.0_1: 5102997078488657329
+      newIdle2.0_2: 4470405018561421095
+      newIdle2.0_3: -5596544058787881919
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

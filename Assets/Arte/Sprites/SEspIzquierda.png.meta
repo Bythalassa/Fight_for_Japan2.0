@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 3d940eccb7afd8f4a8ca8dd4befe776b
+guid: af12298936c6b5e40b09fad45ed7f2e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4298298616313543684
-    second: newIdle2.0_0
+      213: 6904048910507095876
+    second: SEspIzquierda_0
   - first:
-      213: 5102997078488657329
-    second: newIdle2.0_1
+      213: 4047468603473737558
+    second: SEspIzquierda_1
   - first:
-      213: 4470405018561421095
-    second: newIdle2.0_2
+      213: -4003415283551116385
+    second: SEspIzquierda_2
   - first:
-      213: -5596544058787881919
-    second: newIdle2.0_3
+      213: -8086089505752569658
+    second: SEspIzquierda_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: newIdle2.0_0
+      name: SEspIzquierda_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 46
-        width: 304
-        height: 277
+        x: 11
+        y: 45
+        width: 298
+        height: 271
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,18 +124,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40cfbe371df96ab30800000000000000
-      internalID: 4298298616313543684
+      spriteID: 447b2b6a7eb10df50800000000000000
+      internalID: 6904048910507095876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: newIdle2.0_1
+      name: SEspIzquierda_1
       rect:
         serializedVersion: 2
-        x: 304
+        x: 312
+        y: 217
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 657399d104f7b2830800000000000000
+      internalID: 4047468603473737558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SEspIzquierda_2
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 75
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f93e097b2030178c0800000000000000
+      internalID: -4003415283551116385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SEspIzquierda_3
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 74
         width: 11
         height: 13
       alignment: 0
@@ -146,52 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1bd2c295ecc71d640800000000000000
-      internalID: 5102997078488657329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: newIdle2.0_2
-      rect:
-        serializedVersion: 2
-        x: 307
-        y: 46
-        width: 296
-        height: 271
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 72f1a7ddda11a0e30800000000000000
-      internalID: 4470405018561421095
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: newIdle2.0_3
-      rect:
-        serializedVersion: 2
-        x: 603
-        y: 47
-        width: 338
-        height: 272
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14c102e84d41552b0800000000000000
-      internalID: -5596544058787881919
+      spriteID: 6c8aa9bbf6078cf80800000000000000
+      internalID: -8086089505752569658
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      newIdle2.0_0: 4298298616313543684
-      newIdle2.0_1: 5102997078488657329
-      newIdle2.0_2: 4470405018561421095
-      newIdle2.0_3: -5596544058787881919
+      SEspIzquierda_0: 6904048910507095876
+      SEspIzquierda_1: 4047468603473737558
+      SEspIzquierda_2: -4003415283551116385
+      SEspIzquierda_3: -8086089505752569658
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

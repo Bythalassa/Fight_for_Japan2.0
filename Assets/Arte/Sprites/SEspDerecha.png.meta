@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 97806d2eb413c4b41b82b7dca501411a
+guid: c06e6016cfeeee440a98b06af0da97b2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4360621309413804574
-    second: Espadachin.2.0_0
+      213: 247250484455888230
+    second: SEspDerecha_0
+  - first:
+      213: 8503836525566510544
+    second: SEspDerecha_1
+  - first:
+      213: -1360074324976360801
+    second: SEspDerecha_2
+  - first:
+      213: -3986290051149753825
+    second: SEspDerecha_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +109,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Espadachin.2.0_0
+      name: SEspDerecha_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 308
-        height: 378
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 35
+        y: 217
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e5346cc506fb73c0800000000000000
-      internalID: -4360621309413804574
+      spriteID: 665598071096e6300800000000000000
+      internalID: 247250484455888230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SEspDerecha_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 45
+        width: 298
+        height: 271
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d54266c342b30670800000000000000
+      internalID: 8503836525566510544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SEspDerecha_2
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 74
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f92a7af7b9b002de0800000000000000
+      internalID: -1360074324976360801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SEspDerecha_3
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 75
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f129b89915adda8c0800000000000000
+      internalID: -3986290051149753825
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 282431a06d5d65e4da9d939e4174325e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Espadachin.2.0_0: -4360621309413804574
+      SEspDerecha_0: 247250484455888230
+      SEspDerecha_1: 8503836525566510544
+      SEspDerecha_2: -1360074324976360801
+      SEspDerecha_3: -3986290051149753825
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
