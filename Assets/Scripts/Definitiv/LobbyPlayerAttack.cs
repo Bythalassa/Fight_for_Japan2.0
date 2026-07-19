@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.GraphicsBuffer;
 
 public class LobbyPlayerAttack : MonoBehaviour
 {
@@ -15,6 +16,21 @@ public class LobbyPlayerAttack : MonoBehaviour
     public float attackSignalDuration = 0.2f; // cuanto tiempo se mantiene IsAttacking en true tras golpear
     private float attackSignalTimer = 0f;
 
+    //PowerUp:D
+    private SpriteRenderer targetPU;
+    private float powerUpnormal;
+    private int powerUpPrime = 8;
+    private float dañoPU;
+
+    public float powerUpDuration = 8f;   // cuánto dura activo el power-up
+    private float powerUpTimer = 0f;
+    private bool isPowerUpActive = false;
+
+    public void Start()
+    {
+        targetPU = GameObject.FindWithTag("RellenoPU").GetComponent<SpriteRenderer>();
+        targetPU.enabled = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,6 +56,7 @@ public class LobbyPlayerAttack : MonoBehaviour
 
     private void Update()
     {
+        PowerUp();
 
         if (Keyboard.current.xKey.wasPressedThisFrame)
         {
@@ -53,6 +70,10 @@ public class LobbyPlayerAttack : MonoBehaviour
                 {
                     //no llega a esta linea 
                     target.TakeDamage(2);
+                    if (isPowerUpActive)
+                    {
+                        target.TakeDamage(dañoPU);
+                    }
 
                     Debug.Log("Atacando a " + targets.Count + " enemigos con " + damagePercent + "%");
                 }
@@ -73,10 +94,45 @@ public class LobbyPlayerAttack : MonoBehaviour
                 IsAttacking = false;
             }
 
-        }
-        //VerificarEnemigosEnRangoDeAtaque();
+        }        
 
     }
+
+    public void ActivatePowerUp()
+    {
+        isPowerUpActive = true;
+        powerUpTimer = powerUpDuration;
+        targetPU.enabled = true;
+    }
+
+    private void UpdatePowerUp()
+    {
+        if (!isPowerUpActive) return;
+
+        powerUpTimer -= Time.deltaTime;
+        if (powerUpTimer <= 0f)
+        {
+            isPowerUpActive = false;
+            targetPU.enabled = false;
+        }
+    }
+
+    public bool PowerUp()
+    {
+        powerUpnormal += Time.deltaTime;
+        if (powerUpnormal <= powerUpPrime)
+        {
+            targetPU.enabled = true;
+            dañoPU *= 2f;
+            powerUpnormal = 0;
+        }
+
+        if (powerUpnormal >= powerUpPrime) { targetPU.enabled = false; }
+        return true;
+
+    }
+
+}
 
     /*void VerificarEnemigosEnRangoDeAtaque()
     {
@@ -113,7 +169,7 @@ public class LobbyPlayerAttack : MonoBehaviour
         {
             enemy.ThreeEnemiesOnRange = hayTresEnRango;
         }*/
-}
+
 
 
 
