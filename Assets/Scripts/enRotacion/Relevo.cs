@@ -12,8 +12,6 @@ public class Relevo : MonoBehaviour
     private float timeRespawn; //default 0f
     public GameObject compita;
     public GameObject espadachin;
-    public GameObject Iconcompita;
-    public GameObject Iconespadachin;
 
     public static Transform CurrentPlayer;
 
@@ -21,8 +19,6 @@ public class Relevo : MonoBehaviour
     {
         compita.SetActive(false);
         espadachin.SetActive(true);
-        Iconcompita.SetActive(false);
-        Iconespadachin.SetActive(true);
         isAvailable = false;
         CurrentPlayer = espadachin.transform;
 
@@ -49,8 +45,6 @@ public class Relevo : MonoBehaviour
             {
                 compita.SetActive(true);
                 espadachin.SetActive(false);
-                Iconcompita.SetActive(true);
-                Iconespadachin.SetActive(false);
                 CurrentPlayer = compita.transform;
 
             }
@@ -58,8 +52,6 @@ public class Relevo : MonoBehaviour
             {
                 compita.SetActive(false);
                 espadachin.SetActive(true);
-                Iconcompita.SetActive(false);
-                Iconespadachin.SetActive(true);
                 CurrentPlayer = espadachin.transform;
             }
 

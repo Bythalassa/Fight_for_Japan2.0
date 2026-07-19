@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8270100706165488388}
   - component: {fileID: 68064989526643395}
   - component: {fileID: 728324428308719145}
-  - component: {fileID: 6984792116136790008}
   - component: {fileID: 7366847665580149739}
   - component: {fileID: 4184086748606053255}
+  - component: {fileID: 7369775132253839667}
   m_Layer: 3
   m_Name: LobbyAzulNinja
   m_TagString: Enemy
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  canvasLife: {fileID: 0}
   maxVida: 16
   Vida: 16
   isDead: 0
@@ -116,32 +117,6 @@ MonoBehaviour:
   recoveryDuration: 5
   recoveryThresholdReached: 0
   isRecovering: 0
---- !u!114 &6984792116136790008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4789500501845494195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5992b22b4962124c92d60505670929e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovimientoEnemiesLobby
-  rb: {fileID: 7366847665580149739}
-  state: 1
-  scriptHealth: {fileID: 0}
-  Speed: 6.9
-  ChaseSpeed: 9
-  damage: 2
-  radiusMovement: 10
-  radiusAttack: 2
-  isAbleToAttack: 1
-  VaiSpeed: 22
-  DetectionRadiusOne: 7
-  DetectionRadiusTwo: 1.5
-  exitBuffer: 1.5
-  exitBufferVaiven: 0.3
 --- !u!50 &7366847665580149739
 Rigidbody2D:
   serializedVersion: 5
@@ -215,3 +190,27 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.5333333, y: 3.15}
   m_EdgeRadius: 0
+--- !u!114 &7369775132253839667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4789500501845494195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3744ca1da8f447142816d36ff36d4ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovLobbyDos
+  rb: {fileID: 7366847665580149739}
+  state: 1
+  scriptHealth: {fileID: 728324428308719145}
+  Speed: 6.9
+  ChaseSpeed: 28
+  damage: 2
+  radiusAttack: 2.5
+  DetectionRadiusOne: 7
+  isAbleToAttack: 1
+  AtaqueEnemigoDisponible: 0
+  TiempoActual: 0
+  TiempoMaximoAtaque: 2
