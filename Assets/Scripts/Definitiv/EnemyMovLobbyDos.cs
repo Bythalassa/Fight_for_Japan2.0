@@ -64,7 +64,7 @@ public class EnemyMovLobbyDos : MonoBehaviour
                 break;
             case EnemyEnum.Idle: //A.K A Wait phase. reduced version
                 {
-                    Debug.Log("Distance(PlayerTargetPos, myPos) > DetectionRadiusOne) : Enemy is in Idle");
+                   // Debug.Log("Distance(PlayerTargetPos, myPos) > DetectionRadiusOne) : Enemy is in Idle");
 
                     Vector3 targetPos = new Vector3(basePos.x + IdleOffsetsX[targetIndex].x, basePos.y, basePos.z);
                     Vector2 newPos = Vector2.MoveTowards(rb.position, targetPos, Speed * Time.deltaTime);
@@ -79,11 +79,13 @@ public class EnemyMovLobbyDos : MonoBehaviour
 
                     if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne) { state = EnemyEnum.Chase; }
                     if (Vector3.Distance(PlayerTargetPos, myPos) < radiusAttack) { state = EnemyEnum.Attack; }
+                    if (scriptHealth.Vida <= 0f)
+                    { state = EnemyEnum.Dead;}
                 }
                 break;
             case EnemyEnum.Chase:
                 {
-                    Debug.Log("(Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne) : Enemy is in Chase");
+                    //Debug.Log("(Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne) : Enemy is in Chase");
 
                     Vector3 direction = (PlayerTargetPos - myPos).normalized;
                     Vector2 newPos = rb.position + (Vector2)(direction * ChaseSpeed * Time.deltaTime);
@@ -91,8 +93,9 @@ public class EnemyMovLobbyDos : MonoBehaviour
 
                     if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusOne) { state = EnemyEnum.Idle; } ;
 
-                    if (Vector3.Distance(PlayerTargetPos, myPos) < radiusAttack) { state = EnemyEnum.Attack; }    
-
+                    if (Vector3.Distance(PlayerTargetPos, myPos) < radiusAttack) { state = EnemyEnum.Attack; }
+                    if (scriptHealth.Vida <= 0f)
+                    { state = EnemyEnum.Dead; }
                 }
                 break;
             case EnemyEnum.Attack:
@@ -106,12 +109,14 @@ public class EnemyMovLobbyDos : MonoBehaviour
                     }
 
                     if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne) { state = EnemyEnum.Chase; }
-
+                    if (scriptHealth.Vida <= 0f)
+                    { state = EnemyEnum.Dead; }
                 }
                 break;
             case EnemyEnum.Dead:
                 {
                     Debug.Log("Enemy is Dead");
+                    scriptHealth.isDead = true;
                     //SetAnim("Death");
                 }
                 break;

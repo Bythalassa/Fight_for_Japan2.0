@@ -44,37 +44,36 @@ public class LobbyPlayerAttack : MonoBehaviour
         if (Keyboard.current.xKey.wasPressedThisFrame)
         {
             isAbleToAttack = true;
-        }
-
-        if (isAbleToAttack)
-        {
             IsAttacking = true;
-            Debug.Log("Atacando a " + targets.Count + " enemigos con " + damagePercent + "%");
 
             foreach (Health target in new List<Health>(targets))
             {
+                Debug.Log("hay un target en zona");
                 if (target != null)
                 {
-                    target.TakeDamage(damagePercent);
+                    //no llega a esta linea 
+                    target.TakeDamage(2);
+
+                    Debug.Log("Atacando a " + targets.Count + " enemigos con " + damagePercent + "%");
                 }
             }
             isAbleToAttack = false;
 
             // arranca (o reinicia) la ventana en la que IsAttacking se reporta como true
             attackSignalTimer = attackSignalDuration;
-        }
-
-        if (attackSignalTimer > 0f)
-        {
-            IsAttacking = true;
-            attackSignalTimer -= Time.deltaTime;
-        }
-        else
-        {
-            IsAttacking = false;
-        }
 
 
+            if (attackSignalTimer > 0f)
+            {
+                IsAttacking = true;
+                attackSignalTimer -= Time.deltaTime;
+            }
+            else
+            {
+                IsAttacking = false;
+            }
+
+        }
         //VerificarEnemigosEnRangoDeAtaque();
 
     }
