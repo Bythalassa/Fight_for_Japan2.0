@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class LobbyPlayerAttack : MonoBehaviour
 {
     public List<Health> targets = new List<Health>();
-    public List<SpriteRenderer> targetPU = new List<SpriteRenderer>();
-    public List<SpriteRenderer> nottargetPU = new List<SpriteRenderer>();
+    public List<Image> targetPU = new List<Image>();
+    public List<Image> nottargetPU = new List<Image>();
 
     public float damagePercent = 10f; // ahora es un %, no un numero fijo (10 = 10%)
     private bool isAbleToAttack;
@@ -23,7 +24,6 @@ public class LobbyPlayerAttack : MonoBehaviour
     public float powerUpDuration = 8f;   // cuánto dura activo el power-up
     public float cooldownDuration = 5f;
     private float timer;
-    private bool isPowerUpActive = false;
 
     public void Start()
     {
@@ -32,7 +32,7 @@ public class LobbyPlayerAttack : MonoBehaviour
         GameObject[] notobjetosPU = GameObject.FindGameObjectsWithTag("notPU");
         foreach (GameObject obj in notobjetosPU)
         {
-            SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+            Image sr = obj.GetComponent<Image>();
 
             Debug.Log(obj + "in notObjetosPU");
 
@@ -47,7 +47,7 @@ public class LobbyPlayerAttack : MonoBehaviour
         GameObject[] objetosPU = GameObject.FindGameObjectsWithTag("RellenoPU");
         foreach (GameObject obj in objetosPU)
         {
-            SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+            Image sr = obj.GetComponent<Image>();
             Debug.Log(obj + "in objetosPU");
             if (sr != null)
             {
@@ -57,7 +57,6 @@ public class LobbyPlayerAttack : MonoBehaviour
 
             }
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -119,33 +118,22 @@ public class LobbyPlayerAttack : MonoBehaviour
             }
         }
 
-
         if (Keyboard.current.cKey.wasPressedThisFrame && AtacarPowerUp) // debug esta linea 
         {
-
             foreach (Health target in new List<Health>(targets))
             {
                 if (target != null)
                 {
                     target.TakeDamage(dañoPUT); //debvug esta linea 
-                    AtacarPowerUp = false;
-                    timer = powerUpDuration;
-                    Debug.Log("Atacando  con PowerUp a " + targets.Count + " enemigos con " + damagePercent + "%");
-                }
-
-                GameObject[] notobjetosPU = GameObject.FindGameObjectsWithTag("notPU");
-                foreach (GameObject obj in notobjetosPU)
-                {
-                    SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
-                    if (sr != null)
-                    {
-                        nottargetPU.Add(sr);
-                        sr.enabled = true;
-                    }
                 }
             }
-        }
 
+            foreach (Image sr in targetPU) { sr.enabled = false; }   
+            foreach (Image sr in nottargetPU) { sr.enabled = true; }
+            
+            AtacarPowerUp = false;
+            timer = powerUpDuration;
+        }
     }
 
     public void PowerUpTimer()
@@ -157,33 +145,11 @@ public class LobbyPlayerAttack : MonoBehaviour
             AtacarPowerUp = true;
             dañoPUT = dañoPU *= 2f;
 
-            GameObject[] objetosPU = GameObject.FindGameObjectsWithTag("RellenoPU");
-            foreach (GameObject obj in objetosPU)
-            {
-                SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
-                if (sr != null)
-                {
-                    targetPU.Add(sr);
-                    sr.enabled = true;
-                }
-            }
-
-            //porqe estos no se apagan
-            GameObject[] notobjetosPU = GameObject.FindGameObjectsWithTag("notPU");
-            foreach (GameObject obj in notobjetosPU)
-            {
-                SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
-                if (sr != null)
-                {
-                    nottargetPU.Add(sr);
-                    sr.enabled = false;
-                }
-            }
-
-            timer = powerUpDuration;
-
+            foreach (Image sr in targetPU) { sr.enabled = true; }
+            foreach (Image sr in nottargetPU) { sr.enabled = false; }
         }
 
+            timer = powerUpDuration;
     }
 }
 
