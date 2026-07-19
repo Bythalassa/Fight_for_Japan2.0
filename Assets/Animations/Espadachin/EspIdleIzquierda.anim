@@ -80,6 +80,8 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 6904048910507095876, guid: af12298936c6b5e40b09fad45ed7f2e8, type: 3}
+    - time: 0.5
+      value: {fileID: 6904048910507095876, guid: af12298936c6b5e40b09fad45ed7f2e8, type: 3}
     attribute: m_Sprite
     path: Sombra
     classID: 212
@@ -124,6 +126,7 @@ AnimationClip:
     - {fileID: 3009868056608285876, guid: 9ce5222ac02b98149be3d55bd32a2edf, type: 3}
     - {fileID: -1332104737629745868, guid: 9ce5222ac02b98149be3d55bd32a2edf, type: 3}
     - {fileID: 1464838240308473181, guid: 9ce5222ac02b98149be3d55bd32a2edf, type: 3}
+    - {fileID: 6904048910507095876, guid: af12298936c6b5e40b09fad45ed7f2e8, type: 3}
     - {fileID: 6904048910507095876, guid: af12298936c6b5e40b09fad45ed7f2e8, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
