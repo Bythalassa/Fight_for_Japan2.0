@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5073931518253102165}
   - component: {fileID: 5840365775481883995}
   - component: {fileID: 4197756869861844576}
-  - component: {fileID: 5875770476175686114}
   - component: {fileID: 6895202220634612051}
   - component: {fileID: 2384050881000031884}
+  - component: {fileID: 3108496444443857711}
   m_Layer: 3
   m_Name: LobbyRedNinja 1
   m_TagString: Enemy
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
+  canvasLife: {fileID: 0}
   maxVida: 15
   Vida: 15
   isDead: 0
@@ -116,32 +117,6 @@ MonoBehaviour:
   recoveryDuration: 5
   recoveryThresholdReached: 0
   isRecovering: 0
---- !u!114 &5875770476175686114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72628844272445857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5992b22b4962124c92d60505670929e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovimientoEnemiesLobby
-  rb: {fileID: 2384050881000031884}
-  state: 1
-  scriptHealth: {fileID: 0}
-  Speed: 8.9
-  ChaseSpeed: 28
-  damage: 2
-  radiusMovement: 10
-  radiusAttack: 2
-  isAbleToAttack: 1
-  VaiSpeed: 26
-  DetectionRadiusOne: 7
-  DetectionRadiusTwo: 1.5
-  exitBuffer: 1.5
-  exitBufferVaiven: 0.3
 --- !u!61 &6895202220634612051
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -215,3 +190,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3108496444443857711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72628844272445857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3744ca1da8f447142816d36ff36d4ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyMovLobbyDos
+  rb: {fileID: 2384050881000031884}
+  state: 1
+  scriptHealth: {fileID: 0}
+  Speed: 8.9
+  ChaseSpeed: 28
+  damage: 4
+  radiusMovement: 10
+  radiusAttack: 2
+  DetectionRadiusOne: 7
+  isAbleToAttack: 1
+  AtaqueEnemigoDisponible: 0
+  TiempoActual: 0
+  TiempoMaximoAtaque: 2

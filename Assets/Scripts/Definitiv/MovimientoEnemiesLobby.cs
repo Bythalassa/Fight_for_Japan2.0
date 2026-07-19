@@ -195,6 +195,14 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                     // y va a hacer daño porque yolo 
 
                     Debug.Log("Atacando");
+
+                    if (isAbleToAttack)
+                    {
+                        Debug.Log("Atacando");
+                        Relevo.CurrentPlayer.GetComponent<Health>().TakeDamage(damage);
+                        isAbleToAttack = false;
+                    }
+
                     Relevo.CurrentPlayer.GetComponent<Health>().Vida -= damage;
 
                 }
@@ -228,4 +236,8 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                 break;
         }
     }
+
+
+
+
 }
