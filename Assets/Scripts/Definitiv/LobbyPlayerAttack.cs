@@ -6,6 +6,7 @@ public class LobbyPlayerAttack : MonoBehaviour
 {
     public List<Health> targets = new List<Health>();
     public List<SpriteRenderer> targetPU = new List<SpriteRenderer>();
+    public List<SpriteRenderer> nottargetPU = new List<SpriteRenderer>();
 
     public float damagePercent = 10f; // ahora es un %, no un numero fijo (10 = 10%)
     private bool isAbleToAttack;
@@ -16,24 +17,47 @@ public class LobbyPlayerAttack : MonoBehaviour
     private float attackSignalTimer = 0f;
 
     //PowerUp:D
+    public bool AtacarPowerUp;
     private float dañoPU = 1f;
     private float dañoPUT;
-    public float powerUpDuration = 3f;   // cuánto dura activo el power-up
-    private float powerUpTimer;
+    public float powerUpDuration = 8f;   // cuánto dura activo el power-up
+    public float cooldownDuration = 5f;
+    private float timer;
     private bool isPowerUpActive = false;
 
     public void Start()
     {
+        timer = powerUpDuration;
+
+        GameObject[] notobjetosPU = GameObject.FindGameObjectsWithTag("notPU");
+        foreach (GameObject obj in notobjetosPU)
+        {
+            SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+
+            Debug.Log(obj + "in notObjetosPU");
+
+            if (sr != null)
+            {
+                nottargetPU.Add(sr);
+                sr.enabled = true;
+                Debug.Log(obj.name + " enabled = " + sr.enabled);
+            }
+        }
+
         GameObject[] objetosPU = GameObject.FindGameObjectsWithTag("RellenoPU");
         foreach (GameObject obj in objetosPU)
         {
             SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+            Debug.Log(obj + "in objetosPU");
             if (sr != null)
             {
                 targetPU.Add(sr);
                 sr.enabled = false;
+                Debug.Log(obj.name + " enabled = " + sr.enabled);
+
             }
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,7 +74,7 @@ public class LobbyPlayerAttack : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
-        { 
+        {
             if (collision.TryGetComponent<Health>(out Health Vida))
             {
                 targets.Remove(Vida);
@@ -60,7 +84,7 @@ public class LobbyPlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        UpdatePowerUp();
+        PowerUpTimer();
 
         if (Keyboard.current.xKey.wasPressedThisFrame)
         {
@@ -72,16 +96,12 @@ public class LobbyPlayerAttack : MonoBehaviour
                 Debug.Log("hay un target en zona");
                 if (target != null)
                 {
-                    //no llega a esta linea 
-                    target.TakeDamage(2);
-                    if (isPowerUpActive)
-                    {
-                        target.TakeDamage(dañoPUT);
-                    }
+                    target.TakeDamage(2); //debvug esta linea 
 
                     Debug.Log("Atacando a " + targets.Count + " enemigos con " + damagePercent + "%");
                 }
             }
+
             isAbleToAttack = false;
 
             // arranca (o reinicia) la ventana en la que IsAttacking se reporta como true
@@ -97,93 +117,75 @@ public class LobbyPlayerAttack : MonoBehaviour
             {
                 IsAttacking = false;
             }
+        }
 
-        }        
+
+        if (Keyboard.current.cKey.wasPressedThisFrame && AtacarPowerUp) // debug esta linea 
+        {
+
+            foreach (Health target in new List<Health>(targets))
+            {
+                if (target != null)
+                {
+                    target.TakeDamage(dañoPUT); //debvug esta linea 
+                    AtacarPowerUp = false;
+                    timer = powerUpDuration;
+                    Debug.Log("Atacando  con PowerUp a " + targets.Count + " enemigos con " + damagePercent + "%");
+                }
+
+                GameObject[] notobjetosPU = GameObject.FindGameObjectsWithTag("notPU");
+                foreach (GameObject obj in notobjetosPU)
+                {
+                    SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+                    if (sr != null)
+                    {
+                        nottargetPU.Add(sr);
+                        sr.enabled = true;
+                    }
+                }
+            }
+        }
 
     }
 
-    /*
-    comportamiento esperado: 
-    //no tiene nada que ver si esta peleando o no 
-    ++es un temporizador : que siempre esta corriendo de 8 segundos para abajo 
-    ++si esta en 0> sprite enabled  y el daño es =* 2 
-    ++ si bool AtacarPowerUp (se activa al llegar a 0 el temporizador y automaticamente el daño es multiplicado)
-    ++ lo apaga cuando presiona X YY AtacarPowerUp esta prendido = true { entonces AtacarPowerUp = false , timer = 8f 
-    ++ de forma q se resete el timer} */
-
-
-
-    public void ActivatePowerUp()
+    public void PowerUpTimer()
     {
-        isPowerUpActive = true;
-        powerUpTimer = powerUpDuration;
-        if (powerUpTimer > 0f)
+
+        timer -= Time.deltaTime;
+        if (timer < -cooldownDuration)
         {
+            AtacarPowerUp = true;
             dañoPUT = dañoPU *= 2f;
-            foreach (SpriteRenderer sr in targetPU)
+
+            GameObject[] objetosPU = GameObject.FindGameObjectsWithTag("RellenoPU");
+            foreach (GameObject obj in objetosPU)
             {
-                sr.enabled = true;
+                SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    targetPU.Add(sr);
+                    sr.enabled = true;
+                }
             }
-            powerUpTimer -= Time.deltaTime;
 
-        if (powerUpTimer <= 0f) { isPowerUpActive = false; }
-        }
-    }
-
-    private void UpdatePowerUp()
-    {
-        if (!isPowerUpActive) return;
-
-        powerUpTimer -= Time.deltaTime;
-        if (powerUpTimer <= 0f)
-        {
-            isPowerUpActive = false;
-            foreach (SpriteRenderer sr in targetPU)
+            //porqe estos no se apagan
+            GameObject[] notobjetosPU = GameObject.FindGameObjectsWithTag("notPU");
+            foreach (GameObject obj in notobjetosPU)
             {
-                sr.enabled = false;
+                SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    nottargetPU.Add(sr);
+                    sr.enabled = false;
+                }
             }
+
+            timer = powerUpDuration;
+
         }
 
-
     }
-
 }
-
-    /*void VerificarEnemigosEnRangoDeAtaque()
-    {
-        Vector3 myPos = transform.position;
-        foreach (var enemy in passiveRadiusScript.targets)
-        {
-            if (enemy == null) continue;
-
-            Vector3 targetPos = enemy.transform.position;
-            float distancia = Vector3.Distance(targetPos, myPos);
-
-            if (distancia < radiusAttack)
-            {
-                if (!EnemigosenAttackRange.Contains(enemy))
-                {
-                    EnemigosenAttackRange.Add(enemy);
-                }
-            }
-            else
-            {
-                if (EnemigosenAttackRange.Contains(enemy))
-                {
-                    EnemigosenAttackRange.Remove(enemy);
-                }
-            }
-        }
-
-        //optimización: Limpiar la lista de enemigos destruidos o que salieron por completo del radar pasivo
-        EnemigosenAttackRange.RemoveAll(enemy => enemy == null || !passiveRadiusScript.targets.Contains(enemy));
-
-        bool hayTresEnRango = EnemigosenAttackRange.Count == 3;
-
-        foreach (var enemy in EnemigosenAttackRange)
-        {
-            enemy.ThreeEnemiesOnRange = hayTresEnRango;
-        }*/
 
 
 
