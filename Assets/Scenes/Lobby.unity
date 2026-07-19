@@ -12955,8 +12955,8 @@ MonoBehaviour:
   radiusAttack: 3.5
   attackSignalDuration: 0.2
   AtacarPowerUp: 0
-  powerUpDuration: 8
-  cooldownDuration: 5
+  powerUpDuration: 2.2
+  cooldownDuration: 1.5
 --- !u!1 &2089899583
 GameObject:
   m_ObjectHideFlags: 0

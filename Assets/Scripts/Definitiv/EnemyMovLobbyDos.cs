@@ -100,7 +100,7 @@ public class EnemyMovLobbyDos : MonoBehaviour
                 break;
             case EnemyEnum.Attack:
                 {
-                    Debug.Log("Atacando");
+                    //Debug.Log("Atacando");
 
                     if (AtaqueEnemigoDisponible)
                     {
