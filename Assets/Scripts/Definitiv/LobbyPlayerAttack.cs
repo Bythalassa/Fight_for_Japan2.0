@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 public class LobbyPlayerAttack : MonoBehaviour
 {
     public List<Health> targets = new List<Health>();
-
+    public List<SpriteRenderer> targetPU = new List<SpriteRenderer>();
 
     public float damagePercent = 10f; // ahora es un %, no un numero fijo (10 = 10%)
     private bool isAbleToAttack;
@@ -17,7 +17,6 @@ public class LobbyPlayerAttack : MonoBehaviour
     private float attackSignalTimer = 0f;
 
     //PowerUp:D
-    private SpriteRenderer targetPU;
     private float powerUpnormal;
     private int powerUpPrime = 8;
     private float dañoPU;
@@ -28,8 +27,16 @@ public class LobbyPlayerAttack : MonoBehaviour
 
     public void Start()
     {
-        targetPU = GameObject.FindWithTag("RellenoPU").GetComponent<SpriteRenderer>();
-        targetPU.enabled = false;
+        GameObject[] objetosPU = GameObject.FindGameObjectsWithTag("RellenoPu");
+        foreach (GameObject obj in objetosPU)
+        {
+            SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                targetPU.Add(sr);
+                sr.enabled = false;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -102,7 +109,10 @@ public class LobbyPlayerAttack : MonoBehaviour
     {
         isPowerUpActive = true;
         powerUpTimer = powerUpDuration;
-        targetPU.enabled = true;
+        foreach (SpriteRenderer sr in targetPU)
+        {
+            sr.enabled = true;
+        }
     }
 
     private void UpdatePowerUp()
@@ -113,7 +123,10 @@ public class LobbyPlayerAttack : MonoBehaviour
         if (powerUpTimer <= 0f)
         {
             isPowerUpActive = false;
-            targetPU.enabled = false;
+            foreach (SpriteRenderer sr in targetPU)
+            {
+                sr.enabled = false;
+            }
         }
     }
 
@@ -122,12 +135,21 @@ public class LobbyPlayerAttack : MonoBehaviour
         powerUpnormal += Time.deltaTime;
         if (powerUpnormal <= powerUpPrime)
         {
-            targetPU.enabled = true;
+            foreach (SpriteRenderer sr in targetPU)
+            {
+                sr.enabled = true;
+            }
             dañoPU *= 2f;
             powerUpnormal = 0;
         }
 
-        if (powerUpnormal >= powerUpPrime) { targetPU.enabled = false; }
+        if (powerUpnormal >= powerUpPrime)
+        {
+            foreach (SpriteRenderer sr in targetPU)
+            {
+                sr.enabled = false;
+            }
+        }
         return true;
 
     }
