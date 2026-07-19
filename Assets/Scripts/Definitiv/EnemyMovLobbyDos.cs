@@ -20,7 +20,6 @@ public class EnemyMovLobbyDos : MonoBehaviour
     public float ChaseSpeed;
 
     public float damage;
-    public float radiusMovement;
     public float radiusAttack;
     public float DetectionRadiusOne = 7f;//7f bastante para que lo persiga al toque 
 
@@ -44,7 +43,8 @@ public class EnemyMovLobbyDos : MonoBehaviour
 
     void Start()
     {
-        
+        basePos = transform.position;
+        Debug.Log("Enemy is in position" + basePos);
     }
 
     // Update is called once per frame
@@ -68,9 +68,8 @@ public class EnemyMovLobbyDos : MonoBehaviour
                     Debug.Log("Distance(PlayerTargetPos, myPos) > DetectionRadiusOne) : Enemy is in Idle");
 
                     Vector3 targetPos = new Vector3(basePos.x + IdleOffsetsX[targetIndex].x, basePos.y, basePos.z);
-
-
                     Vector2 newPos = Vector2.MoveTowards(rb.position, targetPos, Speed * Time.deltaTime);
+
                     rb.MovePosition(newPos);
                     //-> MovePosition es una función de movimiento
 
@@ -78,6 +77,9 @@ public class EnemyMovLobbyDos : MonoBehaviour
                     {
                         targetIndex = (targetIndex + 1) % IdleOffsetsX.Length;
                     }
+
+                    if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne) { state = EnemyEnum.Chase; }
+                    if (Vector3.Distance(PlayerTargetPos, myPos) < radiusAttack) { state = EnemyEnum.Attack; }
                 }
                 break;
             case EnemyEnum.Chase:
@@ -90,22 +92,21 @@ public class EnemyMovLobbyDos : MonoBehaviour
 
                     if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusOne) { state = EnemyEnum.Idle; } ;
 
-                    if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne) { state = EnemyEnum.Attack; }
-                    ;
+                    if (Vector3.Distance(PlayerTargetPos, myPos) < radiusAttack) { state = EnemyEnum.Attack; }    
 
                 }
                 break;
             case EnemyEnum.Attack:
                 {
+                    Debug.Log("Atacando");
+
                     if (AtaqueEnemigoDisponible)
                     {
-                        scriptHealth.TakeDamage(4);
+                        Relevo.CurrentPlayer.GetComponent<Health>().TakeDamage(2);//.Vida -= damage;
                         AtaqueEnemigoDisponible = false;
                     }
 
-                    if (Vector3.Distance(PlayerTargetPos, myPos) > radiusAttack) { state = EnemyEnum.Chase; }
-                    ;
-
+                    if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne) { state = EnemyEnum.Chase; }
 
                 }
                 break;
