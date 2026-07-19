@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.GraphicsBuffer;
 
 public class LobbyPlayerAttack : MonoBehaviour
 {
@@ -17,17 +16,15 @@ public class LobbyPlayerAttack : MonoBehaviour
     private float attackSignalTimer = 0f;
 
     //PowerUp:D
-    private float powerUpnormal;
-    private int powerUpPrime = 8;
-    private float dañoPU;
-
-    public float powerUpDuration = 8f;   // cuánto dura activo el power-up
-    private float powerUpTimer = 0f;
+    private float dañoPU = 1f;
+    private float dañoPUT;
+    public float powerUpDuration = 3f;   // cuánto dura activo el power-up
+    private float powerUpTimer;
     private bool isPowerUpActive = false;
 
     public void Start()
     {
-        GameObject[] objetosPU = GameObject.FindGameObjectsWithTag("RellenoPu");
+        GameObject[] objetosPU = GameObject.FindGameObjectsWithTag("RellenoPU");
         foreach (GameObject obj in objetosPU)
         {
             SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
@@ -63,7 +60,7 @@ public class LobbyPlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        PowerUp();
+        UpdatePowerUp();
 
         if (Keyboard.current.xKey.wasPressedThisFrame)
         {
@@ -79,7 +76,7 @@ public class LobbyPlayerAttack : MonoBehaviour
                     target.TakeDamage(2);
                     if (isPowerUpActive)
                     {
-                        target.TakeDamage(dañoPU);
+                        target.TakeDamage(dañoPUT);
                     }
 
                     Debug.Log("Atacando a " + targets.Count + " enemigos con " + damagePercent + "%");
@@ -105,13 +102,31 @@ public class LobbyPlayerAttack : MonoBehaviour
 
     }
 
+    /*
+    comportamiento esperado: 
+    //no tiene nada que ver si esta peleando o no 
+    ++es un temporizador : que siempre esta corriendo de 8 segundos para abajo 
+    ++si esta en 0> sprite enabled  y el daño es =* 2 
+    ++ si bool AtacarPowerUp (se activa al llegar a 0 el temporizador y automaticamente el daño es multiplicado)
+    ++ lo apaga cuando presiona X YY AtacarPowerUp esta prendido = true { entonces AtacarPowerUp = false , timer = 8f 
+    ++ de forma q se resete el timer} */
+
+
+
     public void ActivatePowerUp()
     {
         isPowerUpActive = true;
         powerUpTimer = powerUpDuration;
-        foreach (SpriteRenderer sr in targetPU)
+        if (powerUpTimer > 0f)
         {
-            sr.enabled = true;
+            dañoPUT = dañoPU *= 2f;
+            foreach (SpriteRenderer sr in targetPU)
+            {
+                sr.enabled = true;
+            }
+            powerUpTimer -= Time.deltaTime;
+
+        if (powerUpTimer <= 0f) { isPowerUpActive = false; }
         }
     }
 
@@ -128,29 +143,7 @@ public class LobbyPlayerAttack : MonoBehaviour
                 sr.enabled = false;
             }
         }
-    }
 
-    public bool PowerUp()
-    {
-        powerUpnormal += Time.deltaTime;
-        if (powerUpnormal <= powerUpPrime)
-        {
-            foreach (SpriteRenderer sr in targetPU)
-            {
-                sr.enabled = true;
-            }
-            dañoPU *= 2f;
-            powerUpnormal = 0;
-        }
-
-        if (powerUpnormal >= powerUpPrime)
-        {
-            foreach (SpriteRenderer sr in targetPU)
-            {
-                sr.enabled = false;
-            }
-        }
-        return true;
 
     }
 
