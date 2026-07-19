@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Health : MonoBehaviour
 {
+    public CanvasLife canvasLife;
     [Header("Vida")]
     public float maxVida;   // 100% de vida
     public float Vida;      // vida actual
@@ -34,6 +35,9 @@ public class Health : MonoBehaviour
         float actualDamage = maxVida * (damagePercent / 100f);
         Vida -= actualDamage;
         OnPelea = true;
+        canvasLife.ActualizarBarra(Vida, maxVida);
+
+            //ActualizarBarra
 
         Debug.Log(gameObject.name + " recibio " + damagePercent + "% (" + actualDamage + " pts). Vida restante: " + Vida);
 

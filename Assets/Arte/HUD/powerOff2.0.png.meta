@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: f216de99e805b684a9f7431b303443ac
+guid: 977f7c70947f1394093a3de803c32b5e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5527903681196998101
-    second: Tio-Foxy-JR_0
+      213: -7078241206219328902
+    second: powerOff2.0_0
+  - first:
+      213: 4663170919794786462
+    second: powerOff2.0_1
+  - first:
+      213: 4714904876162989501
+    second: powerOff2.0_2
+  - first:
+      213: -4207393377186578044
+    second: powerOff2.0_3
+  - first:
+      213: 8533897936641864130
+    second: powerOff2.0_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 330
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tio-Foxy-JR_0
+      name: powerOff2.0_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3
-        width: 411
-        height: 488
+        x: 67
+        y: 28
+        width: 290
+        height: 332
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b22cda9d3e0f843b0800000000000000
-      internalID: -5527903681196998101
+      spriteID: a72b3c4002905cd90800000000000000
+      internalID: -7078241206219328902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: powerOff2.0_1
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 161
+        width: 19
+        height: 45
+      alignment: 9
+      pivot: {x: 0.94996643, y: 0.3425026}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e90cc49be39e6b040800000000000000
+      internalID: 4663170919794786462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: powerOff2.0_2
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 106
+        width: 49
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbdb3751105be6140800000000000000
+      internalID: 4714904876162989501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: powerOff2.0_4
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 112
+        width: 48
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c13af675fe7e6670800000000000000
+      internalID: 8533897936641864130
       vertices: []
       indices: 
       edges: []
@@ -125,7 +203,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: dc6ee144bfc9deb48b957be2fb687303
+    spriteID: 022f1a26ec673b3478e8115493e5bbe3
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +213,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tio-Foxy-JR_0: -5527903681196998101
+      powerOff2.0_0: -7078241206219328902
+      powerOff2.0_1: 4663170919794786462
+      powerOff2.0_2: 4714904876162989501
+      powerOff2.0_3: -4207393377186578044
+      powerOff2.0_4: 8533897936641864130
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

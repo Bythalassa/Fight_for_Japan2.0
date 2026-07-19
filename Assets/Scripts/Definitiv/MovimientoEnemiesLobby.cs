@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 //basic: 3 estados basicos (chase si no esta on pelea, si esta onpelea idle, attack si esta en el radio )
 //en el radio un vaiven minimo 
@@ -190,6 +191,12 @@ public class MovimientoEnemiesLobby : MonoBehaviour
                      * -> no se lopeea solo pasa 1 vez ya que al llegar al punto más cercano del player lo ataca
                      * -> luego de take damage -> regresa al estado de BasicVaiven o otros estados              
                      */
+
+                    // y va a hacer daño porque yolo 
+
+                    Debug.Log("Atacando");
+                    Relevo.CurrentPlayer.GetComponent<Health>().Vida -= damage;
+
                 }
                 break;
            /* case EnemyEnum.Attack:

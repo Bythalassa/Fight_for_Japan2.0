@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a7a02142b7f94b94f9439fba16fa8482
+guid: ad391f1c2a5da9942a4549583523c5e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8282533026621109164
-    second: IEsp2_0
+      213: 4445044222285011866
+    second: Iespadas_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,11 +47,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
-  spriteMeshType: 1
+  spriteExtrude: 0
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 90
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IEsp2_0
+      name: Iespadas_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 14
-        width: 216
-        height: 100
+        y: 0
+        width: 193
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ca3313ca7e771f270800000000000000
-      internalID: 8282533026621109164
+      spriteID: a9b53385b28ffad30800000000000000
+      internalID: 4445044222285011866
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      IEsp2_0: 8282533026621109164
+      Iespadas_0: 4445044222285011866
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
