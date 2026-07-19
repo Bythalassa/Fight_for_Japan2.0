@@ -147,9 +147,8 @@ public class LobbyPlayerAttack : MonoBehaviour
 
             foreach (Image sr in targetPU) { sr.enabled = true; }
             foreach (Image sr in nottargetPU) { sr.enabled = false; }
-        }
-
             timer = powerUpDuration;
+        }
     }
 }
 
