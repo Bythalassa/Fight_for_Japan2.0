@@ -44,6 +44,7 @@ public class pMovement : MonoBehaviour
     //El método FixedUpdate es una función especial que controla la fisica de Rigidbody
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + MoveDir * speed * Time.fixedDeltaTime);
+        rb.linearVelocity = MoveDir * speed;
+        // rb.MovePosition(rb.position + MoveDir * speed * Time.fixedDeltaTime); // Rigidbody Dynamic
     }
 }
