@@ -2,15 +2,31 @@ using UnityEngine;
 
 public class CompitaManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public bool IsMoving { get; private set; }
+
+    private Animator animator;
+    public pMovement jugador;
+
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+        if (jugador.MoveDir != Vector2.zero)
+        {
+            animator.SetFloat("X", jugador.MoveDir.x);
+            animator.SetFloat("Y", jugador.MoveDir.y);
+
+            animator.SetBool("IsMoving", true); //->SetBool(string name, bool value)
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+        }
+
     }
 }
