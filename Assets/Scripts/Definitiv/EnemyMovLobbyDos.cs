@@ -104,7 +104,7 @@ public class EnemyMovLobbyDos : MonoBehaviour
 
                     if (AtaqueEnemigoDisponible)
                     {
-                        Relevo.CurrentPlayer.GetComponent<Health>().TakeDamage(2);//.Vida -= damage;
+                        Relevo.CurrentPlayer.GetComponent<Health>().TakeDamage(damage);//.Vida -= damage;
                         AtaqueEnemigoDisponible = false;
                     }
 

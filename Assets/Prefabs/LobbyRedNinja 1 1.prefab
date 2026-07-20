@@ -108,8 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   canvasLife: {fileID: 0}
-  maxVida: 15
-  vida: 15
+  maxVida: 3
+  vida: 3
   isDead: 0
   isInvulnerable: 0
   onPelea: 0
