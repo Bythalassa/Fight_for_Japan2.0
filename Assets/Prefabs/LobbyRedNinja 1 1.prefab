@@ -109,10 +109,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   canvasLife: {fileID: 0}
   maxVida: 15
-  Vida: 15
+  vida: 15
   isDead: 0
   isInvulnerable: 0
-  OnPelea: 0
+  onPelea: 0
   recoveryThreshold: 0
   recoveryDuration: 5
   recoveryThresholdReached: 0
@@ -207,7 +207,7 @@ MonoBehaviour:
   scriptHealth: {fileID: 8683876148006730032}
   Speed: 8.9
   ChaseSpeed: 28
-  damage: 4
+  damage: 0.04
   radiusAttack: 2
   DetectionRadiusOne: 7
   isAbleToAttack: 1

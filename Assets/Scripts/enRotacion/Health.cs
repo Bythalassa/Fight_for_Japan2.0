@@ -1,17 +1,20 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
+
 
 public class Health : MonoBehaviour
 {
     public CanvasLife canvasLife;
     [Header("Vida")]
     public float maxVida;   // 100% de vida
-    public float Vida;      // vida actual
+    public float vida;      // vida actual
 
     [Header("Estado")]
     public bool isDead = false;
     public bool isInvulnerable = false;
-    public bool OnPelea = false;
+    public bool onPelea = false;
 
     [Header("Recuperacion (solo la usan los enemies, pero vive aca porque el script se comparte)")]
     public float recoveryThreshold; // umbral (de maxVida) que dispara OnRecoveryThreshold
@@ -33,25 +36,38 @@ public class Health : MonoBehaviour
         }
 
         float actualDamage = maxVida * (damagePercent / 100f);
-        Vida -= actualDamage;
-        OnPelea = true;
+        vida -= actualDamage;
+        onPelea = true;
 
         if (canvasLife != null)
         {
-            canvasLife.ActualizarBarra(Vida, maxVida);
+            canvasLife.ActualizarBarra(vida, maxVida);
         }
 
-        Debug.Log(gameObject.name + " recibio " + damagePercent + "% (" + actualDamage + " pts). Vida restante: " + Vida);
+        Debug.Log(gameObject.name + " recibio " + damagePercent + "% (" + actualDamage + " pts). Vida restante: " + vida);
 
-        if (Vida <= 0f)
+        if (vida <= 0f)
         {
-            Vida = 0f;
+            vida = 0f;
             isDead = true;
-            Destroy(gameObject);
+
+            if (canvasLife != null)
+            {
+                SceneManager.LoadScene("Defeated");
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
+
+
+
+
             return;
         }
 
-        if (!recoveryThresholdReached && Vida >= recoveryThreshold) // bruder: >= cuando a llegado al número o es menor,
+        if (!recoveryThresholdReached && vida >= recoveryThreshold) // bruder: >= cuando a llegado al número o es menor,
                                                                     // si no es igual entonces no puede ser mayor, pero si puede ser menor 
         {
             recoveryThresholdReached = true;
@@ -62,7 +78,7 @@ public class Health : MonoBehaviour
     {
         Debug.Log("entered to function StartRegeneration");
         isRecovering = true;
-        float vidaFaltante = maxVida - Vida;
+        float vidaFaltante = maxVida - vida;
         curacionPorSegundo = vidaFaltante / recoveryDuration;
         recoveryElapsed = 0f;
         Debug.Log("RegenerateOverTime started");
@@ -74,15 +90,15 @@ public class Health : MonoBehaviour
         if (!isRecovering) return;
 
         recoveryElapsed += Time.deltaTime;
-        Vida += curacionPorSegundo * Time.deltaTime;
+        vida += curacionPorSegundo * Time.deltaTime;
 
-        if (Vida > maxVida) Vida = maxVida;
+        if (vida > maxVida) vida = maxVida;
 
-    Debug.Log(gameObject.name + " Health is equal to " + Vida);
+    Debug.Log(gameObject.name + " Health is equal to " + vida);
 
     if (recoveryElapsed >= recoveryDuration)
     {
-        Vida = maxVida;
+        vida = maxVida;
         recoveryThresholdReached = false; // puede volver a dispararse mas adelante
         isRecovering = false;
     }

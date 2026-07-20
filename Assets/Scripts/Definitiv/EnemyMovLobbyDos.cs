@@ -79,7 +79,7 @@ public class EnemyMovLobbyDos : MonoBehaviour
 
                     if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne) { state = EnemyEnum.Chase; }
                     if (Vector3.Distance(PlayerTargetPos, myPos) < radiusAttack) { state = EnemyEnum.Attack; }
-                    if (scriptHealth.Vida <= 0f)
+                    if (scriptHealth.vida <= 0f)
                     { state = EnemyEnum.Dead;}
                 }
                 break;
@@ -94,7 +94,7 @@ public class EnemyMovLobbyDos : MonoBehaviour
                     if (Vector3.Distance(PlayerTargetPos, myPos) > DetectionRadiusOne) { state = EnemyEnum.Idle; } ;
 
                     if (Vector3.Distance(PlayerTargetPos, myPos) < radiusAttack) { state = EnemyEnum.Attack; }
-                    if (scriptHealth.Vida <= 0f)
+                    if (scriptHealth.vida <= 0f)
                     { state = EnemyEnum.Dead; }
                 }
                 break;
@@ -109,7 +109,7 @@ public class EnemyMovLobbyDos : MonoBehaviour
                     }
 
                     if (Vector3.Distance(PlayerTargetPos, myPos) < DetectionRadiusOne) { state = EnemyEnum.Chase; }
-                    if (scriptHealth.Vida <= 0f)
+                    if (scriptHealth.vida <= 0f)
                     { state = EnemyEnum.Dead; }
                 }
                 break;

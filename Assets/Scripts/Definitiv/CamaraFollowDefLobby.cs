@@ -219,7 +219,7 @@ public class CamaraFollowDefLobby : MonoBehaviour
         foreach (GameObject enemigo in enemigos)
         {
             Health hm = enemigo.GetComponent<Health>();
-            if (hm.OnPelea)
+            if (hm.onPelea)
                 return true;
         }
         return false;

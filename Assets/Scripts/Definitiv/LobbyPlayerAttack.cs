@@ -90,7 +90,7 @@ public class LobbyPlayerAttack : MonoBehaviour
             isAbleToAttack = true;
             IsAttacking = true;
 
-            foreach (Health target in new List<Health>(targets))
+            foreach (Health target in targets)
             {
                 Debug.Log("hay un target en zona");
                 if (target != null)

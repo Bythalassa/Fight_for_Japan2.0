@@ -12,8 +12,29 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelUno.unity
     guid: 0ae2e767ba5ba33438f3bb7f1c8ba185
   - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: dfb033a61efb9ba408f5a1521b2a7b29
+  - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 14e34d7089055924584ccf026f58df28
+  - enabled: 1
+    path: Assets/Scenes/Defeated.unity
+    guid: 051665faf9e00df428caeee99907d7f8
+  - enabled: 1
+    path: Assets/Scenes/FirstLevel.unity
+    guid: fff5fae4266c861469f72d2bead0d514
+  - enabled: 1
+    path: Assets/Scenes/GameOver-p.unity
+    guid: c9129fb3659fcc84aaab685b28ed6094
+  - enabled: 0
+    path: Assets/Scenes/testing-Comabt.unity
+    guid: 01b6f5354fbd8d042a9bab5f0d156373
+  - enabled: 0
+    path: Assets/Scenes/testing-Spawners.unity
+    guid: 4f8de1fcf48b59b4fadcc88e26150faa
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: d17ee26dbbf332745924dcb3285337e7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

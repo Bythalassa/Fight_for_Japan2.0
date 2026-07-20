@@ -1541,6 +1541,7 @@ Transform:
   - {fileID: 1459048132}
   - {fileID: 1991784488}
   - {fileID: 540127221}
+  - {fileID: 2044111776}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &315583210
@@ -2352,7 +2353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e2c29d38ea3da45a147ee2dbeb49f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCameraCheck
-  mainCamera: {fileID: 0}
 --- !u!1 &564138147
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,6 +3065,10 @@ PrefabInstance:
     - target: {fileID: 8021030938479630184, guid: 554e3402d0f4beb4b935a1cb43f5fd32, type: 3}
       propertyPath: m_Name
       value: LobbyOrangeNinja (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021030938479630184, guid: 554e3402d0f4beb4b935a1cb43f5fd32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7832,7 +7836,7 @@ Transform:
   m_GameObject: {fileID: 1350968979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8, y: -1.28, z: -10}
+  m_LocalPosition: {x: 64.3, y: -1.28, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9204,10 +9208,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   canvasLife: {fileID: 0}
   maxVida: 0
-  Vida: 0
+  vida: 0
   isDead: 0
   isInvulnerable: 0
-  OnPelea: 0
+  onPelea: 0
   recoveryThreshold: 0
   recoveryDuration: 5
   recoveryThresholdReached: 0
@@ -10881,7 +10885,7 @@ Transform:
   m_GameObject: {fileID: 1539646889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.04, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12012,7 +12016,7 @@ Transform:
   m_GameObject: {fileID: 1736982365}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6, y: -4.2, z: 0}
+  m_LocalPosition: {x: 55.4, y: -4.2, z: 0}
   m_LocalScale: {x: -1.0157, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12034,10 +12038,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   canvasLife: {fileID: 2003083727}
   maxVida: 20
-  Vida: 20
+  vida: 3
   isDead: 0
   isInvulnerable: 0
-  OnPelea: 0
+  onPelea: 0
   recoveryThreshold: 0
   recoveryDuration: 5
   recoveryThresholdReached: 0
@@ -12963,16 +12967,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4789500501845494195, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6984792116136790008, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
-      propertyPath: ChaseSpeed
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 6984792116136790008, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
-      propertyPath: scriptHealth
-      value: 
-      objectReference: {fileID: 1459048133}
     - target: {fileID: 8270100706165488388, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.05
@@ -13850,10 +13846,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Health
   canvasLife: {fileID: 2003083727}
   maxVida: 20
-  Vida: 20
+  vida: 3
   isDead: 0
   isInvulnerable: 0
-  OnPelea: 0
+  onPelea: 0
   recoveryThreshold: 0
   recoveryDuration: 5
   recoveryThresholdReached: 0
@@ -13867,7 +13863,7 @@ Transform:
   m_GameObject: {fileID: 1952467960}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.6, y: -4.2, z: 0}
+  m_LocalPosition: {x: 55.37, y: -4.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14255,8 +14251,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Relevo
   isAvailable: 0
   timeToRespawn: 1
-  compita: {fileID: 615342705}
-  espadachin: {fileID: 1539646889}
+  compita: {fileID: 1952467960}
+  espadachin: {fileID: 1736982365}
 --- !u!1 &1993026806
 GameObject:
   m_ObjectHideFlags: 0
@@ -14634,6 +14630,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033061361}
   m_CullTransparentMesh: 1
+--- !u!1 &2044111775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2044111776}
+  - component: {fileID: 2044111777}
+  m_Layer: 0
+  m_Name: VictoryCondition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2044111776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044111775}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 12.821159, y: -0.68735, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 302584310}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2044111777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2044111775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2196b98767c47c649b0947a340339daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VictoryCondition
+  GameObject: {fileID: 0}
 --- !u!1 &2050971548
 GameObject:
   m_ObjectHideFlags: 0
@@ -15541,6 +15582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LobbyAzulNinja
       objectReference: {fileID: 0}
+    - target: {fileID: 4789500501845494195, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8270100706165488388, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.56
@@ -15605,7 +15650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005867246221934840, guid: 2e546442fd849444aa4a90ab2e60b835, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.82
+      value: 25.37
       objectReference: {fileID: 0}
     - target: {fileID: 9005867246221934840, guid: 2e546442fd849444aa4a90ab2e60b835, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15699,6 +15744,10 @@ PrefabInstance:
     - target: {fileID: 8021030938479630184, guid: 554e3402d0f4beb4b935a1cb43f5fd32, type: 3}
       propertyPath: m_Name
       value: LobbyOrangeNinja
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021030938479630184, guid: 554e3402d0f4beb4b935a1cb43f5fd32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
