@@ -1,5 +1,8 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+
+
 public class pMovement : MonoBehaviour
 {
     public float speed;
@@ -12,11 +15,11 @@ public class pMovement : MonoBehaviour
     public Vector2 FacingDirection { get; private set; } = Vector2.down; //falta mucho testeo de esto
 
     // True solo en los frames en los que hay input real (para DummyMovement.IsPlayerMoving()).
-
+    private Rigidbody2D rb;
 
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
 
     }
 
@@ -30,16 +33,17 @@ public class pMovement : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        MoveDir = new Vector2(x, y).normalized;    
-
-        Vector3 direction = new Vector3(x, y, 0);
-        direction.Normalize();
-
-        if (direction.sqrMagnitude > 0.0001f)
+        MoveDir = new Vector2(x, y).normalized;
+      
+        if (MoveDir.sqrMagnitude > 0.0001f)
         {
-            FacingDirection = new Vector2(direction.x, direction.y);
+            FacingDirection = MoveDir;
         }
+    }
 
-        transform.position += direction * speed * Time.deltaTime;
+    //El método FixedUpdate es una función especial que controla la fisica de Rigidbody
+    void FixedUpdate()
+    {
+        rb.MovePosition(rb.position + MoveDir * speed * Time.fixedDeltaTime);
     }
 }
