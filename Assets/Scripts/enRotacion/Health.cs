@@ -13,7 +13,6 @@ public class Health : MonoBehaviour
 
     [Header("Estado")]
     public bool isDead = false;
-    public bool isInvulnerable = false;
     public bool onPelea = false;
 
     [Header("Recuperacion (solo la usan los enemies, pero vive aca porque el script se comparte)")]
@@ -28,10 +27,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float damagePercent)
     {
-        Debug.Log("entered to function TakeDamage"); 
-        if (isInvulnerable || isDead)
+        if (isDead)
         {
-            Debug.Log(gameObject.name + " esta invulnerable/muerto, no recibe daño.");
             return;
         }
 
