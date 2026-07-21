@@ -19,8 +19,8 @@ public class LobbyPlayerAttack : MonoBehaviour
 
     //PowerUp:D
     public bool AtacarPowerUp;
-    private float dañoPU = 1f;
-    private float dañoPUT;
+    private float dañoBase = 1f;
+    private float dañoPU;
     private float powerUpDuration = 2.6f;   // cuánto dura activo el power-up
     private float cooldownDuration = 2.5f;
     private float timer;
@@ -125,8 +125,8 @@ public class LobbyPlayerAttack : MonoBehaviour
             {
                 if (target != null)
                 {
-                    target.TakeDamage(dañoPUT); //debvug esta linea  //debvug esta linea, testear valor de daño 
-                    Debug.Log(dañoPUT + "dañoPUT value");
+                    target.TakeDamage(dañoPU); //debvug esta linea  //debvug esta linea, testear valor de daño 
+                    Debug.Log(dañoPU + "dañoPUT value");
                 }
             }
 
@@ -145,7 +145,7 @@ public class LobbyPlayerAttack : MonoBehaviour
         if (timer < -cooldownDuration)
         {
             AtacarPowerUp = true;
-            dañoPUT = dañoPU *= 4f;
+            dañoPU = dañoBase * 4f;
 
             foreach (Image sr in targetPU) { sr.enabled = true; }
             foreach (Image sr in nottargetPU) { sr.enabled = false; }

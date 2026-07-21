@@ -117,6 +117,7 @@ public class EnemyMovLobbyDos : MonoBehaviour
                 {
                     Debug.Log("Enemy is Dead");
                     scriptHealth.isDead = true;
+                    scriptHealth.destroyOnDeath = true;
                     //SetAnim("Death");
                 }
                 break;

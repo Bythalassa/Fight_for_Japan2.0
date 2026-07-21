@@ -2,18 +2,17 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-
-
 public class Health : MonoBehaviour
 {
     public CanvasLife canvasLife;
     [Header("Vida")]
-    public float maxVida;   // 100% de vida
-    public float vida;      // vida actual
+    public int maxVida;   // 100% de vida
+    public int vida;      // vida actual
 
     [Header("Estado")]
     public bool isDead = false;
     public bool onPelea = false;
+    public bool destroyOnDeath = true;
 
     [Header("Recuperacion (solo la usan los enemies, pero vive aca porque el script se comparte)")]
     public float recoveryThreshold; // umbral (de maxVida) que dispara OnRecoveryThreshold
@@ -24,7 +23,12 @@ public class Health : MonoBehaviour
 
     private float curacionPorSegundo;
     private float recoveryElapsed;
+    private float vidaAcumulada;
 
+    private void Start()
+    {
+        vidaAcumulada = vida; 
+    }
     public void TakeDamage(float damagePercent)
     {
         if (isDead)
@@ -33,9 +37,10 @@ public class Health : MonoBehaviour
         }
 
         float actualDamage = maxVida * (damagePercent / 100f);
-        vida -= actualDamage;
+        vidaAcumulada -= actualDamage;
+        vida = (int)vidaAcumulada; //se convierte en int al mostrar
         onPelea = true;
-        
+
         if (canvasLife != null)
         {
             canvasLife.ActualizarBarra(vida, maxVida);
@@ -43,16 +48,16 @@ public class Health : MonoBehaviour
 
         Debug.Log(gameObject.name + " recibio " + damagePercent + "% (" + actualDamage + " pts). Vida restante: " + vida);
 
-        if (vida <= 0f)
+        if (vida <= 0)
         {
-            vida = 0f;
+            vida = 0;
             isDead = true;
 
             if (canvasLife != null)
             {
                 SceneManager.LoadScene("Defeated");
             }
-            else
+            else if (destroyOnDeath)
             {
                 Destroy(gameObject);
             }
@@ -64,7 +69,28 @@ public class Health : MonoBehaviour
         {
             recoveryThresholdReached = true;
         }
-    }
+        }
+
+        public void Heal(int amount)
+        {
+        if (isDead) { return; }
+
+            vidaAcumulada += amount;
+            if (vidaAcumulada > maxVida)
+            {
+            vidaAcumulada = maxVida;
+            }
+
+        vida = (int)vidaAcumulada;
+
+        /*int vidaEntera = (int)(vida * 100f);
+        vida = vidaEntera / 100; redondeo decimales inecesario*/
+
+        if (canvasLife != null)
+        {
+            canvasLife.ActualizarBarra(vida, maxVida);
+        }
+        }
 
     public void StartRegeneration()
     {
@@ -73,6 +99,7 @@ public class Health : MonoBehaviour
         float vidaFaltante = maxVida - vida;
         curacionPorSegundo = vidaFaltante / recoveryDuration;
         recoveryElapsed = 0f;
+        vidaAcumulada = vida;
         Debug.Log("RegenerateOverTime started");
     }
 
@@ -82,7 +109,8 @@ public class Health : MonoBehaviour
         if (!isRecovering) return;
 
         recoveryElapsed += Time.deltaTime;
-        vida += curacionPorSegundo * Time.deltaTime;
+        vidaAcumulada += curacionPorSegundo * Time.deltaTime;
+        vida = (int)vidaAcumulada;
 
         if (vida > maxVida) vida = maxVida;
 
@@ -97,3 +125,4 @@ public class Health : MonoBehaviour
     }
 
 }
+
