@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
         float actualDamage = maxVida * (damagePercent / 100f);
         vida -= actualDamage;
         onPelea = true;
-
+        
         if (canvasLife != null)
         {
             canvasLife.ActualizarBarra(vida, maxVida);
@@ -59,11 +59,6 @@ public class Health : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-
-
-
-
-
             return;
         }
 
