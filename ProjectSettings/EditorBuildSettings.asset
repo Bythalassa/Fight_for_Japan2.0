@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/LevelUno.unity
     guid: 0ae2e767ba5ba33438f3bb7f1c8ba185
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Start.unity
     guid: dfb033a61efb9ba408f5a1521b2a7b29
   - enabled: 1
@@ -20,10 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Defeated.unity
     guid: 051665faf9e00df428caeee99907d7f8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FirstLevel.unity
     guid: fff5fae4266c861469f72d2bead0d514
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameOver-p.unity
     guid: c9129fb3659fcc84aaab685b28ed6094
   - enabled: 0
