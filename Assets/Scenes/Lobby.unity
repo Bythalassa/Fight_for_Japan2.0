@@ -702,8 +702,9 @@ GameObject:
   - component: {fileID: 91221349}
   - component: {fileID: 91221348}
   - component: {fileID: 91221347}
+  - component: {fileID: 91221350}
   m_Layer: 0
-  m_Name: Lamp2
+  m_Name: Lamp1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -782,6 +783,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c10e3451d30db488fd0582dbe88685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
+  timeToRespawn: 3
+  myHealth: {fileID: 91221350}
 --- !u!212 &91221349
 SpriteRenderer:
   serializedVersion: 2
@@ -841,6 +844,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &91221350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91221345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  canvasLife: {fileID: 0}
+  maxVida: 2
+  vida: 2
+  isDead: 0
+  onPelea: 0
+  recoveryThreshold: 0
+  recoveryDuration: 5
+  recoveryThresholdReached: 0
+  isRecovering: 0
 --- !u!1 &101470451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,8 +2106,9 @@ GameObject:
   - component: {fileID: 360002482}
   - component: {fileID: 360002481}
   - component: {fileID: 360002480}
+  - component: {fileID: 360002483}
   m_Layer: 0
-  m_Name: Lamp2 (1)
+  m_Name: Lamp2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2162,6 +2187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c10e3451d30db488fd0582dbe88685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
+  timeToRespawn: 3
+  myHealth: {fileID: 360002483}
 --- !u!212 &360002482
 SpriteRenderer:
   serializedVersion: 2
@@ -2221,6 +2248,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &360002483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360002478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  canvasLife: {fileID: 0}
+  maxVida: 2
+  vida: 2
+  isDead: 0
+  onPelea: 0
+  recoveryThreshold: 0
+  recoveryDuration: 5
+  recoveryThresholdReached: 0
+  isRecovering: 0
 --- !u!4 &409213998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8270100706165488388, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
@@ -2329,9 +2377,10 @@ GameObject:
   - component: {fileID: 443698012}
   - component: {fileID: 443698011}
   - component: {fileID: 443698010}
+  - component: {fileID: 443698013}
   m_Layer: 0
-  m_Name: Lamp1
-  m_TagString: Untagged
+  m_Name: Lamp0
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2345,7 +2394,7 @@ Transform:
   m_GameObject: {fileID: 443698008}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.06, y: 0.06, z: 0}
+  m_LocalPosition: {x: -66.2, y: 0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2409,6 +2458,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c10e3451d30db488fd0582dbe88685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
+  timeToRespawn: 2
+  myHealth: {fileID: 443698013}
 --- !u!212 &443698012
 SpriteRenderer:
   serializedVersion: 2
@@ -2468,6 +2519,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &443698013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443698008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  canvasLife: {fileID: 0}
+  maxVida: 0.000000002
+  vida: 0.000000002
+  isDead: 0
+  onPelea: 0
+  recoveryThreshold: 0
+  recoveryDuration: 5
+  recoveryThresholdReached: 0
+  isRecovering: 0
 --- !u!4 &455468187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8270100706165488388, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
@@ -2939,8 +3011,9 @@ GameObject:
   - component: {fileID: 579343593}
   - component: {fileID: 579343592}
   - component: {fileID: 579343591}
+  - component: {fileID: 579343594}
   m_Layer: 0
-  m_Name: Lamp3 (1)
+  m_Name: Lamp5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3019,6 +3092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c10e3451d30db488fd0582dbe88685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
+  timeToRespawn: 2
+  myHealth: {fileID: 579343594}
 --- !u!212 &579343593
 SpriteRenderer:
   serializedVersion: 2
@@ -3078,6 +3153,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &579343594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579343589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  canvasLife: {fileID: 0}
+  maxVida: 2
+  vida: 2
+  isDead: 0
+  onPelea: 0
+  recoveryThreshold: 0
+  recoveryDuration: 5
+  recoveryThresholdReached: 0
+  isRecovering: 0
 --- !u!1 &595325867
 GameObject:
   m_ObjectHideFlags: 0
@@ -4481,7 +4577,7 @@ Transform:
   m_GameObject: {fileID: 767095477}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.137, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7014,7 +7110,7 @@ Transform:
   m_GameObject: {fileID: 1093447356}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.345, y: 1.123, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7269,7 +7365,7 @@ MonoBehaviour:
   targets: []
   targetPU: []
   nottargetPU: []
-  damagePercent: 6
+  damagePercent: 9
   radiusAttack: 3.5
   attackSignalDuration: 0.2
   AtacarPowerUp: 0
@@ -8203,7 +8299,7 @@ Transform:
   m_GameObject: {fileID: 1335826743}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.296, y: 1.123, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9619,8 +9715,9 @@ GameObject:
   - component: {fileID: 1455311920}
   - component: {fileID: 1455311919}
   - component: {fileID: 1455311918}
+  - component: {fileID: 1455311921}
   m_Layer: 0
-  m_Name: Lamp3
+  m_Name: Lamp4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9699,6 +9796,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c10e3451d30db488fd0582dbe88685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
+  timeToRespawn: 2
+  myHealth: {fileID: 1455311921}
 --- !u!212 &1455311920
 SpriteRenderer:
   serializedVersion: 2
@@ -9758,6 +9857,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1455311921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455311916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  canvasLife: {fileID: 0}
+  maxVida: 2
+  vida: 2
+  isDead: 0
+  onPelea: 0
+  recoveryThreshold: 0
+  recoveryDuration: 5
+  recoveryThresholdReached: 0
+  isRecovering: 0
 --- !u!1 &1459048131
 GameObject:
   m_ObjectHideFlags: 0
@@ -9914,8 +10034,9 @@ GameObject:
   - component: {fileID: 1464063267}
   - component: {fileID: 1464063266}
   - component: {fileID: 1464063265}
+  - component: {fileID: 1464063268}
   m_Layer: 0
-  m_Name: Lamp2 (2)
+  m_Name: Lamp3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9994,6 +10115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c10e3451d30db488fd0582dbe88685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjetoInteractuable
+  timeToRespawn: 3
+  myHealth: {fileID: 1464063268}
 --- !u!212 &1464063267
 SpriteRenderer:
   serializedVersion: 2
@@ -10053,6 +10176,27 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1464063268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464063263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081d3c6806c5fd741927fc9dcc699e37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  canvasLife: {fileID: 0}
+  maxVida: 2
+  vida: 2
+  isDead: 0
+  onPelea: 0
+  recoveryThreshold: 0
+  recoveryDuration: 5
+  recoveryThresholdReached: 0
+  isRecovering: 0
 --- !u!1 &1465176371
 GameObject:
   m_ObjectHideFlags: 0
@@ -13783,7 +13927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270100706165488388, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.05
+      value: 24.449993
       objectReference: {fileID: 0}
     - target: {fileID: 8270100706165488388, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15735,7 +15879,7 @@ MonoBehaviour:
   targets: []
   targetPU: []
   nottargetPU: []
-  damagePercent: 10
+  damagePercent: 13
   radiusAttack: 3.5
   attackSignalDuration: 0.2
   AtacarPowerUp: 0
@@ -16372,7 +16516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270100706165488388, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.56
+      value: 28.959993
       objectReference: {fileID: 0}
     - target: {fileID: 8270100706165488388, guid: d7188ecd2c75cdb4fadc8bd3cf26962c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16434,7 +16578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005867246221934840, guid: 2e546442fd849444aa4a90ab2e60b835, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.6
+      value: -21.2
       objectReference: {fileID: 0}
     - target: {fileID: 9005867246221934840, guid: 2e546442fd849444aa4a90ab2e60b835, type: 3}
       propertyPath: m_LocalPosition.y
